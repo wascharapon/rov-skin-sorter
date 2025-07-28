@@ -1,5 +1,12 @@
 [
   {
+    "name": "draggable",
+    "path": "/draggable",
+    "component": "/Users/agelcyber/Desktop/scamo/frontend/rov-skin-sorter/pages/draggable.vue",
+    "chunkName": "pages/draggable",
+    "_name": "_5c5dbef2"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "/Users/agelcyber/Desktop/scamo/frontend/rov-skin-sorter/pages/index.vue",

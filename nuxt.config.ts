@@ -8,12 +8,24 @@ export default {
     // สำหรับกรณีที่ใช้ Bootstrap 4 ต้องแน่ใจว่า popper.js รองรับ
     transpile: []
   },
-  plugins: ['~/plugins/vue-multiselect.ts', '~/plugins/bootstrap-vue-icon.ts'],
+  plugins: ['~/plugins/vue-multiselect.ts', '~/plugins/bootstrap-vue-icon.ts', '~/plugins/vuedraggable.ts'],
   buildModules: [
     '@nuxt/typescript-build'
   ],
   server: {
     port: 8000,
     host: '0.0.0.0'
+  },
+  watchers: {
+    webpack: {
+      aggregateTimeout: 300,
+      poll: 1000
+    }
+  },
+  // Hot Module Replacement
+  vue: {
+    config: {
+      devtools: true
+    }
   }
 }
