@@ -122,65 +122,74 @@
           </b-col>
         </b-row>
 
-        <b-row>
-          <b-col>
-            <b-form-group
-              :label="`กำลังเลือก : ${selectSkinRovOnTable.key || 0} -  ${
-                !selectSkinRovOnTable?.name
-                  ? 'ว่าง'
-                  : selectSkinRovOnTable?.name
-              }`"
-            >
-              <Multiselect
-                v-model="selectSkinRov"
-                class="mt-2"
-                :options="rov"
-                placeholder="เลือกสกิน ROV"
-                label="name"
-                track-by="id"
-                :custom-label="customLabelSkin"
-                :close-on-select="false"
-                :clear-on-select="false"
-                tag-placeholder="กด Enter เพื่อเพิ่มสกินใหม่"
-                :options-limit="100"
-                :max-height="1000"
-                :max="1"
-                :limit="1"
+        <div class="text-center">
+          <b-row>
+            <b-col cols="3" />
+            <b-col cols="6">
+              <b-form-group
+                :label="`กำลังเลือก : ${selectSkinRovOnTable.key || 0} -  ${
+                  !selectSkinRovOnTable?.name
+                    ? 'ว่าง'
+                    : selectSkinRovOnTable?.name
+                }`"
               >
-                <template #option="{ option }">
-                  <div class="option-with-image">
-                    <img :src="option.image" alt="icon" class="option-image">
-                    <h1>
-                      {{ option.name }}
-                    </h1>
-                    <h4 class="mx-2">
-                      ({{ option.base }})
-                    </h4>
-                  </div>
-                </template>
+                <Multiselect
+                  v-model="selectSkinRov"
+                  class="mt-2"
+                  :options="rov"
+                  placeholder="เลือกสกิน ROV"
+                  label="name"
+                  track-by="id"
+                  :custom-label="customLabelSkin"
+                  :close-on-select="false"
+                  :clear-on-select="false"
+                  tag-placeholder="กด Enter เพื่อเพิ่มสกินใหม่"
+                  :options-limit="9"
+                  :max-height="700"
+                  :max="1"
+                  :limit="1"
+                >
+                  <template #option="{ option }">
+                    <div class="option-with-image">
+                      <img
+                        :src="option.image"
+                        alt="icon"
+                        class="option-image"
+                      >
+                      <h1>
+                        {{ option.name }}
+                      </h1>
+                      <h4 class="mx-2">
+                        ({{ option.base }})
+                      </h4>
+                    </div>
+                  </template>
 
-                <template #tag="{ option, remove }">
-                  <div class="selected-tag">
-                    <img :src="option.image" alt="icon" class="tag-image">
-                    <span>{{ option.name }}</span>
-                    <button @click="remove(option)">
-                      x
-                    </button>
-                  </div>
-                </template>
+                  <template #tag="{ option, remove }">
+                    <div class="selected-tag">
+                      <img :src="option.image" alt="icon" class="tag-image">
+                      <span>{{ option.name }}</span>
+                      <button @click="remove(option)">
+                        x
+                      </button>
+                    </div>
+                  </template>
 
-                <template #noResult>
-                  <div class="text-center py-2">
-                    <p class="text-muted mb-0">
-                      ไม่พบสกินตามที่ค้นหา
-                    </p>
-                  </div>
-                </template>
-              </Multiselect>
-            </b-form-group>
-          </b-col>
-        </b-row>
+                  <template #noResult>
+                    <div class="text-center py-2">
+                      <p class="text-muted mb-0">
+                        ไม่พบสกินตามที่ค้นหา
+                      </p>
+                    </div>
+                  </template>
+                </Multiselect>
+              </b-form-group>
+            </b-col>
+            <b-col cols="3" />
+          </b-row>
+        </div>
       </div>
+
       <div class="d-flex justify-content-center">
         <div :style="`width: ${widthTableSkinRov * form.column}px;`">
           <draggable
