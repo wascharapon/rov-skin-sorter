@@ -179,42 +179,26 @@
               </Multiselect>
             </b-form-group>
           </b-col>
-          <b-col>
-            <b-form-group
-              :label="`กำลังเลือกสลับสกิน: ${selectSkinForSwap.key || 0} -  ${
-                !selectSkinForSwap?.name ? 'ว่าง' : selectSkinForSwap?.name
-              }`"
-            >
-              <div class="mt-2 d-flex">
-                <b-button
-                  class="w-100 mx-1"
-                  variant="warning"
-                  @click="onClickCancelSelectSkinRovSwap"
-                >
-                  <b-icon icon="x-circle" class="mr-2" /> ยกเลิกการเลือก
-                </b-button>
-                <b-button
-                  class="w-100 mx-1"
-                  variant="danger"
-                  @click="onClickResetDataSkinTable"
-                >
-                  <b-icon icon="arrow-counterclockwise" class="mr-2" /> เริ่มต้นใหม่
-                </b-button>
-              </div>
-            </b-form-group>
-          </b-col>
         </b-row>
       </div>
       <div class="d-flex justify-content-center">
         <div :style="`width: ${widthTableSkinRov * form.column}px;`">
-          <div
+          <draggable
             id="table-skin"
+            v-model="data"
             class="grid-wrapper"
             :style="`grid-template-columns: repeat(${form.column}, ${widthTableSkinRov}px);`"
+            group="skins"
+            :disabled="false"
+            ghost-class="ghost"
+            chosen-class="chosen"
+            drag-class="drag"
+            @start="onDragStart"
+            @end="onDragEnd"
           >
             <div
-              v-for="(item, index) in data.slice(0, form.row * form.column)"
-              :key="index"
+              v-for="item in data.slice(0, form.row * form.column)"
+              :key="`skin-${item.key}`"
               class="skin-item cursor-pointer"
               :style="`width: ${widthTableSkinRov}px;`"
               @click="onSelectSkinRovOnTable(item)"
@@ -229,30 +213,15 @@
                 >
                 <div v-if="item.base && form.isEnableItem" class="skin-future">
                   <div class="d-flex">
-                    <!-- <img
-                      :src="defaultSkinItemImage"
-                      width="20"
-                      height="20"
-                      class="mx-1"
-                    >
-                    <img
-                      :src="defaultSkinItemImage"
-                      width="20"
-                      height="20"
-                      class="mx-1"
-                    >
-                    <img
-                      :src="defaultSkinItemImage"
-                      width="20"
-                      height="20"
-                      class="mx-1"
-                    > -->
                     {{ item.base }}
                   </div>
                 </div>
+                <div class="drag-handle">
+                  <b-icon icon="grip-vertical" class="text-white" />
+                </div>
               </div>
             </div>
-          </div>
+          </draggable>
         </div>
       </div>
     </div>
@@ -272,6 +241,7 @@ export default Vue.extend({
       selectSkinRovOnTable: {} as IRovSkinOnTable,
       selectSkinForSwap: {} as IRovSkinOnTable,
       rov: rov as IRovSkin[],
+      isDragging: false,
       form: {
         column: 15,
         row: 5,
@@ -347,7 +317,7 @@ export default Vue.extend({
       return `${yyyy}-${mm}-${dd}_${hh}-${mi}-${ss}`
     },
     fileNameSystem() {
-      return 'rov-skin-table'
+      return 'rov-skin-table-draggable'
     },
     widthTableSkinRov() {
       return this.form.width * 1.8
@@ -388,6 +358,15 @@ export default Vue.extend({
           } as IRovSkinOnTable
         }
       }
+    },
+    data: {
+      handler() {
+        // อัพเดท key ให้ตรงกับ index ใหม่หลังจากการลาก
+        this.data.forEach((item, index) => {
+          item.key = index + 1
+        })
+      },
+      deep: true
     }
   },
   created() {
@@ -396,6 +375,16 @@ export default Vue.extend({
   methods: {
     customLabelSkin(skin: any): string {
       return String(skin.name)
+    },
+    onDragStart() {
+      this.isDragging = true
+    },
+    onDragEnd() {
+      this.isDragging = false
+      // อัพเดท key หลังจากการลากเสร็จ
+      this.data.forEach((item, index) => {
+        item.key = index + 1
+      })
     },
     setDataForTable() {
       const tempData = this.data
@@ -418,15 +407,17 @@ export default Vue.extend({
             : this.form.row
       const totalCells = this.form.column * this.form.row
       for (let i = 0; i < totalCells; i++) {
-        tempData[i]?.id
-          ? this.data.push(tempData[i])
-          : this.data.push({
+        if (tempData[i]?.id) {
+          this.data.push(tempData[i])
+        } else {
+          this.data.push({
             key: i + 1,
             id: undefined,
             base: undefined,
             name: undefined,
             image: this.defaultSkinImage
           } as IRovSkinOnTable)
+        }
       }
       this.selectSkinRovOnTable = this.data[0]
     },
@@ -436,8 +427,8 @@ export default Vue.extend({
         return
       }
       const canvas = await html2canvas(element, {
-        backgroundColor: null, // ไม่ต้องการพื้นหลัง
-        scale: 2 // เพิ่มความละเอียดของภาพ (เช่น 2 เท่า)
+        backgroundColor: null,
+        scale: 2
       })
       const image = canvas.toDataURL('image/png')
       const filename = `${this.timeStamp}-${this.fileNameSystem}.png`
@@ -505,19 +496,21 @@ export default Vue.extend({
           } else {
             alert('ไฟล์ไม่ถูกต้อง')
           }
-        } catch (err) {
+        } catch {
           alert('เกิดข้อผิดพลาดในการโหลดไฟล์')
         }
       }
       reader.readAsText(file)
     },
     onSelectSkinRovOnTable(item: IRovSkinOnTable) {
-      if (this.selectSkinRovOnTable === item) {
-        this.selectSkinForSwap = item
-      } else {
-        this.selectSkinRovOnTable = item
-        if (this.selectSkinForSwap.id) {
-          this.onClickSwapSkinRov()
+      if (!this.isDragging) {
+        if (this.selectSkinRovOnTable.key === item.key) {
+          this.selectSkinForSwap = item
+        } else {
+          this.selectSkinRovOnTable = item
+          if (this.selectSkinForSwap.id) {
+            this.onClickSwapSkinRov()
+          }
         }
       }
     },
@@ -535,7 +528,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 .option-with-image {
   display: flex;
   align-items: center;
@@ -583,6 +576,7 @@ export default Vue.extend({
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-sizing: border-box;
+  position: relative;
 }
 
 .skin-item:hover {
@@ -603,11 +597,20 @@ export default Vue.extend({
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  /* background-color: rgba(0, 0, 0, 0.5);
-  padding: 2px 6px;
-  border-radius: 4px; */
   font-size: 80%;
   white-space: nowrap;
+}
+
+.drag-handle {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  opacity: 0.7;
+  cursor: grab;
+}
+
+.drag-handle:hover {
+  opacity: 1;
 }
 
 .grid-wrapper {
@@ -628,5 +631,29 @@ export default Vue.extend({
   height: 100vh;
   background-color: none !important;
   opacity: 0.3 !important;
+}
+
+.ghost {
+  opacity: 0.5;
+  background: #c8ebfb;
+  /* border: 2px dashed #007bff; */
+  border-radius: 8px;
+}
+
+.chosen {
+  opacity: 0.8;
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.5);
+  border-radius: 8px;
+}
+
+.drag {
+  opacity: 0.9;
+  transform: rotate(5deg);
+  transition: all 0.2s ease;
+}
+
+.sortable-fallback {
+  opacity: 0;
 }
 </style>

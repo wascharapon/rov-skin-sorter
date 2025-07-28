@@ -16,13 +16,6 @@ export default {
     port: 8000,
     host: '0.0.0.0'
   },
-  watchers: {
-    webpack: {
-      aggregateTimeout: 300,
-      poll: 1000
-    }
-  },
-  // Hot Module Replacement
   vue: {
     config: {
       devtools: true
