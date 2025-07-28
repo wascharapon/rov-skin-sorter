@@ -3831,7 +3831,8 @@ export const rov: IRovSkin[] = [
     id: 489,
     name: 'Nakroth Dimension',
     base: 'Nakroth',
-    image: require('~/assets/images/skin/nakroth-dimension.png')
+    image: require('~/assets/images/skin/nakroth-dimension.png'),
+    position: 1
   },
   {
     id: 490,

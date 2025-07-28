@@ -3,6 +3,7 @@ export interface IRovSkin {
     base?: string;
     name?: string;
     image: string;
+    position?: number;
 }
 
 export interface IRovSkinOnTable extends IRovSkin {

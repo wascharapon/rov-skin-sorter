@@ -122,72 +122,69 @@
           </b-col>
         </b-row>
 
-        <div class="text-center">
-          <b-row>
-            <b-col cols="3" />
-            <b-col cols="6">
-              <b-form-group
-                :label="`กำลังเลือก : ${selectSkinRovOnTable.key || 0} -  ${
-                  !selectSkinRovOnTable?.name
-                    ? 'ว่าง'
-                    : selectSkinRovOnTable?.name
-                }`"
+        <b-row>
+          <b-col cols="6">
+            <b-form-group
+              :label="`กำลังเลือก : ${selectSkinRovOnTable.key || 0} -  ${
+                !selectSkinRovOnTable?.name
+                  ? 'ว่าง'
+                  : selectSkinRovOnTable?.name
+              }`"
+            >
+              <Multiselect
+                v-model="selectSkinRov"
+                class="mt-2"
+                :options="rov"
+                placeholder="เลือกสกิน ROV"
+                label="name"
+                track-by="id"
+                :custom-label="customLabelSkin"
+                :close-on-select="false"
+                :clear-on-select="false"
+                tag-placeholder="กด Enter เพื่อเพิ่มสกินใหม่"
+                :options-limit="9"
+                :max-height="700"
+                :max="1"
+                :limit="1"
               >
-                <Multiselect
-                  v-model="selectSkinRov"
-                  class="mt-2"
-                  :options="rov"
-                  placeholder="เลือกสกิน ROV"
-                  label="name"
-                  track-by="id"
-                  :custom-label="customLabelSkin"
-                  :close-on-select="false"
-                  :clear-on-select="false"
-                  tag-placeholder="กด Enter เพื่อเพิ่มสกินใหม่"
-                  :options-limit="9"
-                  :max-height="700"
-                  :max="1"
-                  :limit="1"
-                >
-                  <template #option="{ option }">
-                    <div class="option-with-image">
-                      <img
-                        :src="option.image"
-                        alt="icon"
-                        class="option-image"
-                      >
-                      <h1>
-                        {{ option.name }}
-                      </h1>
-                      <h4 class="mx-2">
-                        ({{ option.base }})
-                      </h4>
-                    </div>
-                  </template>
+                <template #option="{ option }">
+                  <div class="option-with-image">
+                    <img :src="option.image" alt="icon" class="option-image">
+                    <h1>
+                      {{ option.name }}
+                    </h1>
+                    <h4 class="mx-2">
+                      ({{ option.base }})
+                    </h4>
+                  </div>
+                </template>
 
-                  <template #tag="{ option, remove }">
-                    <div class="selected-tag">
-                      <img :src="option.image" alt="icon" class="tag-image">
-                      <span>{{ option.name }}</span>
-                      <button @click="remove(option)">
-                        x
-                      </button>
-                    </div>
-                  </template>
+                <template #tag="{ option, remove }">
+                  <div class="selected-tag">
+                    <img :src="option.image" alt="icon" class="tag-image">
+                    <span>{{ option.name }}</span>
+                    <button @click="remove(option)">
+                      x
+                    </button>
+                  </div>
+                </template>
 
-                  <template #noResult>
-                    <div class="text-center py-2">
-                      <p class="text-muted mb-0">
-                        ไม่พบสกินตามที่ค้นหา
-                      </p>
-                    </div>
-                  </template>
-                </Multiselect>
-              </b-form-group>
-            </b-col>
-            <b-col cols="3" />
-          </b-row>
-        </div>
+                <template #noResult>
+                  <div class="text-center py-2">
+                    <p class="text-muted mb-0">
+                      ไม่พบสกินตามที่ค้นหา
+                    </p>
+                  </div>
+                </template>
+              </Multiselect>
+            </b-form-group>
+          </b-col>
+          <b-col cols="6">
+            <b-button variant="primary" @click="sortDataFollowPosition">
+              เรียงสกิน ROV ตามข้อมูล data.position
+            </b-button>
+          </b-col>
+        </b-row>
       </div>
 
       <div class="d-flex justify-content-center">
@@ -471,6 +468,7 @@ export default Vue.extend({
             item.name = this.selectSkinForSwap.name
             item.image = this.selectSkinForSwap.image
             item.base = this.selectSkinForSwap.base
+            item.position = this.selectSkinForSwap.position
           }
         })
         this.data.forEach((item) => {
@@ -479,6 +477,7 @@ export default Vue.extend({
             item.name = temp.name
             item.image = temp.image
             item.base = temp.base
+            item.position = temp.position
           }
         })
         this.selectSkinForSwap = {} as IRovSkinOnTable
@@ -538,6 +537,10 @@ export default Vue.extend({
       this.setDataForTable()
       this.selectSkinRovOnTable = this.data[0]
       this.selectSkinForSwap = {} as IRovSkinOnTable
+    },
+    sortDataFollowPosition() {
+      const temp = this.data.sort((a, b) => (b.position ?? 0) - (a.position ?? 0))
+      console.log('Sorted Data:', temp)
     }
   }
 })
