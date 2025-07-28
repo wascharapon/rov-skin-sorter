@@ -191,7 +191,13 @@
       </div>
 
       <div class="d-flex justify-content-center">
-        <div :style="`width: ${widthTableSkinRov * form.column}px;`">
+        <div
+          :style="{
+            width: widthTableSkinRov * form.column + 'px',
+            background: 'transparent',
+          }"
+          class="skin-box"
+        >
           <draggable
             id="table-skin"
             v-model="data"
@@ -664,5 +670,9 @@ export default Vue.extend({
 
 .sortable-fallback {
   opacity: 0;
+}
+
+.drag-handle {
+  display: none;
 }
 </style>
