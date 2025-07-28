@@ -179,9 +179,14 @@
               </Multiselect>
             </b-form-group>
           </b-col>
-          <b-col cols="6">
-            <b-button variant="primary" @click="sortDataFollowPosition">
-              เรียงสกิน ROV ตามข้อมูล data.position
+          <b-col cols="6" class="d-flex align-items-center">
+            <b-button
+              class="w-100 mt-4"
+              variant="warning"
+              @click="sortDataFollowPosition"
+            >
+              <b-icon icon="sort-numeric-down" class="mr-2" />
+              เรียงสกิน ROV ตามข้อมูล Class
             </b-button>
           </b-col>
         </b-row>
@@ -225,7 +230,9 @@
                 >
                 <div v-if="item.base && form.isEnableItem" class="skin-future">
                   <div class="d-flex">
-                    {{ item.base }}
+                    <!-- {{ item.base }} -->
+                    {{ item.position }}
+                    {{ item.id }}
                   </div>
                 </div>
                 <div class="drag-handle">
@@ -354,6 +361,7 @@ export default Vue.extend({
             item.name = this.selectSkinRovOnTable.name
             item.image = this.selectSkinRovOnTable.image
             item.base = this.selectSkinRovOnTable.base
+            item.position = this.selectSkinRovOnTable.position
           }
         })
         this.selectSkinRov = undefined
@@ -365,7 +373,8 @@ export default Vue.extend({
               id: undefined,
               name: undefined,
               base: undefined,
-              image: this.defaultSkinImage
+              image: this.defaultSkinImage,
+              position: undefined
             }
           } as IRovSkinOnTable
         }
@@ -427,7 +436,8 @@ export default Vue.extend({
             id: undefined,
             base: undefined,
             name: undefined,
-            image: this.defaultSkinImage
+            image: this.defaultSkinImage,
+            position: undefined
           } as IRovSkinOnTable)
         }
       }
@@ -506,6 +516,15 @@ export default Vue.extend({
           if (Array.isArray(json)) {
             this.form.row = Math.ceil(json.length / this.form.column)
             this.data = json
+            this.data.forEach((item) => {
+              rov.find((skin) => {
+                if (skin.id === item.id) {
+                  item.position = skin.position
+                  return true
+                }
+                return false
+              })
+            })
             this.selectSkinRovOnTable = this.data[0]
           } else {
             alert('ไฟล์ไม่ถูกต้อง')
@@ -539,8 +558,7 @@ export default Vue.extend({
       this.selectSkinForSwap = {} as IRovSkinOnTable
     },
     sortDataFollowPosition() {
-      const temp = this.data.sort((a, b) => (b.position ?? 0) - (a.position ?? 0))
-      console.log('Sorted Data:', temp)
+      this.data.sort((a, b) => (a.position ?? 99) - (b.position ?? 99))
     }
   }
 })
