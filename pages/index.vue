@@ -9,13 +9,15 @@
         header-class="bg-dark text-white"
       >
         <template #modal-header>
-          <div class="w-100 font-size-18 d-block d-flex align-items-center">
+          <div
+            class="w-100 font-size-18 d-block d-flex align-items-center modern-modal-header"
+          >
             <b-icon icon="trophy" class="mr-2" />
-            <span>ข้อมูลระดับ</span>
+            <span class="modern-title">ข้อมูลระดับ</span>
           </div>
           <fa-icon
             icon="close"
-            class="me-1 cursor-pointer"
+            class="me-1 cursor-pointer modern-close-btn"
             @click="$bvModal.hide($attrs.id)"
           />
         </template>
@@ -33,176 +35,190 @@
         </div>
       </b-modal>
     </div>
-    <div class="bg-dark" style="min-height: 100vh">
-      <div class="container-fluid py-3 text-white">
-        <b-row>
-          <b-col cols="2">
-            <b-form-group label="แนวนอน (Row)">
-              <b-form-input
-                v-model="form.column"
-                type="number"
-                placeholder="ตัวอย่าง : 3 - 12"
-              />
-            </b-form-group>
-          </b-col>
+    <div class="modern-bg py-2" style="min-height: 100vh">
+      <div class="container-fluid py-3 text-white modern-container">
+        <div id="table-skin-header" class="mb-3">
+          <b-row>
+            <b-col cols="2">
+              <b-form-group label="แนวนอน (Row)" class="modern-form-group">
+                <b-form-input
+                  v-model="form.column"
+                  type="number"
+                  placeholder="ตัวอย่าง : 3 - 12"
+                  class="modern-input"
+                />
+              </b-form-group>
+            </b-col>
 
-          <b-col cols="2">
-            <b-form-group label="แนวตั้ง (Column)">
-              <b-form-input
-                v-model="form.row"
-                type="number"
-                placeholder="ตัวอย่าง : 3 - 12"
-              />
-            </b-form-group>
-          </b-col>
+            <b-col cols="2">
+              <b-form-group label="แนวตั้ง (Column)" class="modern-form-group">
+                <b-form-input
+                  v-model="form.row"
+                  type="number"
+                  placeholder="ตัวอย่าง : 3 - 12"
+                  class="modern-input"
+                />
+              </b-form-group>
+            </b-col>
 
-          <b-col cols="3">
-            <b-form-group :label="`ความกว้าง (${form.width}%)`">
-              <b-form-input
-                v-model="form.width"
-                type="range"
-                :step="3"
-                class="w-100 h-100"
-              />
-            </b-form-group>
-          </b-col>
-
-          <b-col cols="1">
-            <b-form-group label="ชื่อตัวหลัก">
-              <b-form-checkbox
-                v-model="form.isEnableItem"
-                switch
-                class="mt-2"
-              />
-            </b-form-group>
-          </b-col>
-
-          <b-col cols="4">
-            <div class="d-flex">
-              <b-form-file
-                class="mt-2 mr-2"
-                accept=".json"
-                browse-text="Import"
-                :placeholder="`data.json`"
-                @change="importDataFromFile"
+            <b-col cols="3">
+              <b-form-group
+                :label="`ความกว้าง (${form.width}%)`"
+                class="modern-form-group"
               >
-                <template #file-name>
-                  <b-icon icon="file-earmark-arrow-up" class="mr-2" />
-                  เลือกไฟล์
-                </template>
-              </b-form-file>
+                <b-form-input
+                  v-model="form.width"
+                  type="range"
+                  :step="1"
+                  class="w-100 h-100 modern-range"
+                />
+              </b-form-group>
+            </b-col>
 
+            <b-col cols="1">
+              <b-form-group label="ชื่อตัวหลัก" class="modern-form-group">
+                <b-form-checkbox
+                  v-model="form.isEnableItem"
+                  switch
+                  class="mt-2 modern-switch"
+                />
+              </b-form-group>
+            </b-col>
+
+            <b-col cols="4">
+              <div class="d-flex">
+                <b-form-file
+                  class="mt-2 mr-2 modern-file-input"
+                  accept=".json"
+                  browse-text="Import"
+                  :placeholder="`data.json`"
+                  :style="{ width: '80%' }"
+                  @change="importDataFromFile"
+                >
+                  <template #file-name>
+                    <b-icon icon="file-earmark-arrow-up" />
+                    เลือกไฟล์
+                  </template>
+                </b-form-file>
+
+                <b-button
+                  class="w-75 mt-2 modern-btn modern-btn-primary"
+                  variant="primary"
+                  :disabled="isSaving"
+                  @click="exportDataToFile"
+                >
+                  <b-icon icon="file-earmark-arrow-down" class="mr-2" />
+                  บันทึกข้อมูล
+                </b-button>
+              </div>
+
+              <div class="d-flex">
+                <b-button
+                  class="w-100 mt-2 mr-2 modern-btn modern-btn-info"
+                  variant="info"
+                  @click="openClassSkinRovModal"
+                >
+                  <b-icon icon="Trophy" class="mr-2" /> ข้อมูลระดับ
+                </b-button>
+
+                <b-button
+                  class="w-100 mt-2 modern-btn modern-btn-success"
+                  variant="success"
+                  :disabled="isSaving"
+                  @click="saveTableAsImage"
+                >
+                  <b-icon icon="image" class="mr-2" /> บันทึกรูปภาพ
+                </b-button>
+              </div>
+            </b-col>
+          </b-row>
+
+          <b-row>
+            <b-col cols="6">
+              <b-form-group
+                :label="`กำลังเลือก : ${selectSkinRovOnTable.key || 0} -  ${
+                  !selectSkinRovOnTable?.name
+                    ? 'ว่าง'
+                    : selectSkinRovOnTable?.name
+                }`"
+                class="modern-form-group"
+              >
+                <Multiselect
+                  v-model="selectSkinRov"
+                  class="mt-2"
+                  :options="rov"
+                  placeholder="เลือกสกิน ROV"
+                  label="name"
+                  track-by="id"
+                  :custom-label="customLabelSkin"
+                  :close-on-select="false"
+                  :clear-on-select="false"
+                  tag-placeholder="กด Enter เพื่อเพิ่มสกินใหม่"
+                  :options-limit="9"
+                  :max-height="700"
+                  :max="1"
+                  :limit="1"
+                >
+                  <template #option="{ option }">
+                    <div class="option-with-image">
+                      <img :src="option.image" alt="icon" class="option-image">
+                      <h1>
+                        {{ option.name }}
+                      </h1>
+                      <h4 class="mx-2">
+                        ({{ option.base }})
+                      </h4>
+                    </div>
+                  </template>
+
+                  <template #tag="{ option, remove }">
+                    <div class="selected-tag">
+                      <img :src="option.image" alt="icon" class="tag-image">
+                      <span>{{ option.name }}</span>
+                      <button @click="remove(option)">
+                        x
+                      </button>
+                    </div>
+                  </template>
+
+                  <template #noResult>
+                    <div class="text-center py-2">
+                      <p class="text-muted mb-0">
+                        ไม่พบสกินตามที่ค้นหา
+                      </p>
+                    </div>
+                  </template>
+                </Multiselect>
+              </b-form-group>
+            </b-col>
+            <b-col cols="3" class="d-flex align-items-center">
               <b-button
-                class="w-75 mt-2"
-                variant="primary"
-                @click="exportDataToFile"
+                class="w-100 mt-4 modern-btn modern-btn-warning"
+                variant="warning"
+                @click="sortDataFollowPosition"
               >
-                <b-icon icon="file-earmark-arrow-down" class="mr-2" /> บันทึก
-                JSON
+                <b-icon icon="sort-numeric-down" class="mr-2" />
+                เรียงสกิน ROV ตามข้อมูล Class
               </b-button>
-            </div>
-
-            <div class="d-flex">
+            </b-col>
+            <b-col cols="3" class="d-flex align-items-center">
               <b-button
-                class="w-100 mt-2 mr-2"
-                variant="info"
-                @click="openClassSkinRovModal"
+                class="w-100 mt-4 modern-btn modern-btn-danger"
+                variant="danger"
+                @click="resetDataSkinTable"
               >
-                <b-icon icon="Trophy" class="mr-2" /> ข้อมูลระดับ
+                <b-icon icon="sort-numeric-down" class="mr-2" />
+                เริ่มต้นใหม่
               </b-button>
-
-              <b-button
-                class="w-100 mt-2"
-                variant="success"
-                @click="saveTableAsImage"
-              >
-                <b-icon icon="image" class="mr-2" /> บันทึกรูปภาพ
-              </b-button>
-            </div>
-          </b-col>
-        </b-row>
-
-        <b-row>
-          <b-col cols="6">
-            <b-form-group
-              :label="`กำลังเลือก : ${selectSkinRovOnTable.key || 0} -  ${
-                !selectSkinRovOnTable?.name
-                  ? 'ว่าง'
-                  : selectSkinRovOnTable?.name
-              }`"
-            >
-              <Multiselect
-                v-model="selectSkinRov"
-                class="mt-2"
-                :options="rov"
-                placeholder="เลือกสกิน ROV"
-                label="name"
-                track-by="id"
-                :custom-label="customLabelSkin"
-                :close-on-select="false"
-                :clear-on-select="false"
-                tag-placeholder="กด Enter เพื่อเพิ่มสกินใหม่"
-                :options-limit="9"
-                :max-height="700"
-                :max="1"
-                :limit="1"
-              >
-                <template #option="{ option }">
-                  <div class="option-with-image">
-                    <img :src="option.image" alt="icon" class="option-image">
-                    <h1>
-                      {{ option.name }}
-                    </h1>
-                    <h4 class="mx-2">
-                      ({{ option.base }})
-                    </h4>
-                  </div>
-                </template>
-
-                <template #tag="{ option, remove }">
-                  <div class="selected-tag">
-                    <img :src="option.image" alt="icon" class="tag-image">
-                    <span>{{ option.name }}</span>
-                    <button @click="remove(option)">
-                      x
-                    </button>
-                  </div>
-                </template>
-
-                <template #noResult>
-                  <div class="text-center py-2">
-                    <p class="text-muted mb-0">
-                      ไม่พบสกินตามที่ค้นหา
-                    </p>
-                  </div>
-                </template>
-              </Multiselect>
-            </b-form-group>
-          </b-col>
-          <b-col cols="3" class="d-flex align-items-center">
-            <b-button
-              class="w-100 mt-4"
-              variant="warning"
-              @click="sortDataFollowPosition"
-            >
-              <b-icon icon="sort-numeric-down" class="mr-2" />
-              เรียงสกิน ROV ตามข้อมูล Class
-            </b-button>
-          </b-col>
-          <b-col cols="3" class="d-flex align-items-center">
-            <b-button
-              class="w-100 mt-4"
-              variant="danger"
-              @click="resetDataSkinTable"
-            >
-              <b-icon icon="sort-numeric-down" class="mr-2" />
-              เริ่มต้นใหม่
-            </b-button>
-          </b-col>
-        </b-row>
+            </b-col>
+          </b-row>
+        </div>
       </div>
 
-      <div class="d-flex justify-content-center">
+      <div
+        class="d-flex justify-content-center align-items-center modern-container mt-2"
+        style="min-height: 78vh"
+      >
         <div
           :style="{
             width: widthTableSkinRov * form.column + 'px',
@@ -239,10 +255,12 @@
                   :style="{ height: `${widthTableSkinRov * 1.5 - 17}px` }"
                 >
                 <div v-if="item.base && form.isEnableItem" class="skin-future">
-                  <div class="d-flex">
-                    <!-- {{ item.base }} -->
-                    {{ item.position }}
-                    <!-- {{ item.id }} -->
+                  <div class="d-flex justify-content-center align-items-center">
+                    <span class="text-white">
+                      <!-- {{ item.base }}
+                      <br> -->
+                      {{ item.position }}
+                    </span>
                   </div>
                 </div>
                 <div class="drag-handle">
@@ -271,10 +289,11 @@ export default Vue.extend({
       selectSkinForSwap: {} as IRovSkinOnTable,
       rov: rov as IRovSkin[],
       isDragging: false,
+      isSaving: false,
       form: {
         column: 15,
         row: 5,
-        width: 60,
+        width: 75,
         isEnableItem: false
       } as {
         column: number;
@@ -349,7 +368,7 @@ export default Vue.extend({
       return 'rov-skin-table-draggable'
     },
     widthTableSkinRov() {
-      return this.form.width * 1.8
+      return this.form.width * 1.453 // 1.453 is a multiplier to adjust the width for better appearance
     }
   },
   watch: {
@@ -454,20 +473,26 @@ export default Vue.extend({
       this.selectSkinRovOnTable = this.data[0]
     },
     async saveTableAsImage() {
-      const element = document.getElementById('table-skin')
-      if (!element) {
-        return
+      if (!this.isSaving) {
+        const element = document.getElementById('table-skin')
+        if (element) {
+          this.isSaving = true
+          this.exportDataToFile()
+          await setTimeout(async() => {
+            const canvas = await html2canvas(element, {
+              backgroundColor: null,
+              scale: 2
+            })
+            const image = canvas.toDataURL('image/png')
+            const filename = `${this.timeStamp}-${this.fileNameSystem}.png`
+            const link = document.createElement('a')
+            link.href = image
+            link.download = filename
+            link.click()
+            this.isSaving = false
+          }, 5000)
+        }
       }
-      const canvas = await html2canvas(element, {
-        backgroundColor: null,
-        scale: 2
-      })
-      const image = canvas.toDataURL('image/png')
-      const filename = `${this.timeStamp}-${this.fileNameSystem}.png`
-      const link = document.createElement('a')
-      link.href = image
-      link.download = filename
-      link.click()
     },
     openClassSkinRovModal() {
       this.$bvModal.show('class-skin-rov-table')
@@ -711,5 +736,169 @@ export default Vue.extend({
 
 .drag-handle {
   display: none;
+}
+
+/* Modern UI Styles */
+.modern-bg {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  /* min-height: 100vh; */
+}
+
+.modern-container {
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modern-btn {
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.modern-btn:hover::before {
+  left: 100%;
+}
+
+.modern-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.modern-btn-primary {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.modern-btn-info {
+  background: linear-gradient(45deg, #17a2b8, #138496);
+}
+
+.modern-btn-success {
+  background: linear-gradient(45deg, #28a745, #20c997);
+}
+
+.modern-btn-warning {
+  background: linear-gradient(45deg, #ffc107, #fd7e14);
+}
+
+.modern-btn-danger {
+  background: linear-gradient(45deg, #dc3545, #c82333);
+}
+
+.modern-form-group label {
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 8px;
+}
+
+.modern-input {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-weight: 500;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.modern-input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1),
+    0 0 0 3px rgba(102, 126, 234, 0.4);
+  color: #fff;
+}
+
+.modern-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.modern-range {
+  background: transparent;
+}
+
+.modern-range::-webkit-slider-track {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  height: 8px;
+}
+
+.modern-range::-webkit-slider-thumb {
+  appearance: none;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modern-switch .custom-control-input:checked ~ .custom-control-label::before {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-color: #667eea;
+}
+
+.modern-file-input .custom-file-label {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.modern-file-input .custom-file-input:focus ~ .custom-file-label {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.4);
+}
+
+.modern-modal-header {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modern-title {
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.modern-close-btn {
+  color: #fff;
+  font-size: 1.2em;
+  transition: all 0.3s ease;
+}
+
+.modern-close-btn:hover {
+  color: #ff6b6b;
+  transform: scale(1.1);
 }
 </style>
