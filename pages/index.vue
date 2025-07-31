@@ -179,7 +179,7 @@
               </Multiselect>
             </b-form-group>
           </b-col>
-          <b-col cols="6" class="d-flex align-items-center">
+          <b-col cols="3" class="d-flex align-items-center">
             <b-button
               class="w-100 mt-4"
               variant="warning"
@@ -187,6 +187,16 @@
             >
               <b-icon icon="sort-numeric-down" class="mr-2" />
               เรียงสกิน ROV ตามข้อมูล Class
+            </b-button>
+          </b-col>
+          <b-col cols="3" class="d-flex align-items-center">
+            <b-button
+              class="w-100 mt-4"
+              variant="danger"
+              @click="resetDataSkinTable"
+            >
+              <b-icon icon="sort-numeric-down" class="mr-2" />
+              เริ่มต้นใหม่
             </b-button>
           </b-col>
         </b-row>
@@ -232,7 +242,7 @@
                   <div class="d-flex">
                     <!-- {{ item.base }} -->
                     {{ item.position }}
-                    {{ item.id }}
+                    <!-- {{ item.id }} -->
                   </div>
                 </div>
                 <div class="drag-handle">
@@ -559,6 +569,12 @@ export default Vue.extend({
     },
     sortDataFollowPosition() {
       this.data.sort((a, b) => (a.position ?? 99) - (b.position ?? 99))
+    },
+    resetDataSkinTable() {
+      this.data = []
+      this.setDataForTable()
+      this.selectSkinRovOnTable = this.data[0]
+      this.selectSkinForSwap = {} as IRovSkinOnTable
     }
   }
 })
