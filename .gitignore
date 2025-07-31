@@ -5,3 +5,4 @@
 *.svg
 *.webp
 static/
+*.json.gz
