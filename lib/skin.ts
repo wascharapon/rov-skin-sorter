@@ -109,7 +109,8 @@ export const rov: IRovSkin[] = [
     id: 17,
     name: 'Aleister Aleistercenzo',
     base: 'Aleister',
-    image: require('~/assets/images/skin/aleister-aleistercenzo.png')
+    image: require('~/assets/images/skin/aleister-aleistercenzo.png'),
+    position: 5
   },
   {
     id: 18,
@@ -180,7 +181,8 @@ export const rov: IRovSkin[] = [
     id: 28,
     name: 'Alice Astro Odyssey',
     base: 'Alice',
-    image: require('~/assets/images/skin/alice-astro-odyssey.png')
+    image: require('~/assets/images/skin/alice-astro-odyssey.png'),
+    position: 8
   },
   {
     id: 29,
@@ -342,7 +344,8 @@ export const rov: IRovSkin[] = [
     id: 53,
     name: 'Amily Goddess of Luck',
     base: 'Amily',
-    image: require('~/assets/images/skin/amily-goddess-of-luck.png')
+    image: require('~/assets/images/skin/amily-goddess-of-luck.png'),
+    position: 8
   },
   {
     id: 54,
@@ -366,7 +369,8 @@ export const rov: IRovSkin[] = [
     id: 57,
     name: 'Annette Astro Odyssey',
     base: 'Annette',
-    image: require('~/assets/images/skin/annette-astro-odyssey.png')
+    image: require('~/assets/images/skin/annette-astro-odyssey.png'),
+    position: 8
   },
   {
     id: 58,
@@ -403,7 +407,8 @@ export const rov: IRovSkin[] = [
     id: 63,
     name: 'Annette Melody',
     base: 'Annette',
-    image: require('~/assets/images/skin/annette-melody.png')
+    image: require('~/assets/images/skin/annette-melody.png'),
+    position: 10
   },
   {
     id: 64,
@@ -522,7 +527,8 @@ export const rov: IRovSkin[] = [
     id: 81,
     name: 'Arum Rockstar Trainee',
     base: 'Arum',
-    image: require('~/assets/images/skin/arum-rockstar-trainee.png')
+    image: require('~/assets/images/skin/arum-rockstar-trainee.png'),
+    position: 17.212
   },
   {
     id: 82,
@@ -790,7 +796,8 @@ export const rov: IRovSkin[] = [
     id: 124,
     name: 'Bright Endgame',
     base: 'Bright',
-    image: require('~/assets/images/skin/bright-endgame.png')
+    image: require('~/assets/images/skin/bright-endgame.png'),
+    position: 9
   },
   {
     id: 125,
@@ -954,7 +961,8 @@ export const rov: IRovSkin[] = [
     id: 149,
     name: 'Butterfly The Sagacious',
     base: 'Butterfly',
-    image: require('~/assets/images/skin/butterfly-the-sagacious.png')
+    image: require('~/assets/images/skin/butterfly-the-sagacious.png'),
+    position: 4
   },
   {
     id: 150,
@@ -1030,7 +1038,8 @@ export const rov: IRovSkin[] = [
     id: 161,
     name: 'capheny-melody',
     base: 'Capheny',
-    image: require('~/assets/images/skin/capheny-melody.png')
+    image: require('~/assets/images/skin/capheny-melody.png'),
+    position: 10
   },
   {
     id: 162,
@@ -1281,7 +1290,8 @@ export const rov: IRovSkin[] = [
     id: 201,
     name: 'Diao Chan Seamstress',
     base: 'Diao Chan',
-    image: require('~/assets/images/skin/diao-chan-seamstress.png')
+    image: require('~/assets/images/skin/diao-chan-seamstress.png'),
+    position: 5
   },
   {
     id: 202,
@@ -1327,7 +1337,8 @@ export const rov: IRovSkin[] = [
     id: 208,
     name: 'Dirak Moonlight',
     base: 'Dirak',
-    image: require('~/assets/images/skin/dirak-moonlight.png')
+    image: require('~/assets/images/skin/dirak-moonlight.png'),
+    position: 8
   },
   {
     id: 209,
@@ -1352,7 +1363,8 @@ export const rov: IRovSkin[] = [
     id: 212,
     name: 'Elandor\'r Bee Brigade',
     base: 'Elandor\'r',
-    image: require('~/assets/images/skin/elandor’r-bee-brigade.png')
+    image: require('~/assets/images/skin/elandor’r-bee-brigade.png'),
+    position: 8
   },
   {
     id: 213,
@@ -1487,7 +1499,8 @@ export const rov: IRovSkin[] = [
     id: 233,
     name: 'Enzo Moonlight',
     base: 'Enzo',
-    image: require('~/assets/images/skin/enzo-moonlight.png')
+    image: require('~/assets/images/skin/enzo-moonlight.png'),
+    position: 8
   },
   {
     id: 234,
@@ -1506,7 +1519,8 @@ export const rov: IRovSkin[] = [
     id: 236,
     name: 'Enzo White Tiger',
     base: 'Enzo',
-    image: require('~/assets/images/skin/enzo-white-tiger.png')
+    image: require('~/assets/images/skin/enzo-white-tiger.png'),
+    position: 3
   },
   {
     id: 237,
@@ -1800,7 +1814,8 @@ export const rov: IRovSkin[] = [
     id: 280,
     name: 'Hayate Metallic Nightmare',
     base: 'Hayate',
-    image: require('~/assets/images/skin/hayate-metallic-nightmare.png')
+    image: require('~/assets/images/skin/hayate-metallic-nightmare.png'),
+    position: 10
   },
   {
     id: 281,
@@ -1929,7 +1944,8 @@ export const rov: IRovSkin[] = [
     id: 300,
     name: 'Iggy Rockstar Vocal',
     base: 'Iggy',
-    image: require('~/assets/images/skin/iggy-rockstar-vocal.png')
+    image: require('~/assets/images/skin/iggy-rockstar-vocal.png'),
+    position: 7.2
   },
   {
     id: 301,
@@ -1999,7 +2015,8 @@ export const rov: IRovSkin[] = [
     id: 311,
     name: 'Ilumia Jazzy Night',
     base: 'Ilumia',
-    image: require('~/assets/images/skin/ilumia-jazzy-night.png')
+    image: require('~/assets/images/skin/ilumia-jazzy-night.png'),
+    position: 8
   },
   {
     id: 312,
@@ -2079,7 +2096,8 @@ export const rov: IRovSkin[] = [
     id: 324,
     name: 'Ishar Strawberry Sweetheart',
     base: 'Ishar',
-    image: require('~/assets/images/skin/ishar-strawberry-sweetheart.png')
+    image: require('~/assets/images/skin/ishar-strawberry-sweetheart.png'),
+    position: 7.6
   },
   {
     id: 325,
@@ -2243,7 +2261,8 @@ export const rov: IRovSkin[] = [
     id: 350,
     name: 'Kil’Groth Christmas Express',
     base: 'Kil’Groth',
-    image: require('~/assets/images/skin/kil’groth-christmas-express.png')
+    image: require('~/assets/images/skin/kil’groth-christmas-express.png'),
+    position: 8
   },
   {
     id: 351,
@@ -2365,7 +2384,8 @@ export const rov: IRovSkin[] = [
     id: 369,
     name: 'Lauriel Summer Bash',
     base: 'Lauriel',
-    image: require('~/assets/images/skin/lauriel-summer-bash.png')
+    image: require('~/assets/images/skin/lauriel-summer-bash.png'),
+    position: 8
   },
   {
     id: 370,
@@ -2441,7 +2461,8 @@ export const rov: IRovSkin[] = [
     id: 381,
     name: 'Laville Turtle Guard',
     base: 'Laville',
-    image: require('~/assets/images/skin/laville-turtle-guard.png')
+    image: require('~/assets/images/skin/laville-turtle-guard.png'),
+    position: 9.1
   },
   {
     id: 382,
@@ -2528,7 +2549,8 @@ export const rov: IRovSkin[] = [
     id: 394,
     name: 'Liliana Witching Hour',
     base: 'Liliana',
-    image: require('~/assets/images/skin/liliana-witching-hour.png')
+    image: require('~/assets/images/skin/liliana-witching-hour.png'),
+    position: 1
   },
   {
     id: 395,
@@ -3153,7 +3175,8 @@ export const rov: IRovSkin[] = [
     id: 492,
     name: 'Nakroth My Skin Nakroth',
     base: 'Nakroth',
-    image: require('~/assets/images/skin/nakroth-my-skin-nakroth.png')
+    image: require('~/assets/images/skin/nakroth-my-skin-nakroth.png'),
+    position: 17.212
   },
   {
     id: 493,
@@ -3166,7 +3189,8 @@ export const rov: IRovSkin[] = [
     id: 494,
     name: 'Nakroth Nightmare',
     base: 'Nakroth',
-    image: require('~/assets/images/skin/nakroth-nightmare.png')
+    image: require('~/assets/images/skin/nakroth-nightmare.png'),
+    position: 99
   },
   {
     id: 495,
@@ -3307,7 +3331,8 @@ export const rov: IRovSkin[] = [
     id: 516,
     name: 'Omen Full Moon Yaksha',
     base: 'Omen',
-    image: require('~/assets/images/skin/omen-full-moon-yaksha.png')
+    image: require('~/assets/images/skin/omen-full-moon-yaksha.png'),
+    position: 7.6
   },
   {
     id: 517,
@@ -3325,7 +3350,8 @@ export const rov: IRovSkin[] = [
     id: 519,
     name: 'Omen Moonlight',
     base: 'Omen',
-    image: require('~/assets/images/skin/omen-moonlight.png')
+    image: require('~/assets/images/skin/omen-moonlight.png'),
+    position: 8
   },
   {
     id: 520,
@@ -3562,13 +3588,15 @@ export const rov: IRovSkin[] = [
     id: 556,
     name: 'Quillen The Light Crown',
     base: 'Quillen',
-    image: require('~/assets/images/skin/quillen-the-light-crown.png')
+    image: require('~/assets/images/skin/quillen-the-light-crown.png'),
+    position: 7.1
   },
   {
     id: 557,
     name: 'Quillen Wicked Arm',
     base: 'Quillen',
-    image: require('~/assets/images/skin/quillen-wicked-arm.png')
+    image: require('~/assets/images/skin/quillen-wicked-arm.png'),
+    position: 8
   },
   {
     id: 558,
@@ -3600,7 +3628,8 @@ export const rov: IRovSkin[] = [
     id: 562,
     name: 'Raz Lion Bolt',
     base: 'Raz',
-    image: require('~/assets/images/skin/raz-lion-bolt.png')
+    image: require('~/assets/images/skin/raz-lion-bolt.png'),
+    position: 9.1
   },
   {
     id: 563,
@@ -3731,7 +3760,8 @@ export const rov: IRovSkin[] = [
     id: 583,
     name: "Rourke Atanor's Guardian",
     base: 'Rourke',
-    image: require('~/assets/images/skin/rourke-atanor\'s-guardian.png')
+    image: require('~/assets/images/skin/rourke-atanor\'s-guardian.png'),
+    position: 8
   },
   {
     id: 584,
@@ -4098,7 +4128,8 @@ export const rov: IRovSkin[] = [
     id: 641,
     name: 'Superman Godfall',
     base: 'Superman',
-    image: require('~/assets/images/skin/superman-godfall.png')
+    image: require('~/assets/images/skin/superman-godfall.png'),
+    position: 7.9999
   },
   {
     id: 642,
@@ -4173,7 +4204,8 @@ export const rov: IRovSkin[] = [
     id: 653,
     name: 'Tachi Dragonheir',
     base: 'Tachi',
-    image: require('~/assets/images/skin/tachi-dragonheir.png')
+    image: require('~/assets/images/skin/tachi-dragonheir.png'),
+    position: 8
   },
   {
     id: 654,
@@ -4453,7 +4485,8 @@ export const rov: IRovSkin[] = [
     id: 697,
     name: 'Tulen Astral Walker',
     base: 'Tulen',
-    image: require('~/assets/images/skin/tulen-astral-walker.png')
+    image: require('~/assets/images/skin/tulen-astral-walker.png'),
+    position: 7.8
   },
   {
     id: 698,
@@ -4652,7 +4685,8 @@ export const rov: IRovSkin[] = [
     id: 728,
     name: 'Veera Magic School Chrono',
     base: 'Veera',
-    image: require('~/assets/images/skin/veera-magic-school-chrono.png')
+    image: require('~/assets/images/skin/veera-magic-school-chrono.png'),
+    position: 7.2
   },
   {
     id: 729,
@@ -4678,7 +4712,8 @@ export const rov: IRovSkin[] = [
     id: 732,
     name: 'Veera Sakura Fubuki',
     base: 'Veera',
-    image: require('~/assets/images/skin/veera-sakura-fubuki.png')
+    image: require('~/assets/images/skin/veera-sakura-fubuki.png'),
+    position: 9.1
   },
   {
     id: 733,
@@ -4740,7 +4775,8 @@ export const rov: IRovSkin[] = [
     id: 742,
     name: 'Veres Interstellar Council',
     base: 'Veres',
-    image: require('~/assets/images/skin/veres-interstellar-council.png')
+    image: require('~/assets/images/skin/veres-interstellar-council.png'),
+    position: 8
   },
   {
     id: 743,
@@ -4766,7 +4802,8 @@ export const rov: IRovSkin[] = [
     id: 746,
     name: 'Veres Siamnaga',
     base: 'Veres',
-    image: require('~/assets/images/skin/veres-siamnaga.png')
+    image: require('~/assets/images/skin/veres-siamnaga.png'),
+    position: 13.2
   },
   {
     id: 747,
@@ -5224,7 +5261,8 @@ export const rov: IRovSkin[] = [
     id: 817,
     name: 'Yena Seraphic Virago',
     base: 'Yena',
-    image: require('~/assets/images/skin/yena-seraphic-virago.png')
+    image: require('~/assets/images/skin/yena-seraphic-virago.png'),
+    position: 1
   },
   {
     id: 818,
@@ -5404,7 +5442,8 @@ export const rov: IRovSkin[] = [
     id: 845,
     name: 'Zanis Z Force',
     base: 'Zanis',
-    image: require('~/assets/images/skin/zanis-z-force.png')
+    image: require('~/assets/images/skin/zanis-z-force.png'),
+    position: 8
   },
   {
     id: 846,
@@ -5591,7 +5630,8 @@ export const rov: IRovSkin[] = [
     id: 874,
     name: 'Zip Giant Chicken',
     base: 'Zip',
-    image: require('~/assets/images/skin/zip-giant-chicken.png')
+    image: require('~/assets/images/skin/zip-giant-chicken.png'),
+    position: 10
   },
   {
     id: 875,
@@ -5888,7 +5928,8 @@ export const rov: IRovSkin[] = [
     id: 921,
     name: 'Errol Prisoner',
     base: 'Errol',
-    image: require('~/assets/images/skin/errol-prisoner.png')
+    image: require('~/assets/images/skin/errol-prisoner.png'),
+    position: 10
   },
   {
     id: 922,
@@ -5958,7 +5999,8 @@ export const rov: IRovSkin[] = [
     id: 932,
     name: 'Mortos Cyber Core Commander',
     base: 'Mortos',
-    image: require('~/assets/images/skin/mortos-cyber-core-commander.png')
+    image: require('~/assets/images/skin/mortos-cyber-core-commander.png'),
+    position: 5
   },
   {
     id: 933,
@@ -6007,7 +6049,8 @@ export const rov: IRovSkin[] = [
     id: 940,
     name: 'Mortos Moonlight',
     base: 'Mortos',
-    image: require('~/assets/images/skin/mortos-moonloght.png')
+    image: require('~/assets/images/skin/mortos-moonloght.png'),
+    position: 8
   },
   {
     id: 941,
@@ -6111,13 +6154,15 @@ export const rov: IRovSkin[] = [
     id: 956,
     name: 'Xeniel Interstellar Council',
     base: 'Xeniel',
-    image: require('~/assets/images/skin/xeniel-interstellar-councill.png')
+    image: require('~/assets/images/skin/xeniel-interstellar-councill.png'),
+    position: 9.1
   },
   {
     id: 957,
     name: 'Krixi Butterfly\'s Dream',
     base: 'Krixi',
-    image: require('~/assets/images/skin/krixi-butterfly-s-dream.png')
+    image: require('~/assets/images/skin/krixi-butterfly-s-dream.png'),
+    position: 7.7
   },
   {
     id: 958,
@@ -6143,7 +6188,7 @@ export const rov: IRovSkin[] = [
     name: 'Butterfly Dragoness Evo Suit New Evo 4',
     base: 'Butterfly',
     image: require('~/assets/images/skin/butterfly-dragoness-evosuit-new-evo-4.png'),
-    position: 11
+    position: 1
   },
   {
     id: 962,
@@ -6162,7 +6207,8 @@ export const rov: IRovSkin[] = [
     id: 964,
     name: 'Tulen Hospital Resident',
     base: 'Tulen',
-    image: require('~/assets/images/skin/tulen-hospital-resident.png')
+    image: require('~/assets/images/skin/tulen-hospital-resident.png'),
+    position: 8
   },
   {
     id: 965,

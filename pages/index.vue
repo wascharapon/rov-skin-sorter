@@ -297,7 +297,7 @@ export default Vue.extend({
       form: {
         column: 15,
         row: 5,
-        width: 60,
+        width: 50,
         isEnableItem: false
       } as {
         column: number;
