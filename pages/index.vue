@@ -161,7 +161,11 @@
                 >
                   <template #option="{ option }">
                     <div class="option-with-image">
-                      <img :src="option.image" alt="icon" class="option-image">
+                      <img
+                        :src="option.image"
+                        alt="icon"
+                        class="option-image"
+                      >
                       <h1>
                         {{ option.name }}
                       </h1>
@@ -216,7 +220,7 @@
       </div>
 
       <div
-        class="d-flex justify-content-center align-items-center modern-container mt-2"
+        class="d-flex justify-content-center modern-container mt-2"
         style="min-height: 78vh"
       >
         <div
@@ -293,7 +297,7 @@ export default Vue.extend({
       form: {
         column: 15,
         row: 5,
-        width: 75,
+        width: 60,
         isEnableItem: false
       } as {
         column: number;
@@ -368,7 +372,7 @@ export default Vue.extend({
       return 'rov-skin-table-draggable'
     },
     widthTableSkinRov() {
-      return this.form.width * 1.453 // 1.453 is a multiplier to adjust the width for better appearance
+      return this.form.width * 1.5
     }
   },
   watch: {
