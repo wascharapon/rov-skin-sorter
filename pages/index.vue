@@ -745,7 +745,7 @@ export default Vue.extend({
 }
 
 .modern-container {
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); */
   background: rgba(0, 0, 0, 0.4);
   border-radius: 20px;
   padding: 30px;
