@@ -557,7 +557,11 @@ export default Vue.extend({
             this.data = json
             this.data.forEach((item) => {
               rov.find((skin) => {
-                if (skin.id === item.id) {
+                if (
+                  skin.id === item.id ||
+                  skin.name === item.name ||
+                  skin.image === item.image
+                ) {
                   item.position = skin.position
                   return true
                 }
