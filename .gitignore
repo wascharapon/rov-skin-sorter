@@ -6,3 +6,4 @@
 *.webp
 static/
 *.json.gz
+routes.json
