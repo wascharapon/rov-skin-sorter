@@ -144,6 +144,7 @@
                 class="modern-form-group"
               >
                 <Multiselect
+                  ref="selectSkinRov"
                   v-model="selectSkinRov"
                   class="mt-2"
                   :options="rov"
@@ -426,7 +427,23 @@ export default Vue.extend({
   created() {
     this.setDataForTable()
   },
+  mounted() {
+    window.addEventListener('keydown', this.handleKeyDown)
+  },
+  beforeDestroy() {
+    window.removeEventListener('keydown', this.handleKeyDown)
+  },
   methods: {
+    handleKeyDown(event: KeyboardEvent) {
+      if (event.key.toLowerCase() === 'e' && event.metaKey) {
+        event.preventDefault()
+        const multiselect = this.$refs.selectSkinRov as any
+        if (multiselect) {
+          multiselect?.activate()
+          multiselect?.click()
+        }
+      }
+    },
     customLabelSkin(skin: any): string {
       return String(skin.name)
     },

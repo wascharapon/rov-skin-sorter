@@ -2960,7 +2960,8 @@ export const rov: IRovSkin[] = [
     id: 452,
     name: 'Mina Bloodthirsty',
     base: 'Mina',
-    image: require('~/assets/images/skin/mina-bloodthirsty.png')
+    image: require('~/assets/images/skin/mina-bloodthirsty.png'),
+    position: 8
   },
   {
     id: 453,
@@ -4928,7 +4929,8 @@ export const rov: IRovSkin[] = [
     id: 754,
     name: 'Violet Dragon Millennium Shinning Star',
     base: 'Violet',
-    image: require('~/assets/images/skin/violet-dragon-millennium-shinning-star.png')
+    image: require('~/assets/images/skin/violet-dragon-millennium-shinning-star.png'),
+    position: 3
   },
   {
     id: 755,
@@ -5108,7 +5110,8 @@ export const rov: IRovSkin[] = [
     id: 782,
     name: 'Wukong Biker Gang',
     base: 'Wukong',
-    image: require('~/assets/images/skin/wukong-biker-gang.png')
+    image: require('~/assets/images/skin/wukong-biker-gang.png'),
+    position: 8
   },
   {
     id: 783,
@@ -5563,7 +5566,7 @@ export const rov: IRovSkin[] = [
     name: 'Zata Sunlight God',
     base: 'Zata',
     image: require('~/assets/images/skin/zata-sunlight-god.png'),
-    position: 8
+    position: 9.1
   },
   {
     id: 852,
