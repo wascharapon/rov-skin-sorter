@@ -1,10 +1,11 @@
-*.png
-*.jpg
-*.jpeg
+# *.png
+# *.jpg
+# *.jpeg
 *.gif
 *.svg
-*.webp
+# *.webp
 static/
 *.json.gz
 routes.json
 *.DB_Store
+.DB_Store
