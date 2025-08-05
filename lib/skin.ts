@@ -2163,7 +2163,7 @@ export const rov: IRovSkin[] = [
     name: 'Jinna Mo Phee',
     base: 'Jinna',
     image: require('~/assets/images/skin/jinna-mo-phee.png'),
-    position: 11
+    position: 13.4
   },
   {
     id: 330,
@@ -6442,5 +6442,25 @@ export const rov: IRovSkin[] = [
     base: 'Ryoma',
     image: require('~/assets/images/skin/ryoma-demonic-armor.jpg'),
     position: 8
+  },
+  {
+    id: 986,
+    name: 'Krixi Butterfly\'s Dream',
+    base: 'Krixi',
+    image: require('~/assets/images/skin/krixi-butterfly-dream.png'),
+    position: 7.7
+  },
+  {
+    id: 988,
+    name: 'Elandor\'s Butterfly Dream',
+    base: 'Elandor',
+    image: require('~/assets/images/skin/elandor\'r-butterfly-dream.png'),
+    position: 7.7
+  },
+  {
+    id: 989,
+    name: 'Bonnie Gizmo Infiltrator',
+    base: 'Bonnie',
+    image: require('~/assets/images/skin/bonnie-gizmo-infiltrator.png')
   }
 ]
