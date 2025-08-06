@@ -339,6 +339,17 @@
                   class="img-fluid"
                   :style="{ height: `${widthTableSkinRov * 1.5 - 17}px` }"
                 >
+                <div
+                  v-if="item.base && !isSaving"
+                  class="skin-future-remove text-white"
+                >
+                  <b-icon
+                    :style="{ width: '20px', height: '20px' }"
+                    icon="x"
+                    class="btn-close"
+                    @click.stop="onRemoveSkinRov(item)"
+                  />
+                </div>
                 <div v-if="item.base && form.isEnableItem" class="skin-future">
                   <div class="d-flex justify-content-center align-items-center">
                     <span class="text-white">
@@ -446,7 +457,9 @@ export default Vue.extend({
       const data = rov.map((item) => {
         return {
           ...item,
-          image: `${this.repoGitHubAssetsImagesSkin}${item.image}?raw=true` || this.defaultSkinItemImage
+          image:
+            `${this.repoGitHubAssetsImagesSkin}${item.image}?raw=true` ||
+            this.defaultSkinItemImage
         } as IRovSkin
       })
       return data as IRovSkin[]
@@ -625,9 +638,11 @@ export default Vue.extend({
 
           // Transform image URLs to local require format for html2canvas
           const originalData = [...this.data]
-          this.data = this.data.map(item => {
+          this.data = this.data.map((item): void => {
             if (item.image && item.image.includes('?raw=true')) {
-              const imagePath = item.image.replace(this.repoGitHubAssetsImagesSkin, '').replace('?raw=true', '')
+              const imagePath = item.image
+                .replace(this.repoGitHubAssetsImagesSkin, '')
+                .replace('?raw=true', '')
               return {
                 ...item,
                 image: require(`~/assets/images/skin/${imagePath}`)
@@ -784,6 +799,10 @@ export default Vue.extend({
           this.isHeaderVisible.toString()
         )
       }
+    },
+    onRemoveSkinRov(item: IRovSkinOnTable) {
+      this.data = this.data.filter(i => i.key !== item.key)
+      this.setDataForTable()
     }
   }
 })
@@ -860,6 +879,12 @@ export default Vue.extend({
   color: white;
   font-size: 80%;
   white-space: nowrap;
+}
+
+.skin-future-remove {
+  position: absolute;
+  top: -7px;
+  left: -2px;
 }
 
 .drag-handle {

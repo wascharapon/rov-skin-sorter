@@ -1,4 +1,13 @@
 export default {
+  head: {
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      }
+    ]
+  },
   css: [
     'bootstrap/dist/css/bootstrap.min.css',
     'vue-multiselect/dist/vue-multiselect.min.css',
