@@ -363,6 +363,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import html2canvas from 'html2canvas'
+import { image } from 'html2canvas/dist/types/css/types/image'
 import { rov } from '~/lib/skin'
 import { IRovSkin, IRovSkinOnTable } from '~/model/rov'
 
@@ -372,7 +373,7 @@ export default Vue.extend({
       selectSkinRov: [] as IRovSkin[],
       selectSkinRovOnTable: {} as IRovSkinOnTable,
       selectSkinForSwap: {} as IRovSkinOnTable,
-      rov: rov as IRovSkin[],
+      // rov: rov as IRovSkin[],
       isDragging: false,
       isSaving: false,
       formData: {
@@ -441,6 +442,23 @@ export default Vue.extend({
     }
   },
   computed: {
+    repoGitHubAssetsImagesSkin() {
+      return 'https://github.com/wascharapon/rov-skin-sorter/blob/main/assets/images/skin/'
+    },
+    rov() {
+      const data = rov.map((item) => {
+        const fileName = item.image.replace(
+          '/_nuxt/assets/images/skin/',
+          ''
+        )
+        const image = `${this.repoGitHubAssetsImagesSkin}${fileName}?raw=true`
+        return {
+          ...item,
+          image: image || this.defaultSkinItemImage
+        } as IRovSkin
+      })
+      return data as IRovSkin[]
+    },
     defaultSkinImage() {
       return require('~/assets/images/skin/default.jpeg')
     },
