@@ -363,10 +363,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import html2canvas from 'html2canvas'
-import { image } from 'html2canvas/dist/types/css/types/image'
 import { rov } from '~/lib/skin'
 import { IRovSkin, IRovSkinOnTable } from '~/model/rov'
-
 export default Vue.extend({
   data() {
     return {
@@ -447,10 +445,7 @@ export default Vue.extend({
     },
     rov() {
       const data = rov.map((item) => {
-        const fileName = item.image.replace(
-          '/_nuxt/assets/images/skin/',
-          ''
-        )
+        const fileName = item.image.replace('/_nuxt/assets/images/skin/', '')
         const image = `${this.repoGitHubAssetsImagesSkin}${fileName}?raw=true`
         return {
           ...item,
@@ -482,11 +477,9 @@ export default Vue.extend({
       if (typeof window === 'undefined') {
         return this.form.width * 1.5
       }
-
       // Get container width (accounting for padding and margins)
       const containerElement = document.querySelector('.modern-container')
       let availableWidth = window.innerWidth * 0.9 // Fallback
-
       if (containerElement) {
         const containerStyle = window.getComputedStyle(containerElement)
         const containerWidth = containerElement.clientWidth
@@ -494,14 +487,11 @@ export default Vue.extend({
         const paddingRight = parseFloat(containerStyle.paddingRight) || 0
         availableWidth = containerWidth - paddingLeft - paddingRight
       }
-
       // Calculate maximum width per skin item
       const maxWidthPerItem = Math.floor(availableWidth / this.form.column) - 0 // 0px margin
-
       // Calculate desired width based on form percentage
       const desiredWidth =
         (this.form.width * availableWidth) / 100 / this.form.column
-
       // Return the smaller value to ensure it fits
       return Math.min(maxWidthPerItem, desiredWidth)
     }
@@ -647,7 +637,7 @@ export default Vue.extend({
           link.download = filename
           link.click()
 
-          await setTimeout(async() => {
+          setTimeout(() => {
             this.exportDataToFile()
             this.isSaving = false
           }, 5000)
