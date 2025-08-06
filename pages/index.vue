@@ -73,8 +73,11 @@
               size="sm"
               @click="form.isEnableItem = !form.isEnableItem"
             >
-              <b-icon :icon="form.isEnableItem ? 'eye' : 'eye-slash'" class="mr-1" />
-              {{ form.isEnableItem ? 'ซ่อนตำแหน่ง' : 'แสดงตำแหน่ง' }}
+              <b-icon
+                :icon="form.isEnableItem ? 'eye' : 'eye-slash'"
+                class="mr-1"
+              />
+              {{ form.isEnableItem ? "ซ่อนตำแหน่ง" : "แสดงตำแหน่ง" }}
             </b-button>
           </div>
 
@@ -123,7 +126,7 @@
                   <b-form-group
                     label-align="center"
                     :label="`ความกว้าง (${form.width}%)`"
-                    class="modern-form-group ipad-form-group "
+                    class="modern-form-group ipad-form-group"
                   >
                     <b-form-input
                       v-model="form.width"
@@ -131,7 +134,7 @@
                       min="30"
                       max="100"
                       :step="1"
-                      class="modern-range ipad-range "
+                      class="modern-range ipad-range"
                     />
                   </b-form-group>
                 </div>
@@ -610,21 +613,24 @@ export default Vue.extend({
     },
     async saveTableAsImage() {
       if (!this.isSaving) {
+        this.isEnableItem = false
         const element = document.getElementById('table-skin')
         if (element) {
           this.isSaving = true
-          this.exportDataToFile()
+
+          const canvas = await html2canvas(element, {
+            backgroundColor: null,
+            scale: 2
+          })
+          const image = canvas.toDataURL('image/png')
+          const filename = `${this.timeStamp}-${this.fileNameSystem}.png`
+          const link = document.createElement('a')
+          link.href = image
+          link.download = filename
+          link.click()
+
           await setTimeout(async() => {
-            const canvas = await html2canvas(element, {
-              backgroundColor: null,
-              scale: 2
-            })
-            const image = canvas.toDataURL('image/png')
-            const filename = `${this.timeStamp}-${this.fileNameSystem}.png`
-            const link = document.createElement('a')
-            link.href = image
-            link.download = filename
-            link.click()
+            this.exportDataToFile()
             this.isSaving = false
           }, 5000)
         }
