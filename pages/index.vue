@@ -37,164 +37,230 @@
     </div>
     <div class="modern-bg py-2" style="min-height: 100vh">
       <div class="container-fluid py-3 text-white modern-container">
-        <div id="table-skin-header" class="mb-3">
-          <b-row>
-            <b-col cols="2">
-              <b-form-group label="แนวนอน (Row)" class="modern-form-group">
-                <b-form-input
-                  v-model="form.column"
-                  type="number"
-                  placeholder="ตัวอย่าง : 3 - 12"
-                  class="modern-input"
-                />
-              </b-form-group>
-            </b-col>
+        <div id="table-skin-header">
+          <!-- Compact Toggle Section -->
+          <div
+            class="compact-header-section"
+            :class="{ 'mb-3': isHeaderVisible }"
+          >
+            <b-button
+              class="compact-toggle-btn"
+              variant="outline-light"
+              size="sm"
+              @click="toggleHeaderVisibility"
+            >
+              <b-icon
+                :icon="isHeaderVisible ? 'chevron-up' : 'chevron-down'"
+                class="mr-1"
+              />
+              {{ isHeaderVisible ? "ซ่อนแผง" : "แสดงแผง" }}
+            </b-button>
 
-            <b-col cols="2">
-              <b-form-group label="แนวตั้ง (Column)" class="modern-form-group">
-                <b-form-input
-                  v-model="form.row"
-                  type="number"
-                  placeholder="ตัวอย่าง : 3 - 12"
-                  class="modern-input"
-                />
-              </b-form-group>
-            </b-col>
+            <b-button
+              class="compact-reset-btn ml-2"
+              variant="warning"
+              size="sm"
+              :disabled="isSaving"
+              @click="resetDataSkinTable"
+            >
+              <b-icon icon="arrow-clockwise" class="mr-1" />
+              เริ่มต้นใหม่
+            </b-button>
+          </div>
 
-            <b-col cols="3">
-              <b-form-group
-                :label="`ความกว้าง (${form.width}%)`"
-                class="modern-form-group"
-              >
-                <b-form-input
-                  v-model="form.width"
-                  type="range"
-                  :step="1"
-                  class="w-100 h-100 modern-range"
-                />
-              </b-form-group>
-            </b-col>
-
-            <b-col cols="1">
-              <b-form-group label="ชื่อตัวหลัก" class="modern-form-group">
-                <b-form-checkbox
-                  v-model="form.isEnableItem"
-                  switch
-                  class="mt-2 modern-switch"
-                />
-              </b-form-group>
-            </b-col>
-
-            <b-col cols="4">
-              <div class="d-flex">
-                <b-form-file
-                  class="mt-2 mr-2 modern-file-input"
-                  accept=".json"
-                  browse-text="Import"
-                  :placeholder="`data.json`"
-                  :style="{ width: '80%' }"
-                  @change="importDataFromFile"
-                >
-                  <template #file-name>
-                    <b-icon icon="file-earmark-arrow-up" />
-                    เลือกไฟล์
-                  </template>
-                </b-form-file>
-
-                <b-button
-                  class="w-75 mt-2 modern-btn modern-btn-primary"
-                  variant="primary"
-                  :disabled="isSaving"
-                  @click="exportDataToFile"
-                >
-                  <b-icon icon="file-earmark-arrow-down" class="mr-2" />
-                  บันทึกข้อมูล
-                </b-button>
+          <!-- Collapsible Header Container -->
+          <b-collapse
+            id="content-table-skin-header"
+            v-model="isHeaderVisible"
+            class="ipad-header-container"
+          >
+            <!-- Grid Controls Section -->
+            <div class="ipad-control-section mb-4">
+              <div class="section-header">
+                <b-icon icon="grid-3x3-gap" class="section-icon" />
+                <h5 class="section-title">
+                  ตั้งค่าตาราง
+                </h5>
               </div>
-
-              <div class="d-flex">
-                <b-button
-                  class="w-100 mt-2 mr-2 modern-btn modern-btn-info"
-                  variant="info"
-                  @click="openClassSkinRovModal"
-                >
-                  <b-icon icon="Trophy" class="mr-2" /> ข้อมูลระดับ
-                </b-button>
-
-                <b-button
-                  class="w-100 mt-2 modern-btn modern-btn-success"
-                  variant="success"
-                  :disabled="isSaving"
-                  @click="saveTableAsImage"
-                >
-                  <b-icon icon="image" class="mr-2" /> บันทึกรูปภาพ
-                </b-button>
+              <div class="ipad-grid-controls">
+                <div class="grid-input-group">
+                  <b-form-group
+                    label="แนวนอน (Row)"
+                    class="modern-form-group ipad-form-group"
+                  >
+                    <b-form-input
+                      v-model="formData.column"
+                      type="number"
+                      placeholder="3 - 12"
+                      class="modern-input ipad-input"
+                    />
+                  </b-form-group>
+                </div>
+                <div class="grid-input-group">
+                  <b-form-group
+                    label="แนวตั้ง (Column)"
+                    class="modern-form-group ipad-form-group"
+                  >
+                    <b-form-input
+                      v-model="formData.row"
+                      type="number"
+                      placeholder="3 - 12"
+                      class="modern-input ipad-input"
+                    />
+                  </b-form-group>
+                </div>
+                <div class="grid-input-group">
+                  <b-form-group
+                    label-align="center"
+                    :label="`ความกว้าง (${form.width}%)`"
+                    class="modern-form-group ipad-form-group "
+                  >
+                    <b-form-input
+                      v-model="form.width"
+                      type="range"
+                      min="30"
+                      max="100"
+                      :step="1"
+                      class="modern-range ipad-range "
+                    />
+                  </b-form-group>
+                </div>
+                <div class="grid-apply-btn">
+                  <b-button
+                    class="modern-btn modern-btn-primary ipad-primary-btn"
+                    variant="primary"
+                    @click="applyGridDimensions"
+                  >
+                    <b-icon icon="grid-3x3-gap" class="mr-2" />
+                    ปรับใช้งาน
+                  </b-button>
+                </div>
               </div>
-            </b-col>
-          </b-row>
+            </div>
+            <!-- File Management Section -->
+            <div class="ipad-control-section">
+              <div class="section-header">
+                <b-icon icon="folder" class="section-icon" />
+                <h5 class="section-title">
+                  การจัดการไฟล์
+                </h5>
+              </div>
+              <div class="ipad-file-controls">
+                <div class="file-input-wrapper">
+                  <b-form-file
+                    class="modern-file-input ipad-file-input"
+                    accept=".json"
+                    browse-text="เลือกไฟล์"
+                    placeholder="เลือกไฟล์ JSON"
+                    @change="importDataFromFile"
+                  >
+                    <template #file-name>
+                      <b-icon icon="file-earmark-arrow-up" class="mr-2" />
+                      นำเข้าข้อมูล
+                    </template>
+                  </b-form-file>
+                </div>
+                <div class="file-action-buttons">
+                  <b-button
+                    class="modern-btn modern-btn-primary ipad-file-btn"
+                    variant="primary"
+                    :disabled="isSaving"
+                    @click="exportDataToFile"
+                  >
+                    <b-icon icon="file-earmark-arrow-down" class="mr-2" />
+                    ส่งออก JSON
+                  </b-button>
+                  <b-button
+                    class="modern-btn modern-btn-success ipad-file-btn"
+                    variant="success"
+                    :disabled="isSaving"
+                    @click="saveTableAsImage"
+                  >
+                    <b-icon icon="image" class="mr-2" />
+                    บันทึกรูปภาพ
+                  </b-button>
+                </div>
+              </div>
+            </div>
+          </b-collapse>
 
-          <b-row>
+          <b-row id="select-skin-row" class="mt-3">
             <b-col cols="6">
-              <b-form-group
-                :label="`กำลังเลือก : ${selectSkinRovOnTable.key || 0} -  ${
-                  !selectSkinRovOnTable?.name
-                    ? 'ว่าง'
-                    : selectSkinRovOnTable?.name
-                }`"
-                class="modern-form-group"
-              >
-                <Multiselect
-                  ref="selectSkinRov"
-                  v-model="selectSkinRov"
-                  class="mt-2"
-                  :options="rov"
-                  placeholder="เลือกสกิน ROV"
-                  label="name"
-                  track-by="id"
-                  :custom-label="customLabelSkin"
-                  :close-on-select="false"
-                  :clear-on-select="false"
-                  tag-placeholder="กด Enter เพื่อเพิ่มสกินใหม่"
-                  :options-limit="9"
-                  :max-height="700"
-                  :max="1"
-                  :limit="1"
-                >
-                  <template #option="{ option }">
-                    <div class="option-with-image">
-                      <img
-                        :src="option.image"
-                        alt="icon"
-                        class="option-image"
-                      >
-                      <h1>
-                        {{ option.name }}
-                      </h1>
-                      <h4 class="mx-2">
-                        ({{ option.base }})
-                      </h4>
-                    </div>
-                  </template>
+              <b-row>
+                <b-col id="display-select-skin-rov" cols="2">
+                  <b-img
+                    :src="selectSkinRovOnTable.image || defaultSkinImage"
+                    alt="Selected Skin Image"
+                    class="img-fluid fit-col-image"
+                  />
+                </b-col>
+                <b-col id="select-skin-rov">
+                  <b-form-group
+                    :label="`กำลังเลือก : ${selectSkinRovOnTable.key || 0} -  ${
+                      !selectSkinRovOnTable?.name
+                        ? 'ว่าง'
+                        : selectSkinRovOnTable?.name
+                    }`"
+                    class="modern-form-group"
+                  >
+                    <Multiselect
+                      ref="selectSkinRov"
+                      v-model="selectSkinRov"
+                      class="mt-2"
+                      :options="rov"
+                      placeholder="เลือกสกิน ROV"
+                      label="name"
+                      track-by="id"
+                      :custom-label="customLabelSkin"
+                      :close-on-select="false"
+                      :clear-on-select="false"
+                      tag-placeholder="กด Enter เพื่อเพิ่มสกินใหม่"
+                      :options-limit="9"
+                      :max-height="700"
+                      :max="1"
+                      :limit="1"
+                    >
+                      <template #option="{ option }">
+                        <div class="option-with-image">
+                          <img
+                            :src="option.image"
+                            alt="icon"
+                            class="option-image"
+                          >
+                          <h1>
+                            {{ option.name }}
+                          </h1>
+                          <h4 class="mx-2">
+                            ({{ option.base }})
+                          </h4>
+                        </div>
+                      </template>
 
-                  <template #tag="{ option, remove }">
-                    <div class="selected-tag">
-                      <img :src="option.image" alt="icon" class="tag-image">
-                      <span>{{ option.name }}</span>
-                      <button @click="remove(option)">
-                        x
-                      </button>
-                    </div>
-                  </template>
+                      <template #tag="{ option, remove }">
+                        <div class="selected-tag">
+                          <img
+                            :src="option.image"
+                            alt="icon"
+                            class="tag-image"
+                          >
+                          <span>{{ option.name }}</span>
+                          <button @click="remove(option)">
+                            x
+                          </button>
+                        </div>
+                      </template>
 
-                  <template #noResult>
-                    <div class="text-center py-2">
-                      <p class="text-muted mb-0">
-                        ไม่พบสกินตามที่ค้นหา
-                      </p>
-                    </div>
-                  </template>
-                </Multiselect>
-              </b-form-group>
+                      <template #noResult>
+                        <div class="text-center py-2">
+                          <p class="text-muted mb-0">
+                            ไม่พบสกินตามที่ค้นหา
+                          </p>
+                        </div>
+                      </template>
+                    </Multiselect>
+                  </b-form-group>
+                </b-col>
+              </b-row>
             </b-col>
             <b-col cols="3" class="d-flex align-items-center">
               <b-button
@@ -203,17 +269,18 @@
                 @click="sortDataFollowPosition"
               >
                 <b-icon icon="sort-numeric-down" class="mr-2" />
-                เรียงสกิน ROV ตามข้อมูล Class
+                เรียง Skin ตาม Class
               </b-button>
             </b-col>
             <b-col cols="3" class="d-flex align-items-center">
               <b-button
-                class="w-100 mt-4 modern-btn modern-btn-danger"
-                variant="danger"
-                @click="resetDataSkinTable"
+                class="w-100 mt-4 modern-btn modern-btn-success"
+                variant="success"
+                :disabled="isSaving"
+                @click="saveTableAsImage"
               >
-                <b-icon icon="sort-numeric-down" class="mr-2" />
-                เริ่มต้นใหม่
+                <b-icon icon="camera" class="mr-2" />
+                {{ isSaving ? "กำลังบันทึก..." : "บันทึกรูปภาพ" }}
               </b-button>
             </b-col>
           </b-row>
@@ -295,10 +362,17 @@ export default Vue.extend({
       rov: rov as IRovSkin[],
       isDragging: false,
       isSaving: false,
+      formData: {
+        column: 15,
+        row: 5
+      } as {
+        column: number;
+        row: number;
+      },
       form: {
         column: 15,
         row: 5,
-        width: 50,
+        width: 75, // Percentage of the container width
         isEnableItem: false
       } as {
         column: number;
@@ -307,6 +381,7 @@ export default Vue.extend({
         isEnableItem: boolean;
       },
       data: [] as IRovSkinOnTable[],
+      isHeaderVisible: true,
       classSkinRov: [
         { name: 'Collaboration Limited', color: '#a62828' },
         { name: 'Bleach เทพมรณะ', color: '#1c1c1c' },
@@ -373,7 +448,31 @@ export default Vue.extend({
       return 'rov-skin-table-draggable'
     },
     widthTableSkinRov() {
-      return this.form.width * 1.5
+      if (typeof window === 'undefined') {
+        return this.form.width * 1.5
+      }
+
+      // Get container width (accounting for padding and margins)
+      const containerElement = document.querySelector('.modern-container')
+      let availableWidth = window.innerWidth * 0.9 // Fallback
+
+      if (containerElement) {
+        const containerStyle = window.getComputedStyle(containerElement)
+        const containerWidth = containerElement.clientWidth
+        const paddingLeft = parseFloat(containerStyle.paddingLeft) || 0
+        const paddingRight = parseFloat(containerStyle.paddingRight) || 0
+        availableWidth = containerWidth - paddingLeft - paddingRight
+      }
+
+      // Calculate maximum width per skin item
+      const maxWidthPerItem = Math.floor(availableWidth / this.form.column) - 0 // 0px margin
+
+      // Calculate desired width based on form percentage
+      const desiredWidth =
+        (this.form.width * availableWidth) / 100 / this.form.column
+
+      // Return the smaller value to ensure it fits
+      return Math.min(maxWidthPerItem, desiredWidth)
     }
   },
   watch: {
@@ -426,6 +525,12 @@ export default Vue.extend({
   },
   created() {
     this.setDataForTable()
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('rov-header-visible')
+      if (stored !== null) {
+        this.isHeaderVisible = stored === 'true'
+      }
+    }
   },
   mounted() {
     window.addEventListener('keydown', this.handleKeyDown)
@@ -625,6 +730,20 @@ export default Vue.extend({
       this.setDataForTable()
       this.selectSkinRovOnTable = this.data[0]
       this.selectSkinForSwap = {} as IRovSkinOnTable
+    },
+    applyGridDimensions() {
+      this.form.column = this.formData.column
+      this.form.row = this.formData.row
+      this.setDataForTable()
+    },
+    toggleHeaderVisibility() {
+      this.isHeaderVisible = !this.isHeaderVisible
+      if (typeof window !== 'undefined') {
+        localStorage.setItem(
+          'rov-header-visible',
+          this.isHeaderVisible.toString()
+        )
+      }
     }
   }
 })
@@ -925,5 +1044,369 @@ export default Vue.extend({
 .modern-close-btn:hover {
   color: #ff6b6b;
   transform: scale(1.1);
+}
+
+/* iPad Optimized Styles */
+.ipad-header-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ipad-control-section {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-icon {
+  font-size: 1.4rem;
+  margin-right: 12px;
+  color: #667eea;
+}
+
+.section-title {
+  margin: 0;
+  font-weight: 600;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+/* Grid Controls */
+.ipad-grid-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+.grid-input-group {
+  min-width: 120px;
+}
+
+.grid-apply-btn {
+  grid-column: span 2;
+}
+
+.ipad-form-group {
+  margin-bottom: 4px;
+}
+
+.ipad-form-group label {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  font-weight: 500;
+  padding: 0;
+}
+
+.ipad-input {
+  height: 48px;
+  font-size: 16px;
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.ipad-range {
+  height: 36px;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+.ipad-range::-webkit-slider-track {
+  height: 10px;
+  border-radius: 12px;
+}
+
+.ipad-range::-webkit-slider-thumb {
+  height: 24px;
+  width: 24px;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+}
+
+.ipad-primary-btn {
+  height: 52px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 14px;
+  width: 100%;
+  min-height: 52px;
+}
+
+/* Settings Row */
+.ipad-settings-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.setting-item {
+  flex: 1;
+}
+
+.action-buttons {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ipad-switch {
+  transform: scale(1.3);
+  margin-top: 8px;
+}
+
+.ipad-action-btn {
+  height: 48px;
+  font-size: 15px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  min-width: 140px;
+}
+
+/* File Controls */
+.ipad-file-controls {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.file-input-wrapper {
+  width: 100%;
+}
+
+.ipad-file-input {
+  width: 100%;
+}
+
+.ipad-file-input .custom-file-label {
+  height: 48px;
+  line-height: 2.2;
+  font-size: 15px;
+  border-radius: 12px;
+  padding: 8px 16px;
+}
+
+.file-action-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ipad-file-btn {
+  height: 48px;
+  font-size: 15px;
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+/* Responsive Design for iPad */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .ipad-header-container {
+    max-width: 100%;
+  }
+
+  .ipad-grid-controls {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .grid-apply-btn {
+    grid-column: span 2;
+  }
+
+  .ipad-settings-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .action-buttons {
+    justify-content: center;
+  }
+
+  .file-action-buttons {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .ipad-grid-controls {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid-apply-btn {
+    grid-column: span 1;
+  }
+
+  .file-action-buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) {
+  .ipad-input:focus,
+  .ipad-range:focus {
+    outline: 3px solid rgba(102, 126, 234, 0.6);
+    outline-offset: 2px;
+  }
+
+  .modern-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Header Toggle Styles */
+.header-toggle-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-toggle-btn {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  min-height: 48px;
+  font-size: 15px;
+}
+
+.header-toggle-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.header-toggle-btn:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.header-toggle-btn:hover::before {
+  left: 100%;
+}
+
+.header-toggle-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-toggle-btn:focus {
+  border-color: rgba(102, 126, 234, 0.6);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+/* Collapse Animation Enhancement */
+.ipad-header-container.collapse:not(.show) {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.ipad-header-container.collapse.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ipad-header-container.collapsing {
+  transition: height 0.35s ease-out, opacity 0.35s ease-out,
+    transform 0.35s ease-out;
+}
+
+/* Compact Header Section */
+.compact-header-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.compact-toggle-btn,
+.compact-reset-btn {
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 6px 16px;
+  min-height: 32px;
+  border-width: 1.5px;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.compact-toggle-btn {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.compact-toggle-btn:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.compact-reset-btn {
+  background: linear-gradient(45deg, #dc3545, #c82333);
+  border-color: #dc3545;
+  color: #fff;
+}
+
+.compact-reset-btn:hover:not(:disabled) {
+  background: linear-gradient(45deg, #c82333, #a71e2a);
+  border-color: #bd2130;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+}
+
+.compact-reset-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Fit Column Image */
+.fit-col-image {
+  width: 100%;
+  max-height: 80px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 </style>
