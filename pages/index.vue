@@ -371,7 +371,6 @@ export default Vue.extend({
       selectSkinRov: [] as IRovSkin[],
       selectSkinRovOnTable: {} as IRovSkinOnTable,
       selectSkinForSwap: {} as IRovSkinOnTable,
-      // rov: rov as IRovSkin[],
       isDragging: false,
       isSaving: false,
       formData: {
@@ -445,11 +444,9 @@ export default Vue.extend({
     },
     rov() {
       const data = rov.map((item) => {
-        const fileName = item.image.replace('/_nuxt/assets/images/skin/', '')
-        const image = `${this.repoGitHubAssetsImagesSkin}${fileName}?raw=true`
         return {
           ...item,
-          image: image || this.defaultSkinItemImage
+          image: `${this.repoGitHubAssetsImagesSkin}${item.image}?raw=true` || this.defaultSkinItemImage
         } as IRovSkin
       })
       return data as IRovSkin[]
