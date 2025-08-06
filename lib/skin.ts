@@ -770,7 +770,8 @@ export const rov: IRovSkin[] = [
     id: 118,
     name: 'Biron Yuji Ltadori',
     base: 'Biron',
-    image: require('~/assets/images/skin/biron-yuji-ltadori.png')
+    image: require('~/assets/images/skin/biron-yuji-ltadori.png'),
+    position: 2
   },
   {
     id: 119,
@@ -3331,7 +3332,7 @@ export const rov: IRovSkin[] = [
     name: 'Nataya Project Ice',
     base: 'Nataya',
     image: require('~/assets/images/skin/nataya-project-ice.png'),
-    position: 9.1
+    position: 8
   },
   {
     id: 509,
@@ -3390,7 +3391,8 @@ export const rov: IRovSkin[] = [
     id: 517,
     name: 'Omen Lord Ebony',
     base: 'Omen',
-    image: require('~/assets/images/skin/omen-lord-ebony.png')
+    image: require('~/assets/images/skin/omen-lord-ebony.png'),
+    position: 9.1
   },
   {
     id: 518,
@@ -5144,7 +5146,8 @@ export const rov: IRovSkin[] = [
     id: 787,
     name: "Wukong Heaven's Equal",
     base: 'Wukong',
-    image: require('~/assets/images/skin/wukong-heaven\'s-equal.png')
+    image: require('~/assets/images/skin/wukong-heaven\'s-equal.png'),
+    position: 4
   },
   {
     id: 788,
@@ -6382,19 +6385,21 @@ export const rov: IRovSkin[] = [
     name: 'Mganga MVP Meta',
     base: 'Mganga',
     image: require('~/assets/images/skin/mganga-mvp-meta.png'),
-    position: 17.9
+    position: 17.91
   },
   {
     id: 977,
     name: 'Riktor Angelic Armor',
     base: 'Riktor',
-    image: require('~/assets/images/skin/riktor-angelic-armor.jpg')
+    image: require('~/assets/images/skin/riktor-angelic-armor.jpg'),
+    position: 8
   },
   {
     id: 978,
     name: 'Yena Angelic Armor',
     base: 'Yena',
-    image: require('~/assets/images/skin/yena-angelic-armor.jpg')
+    image: require('~/assets/images/skin/yena-angelic-armor.jpg'),
+    position: 8
   },
   {
     id: 979,
@@ -6414,7 +6419,7 @@ export const rov: IRovSkin[] = [
     name: 'Kaine MVP Enigma',
     base: 'Kaine',
     image: require('~/assets/images/skin/kaine-mvp-enigma.jpeg'),
-    position: 7.9
+    position: 17.9
   },
   {
     id: 982,
@@ -6462,5 +6467,12 @@ export const rov: IRovSkin[] = [
     name: 'Bonnie Gizmo Infiltrator',
     base: 'Bonnie',
     image: require('~/assets/images/skin/bonnie-gizmo-infiltrator.png')
+  },
+  {
+    id: 990,
+    name: 'Mganga Redblaze Vassal',
+    base: 'Mganga',
+    image: require('~/assets/images/skin/mganga-redblaze-vassal.png'),
+    position: 8
   }
 ]
