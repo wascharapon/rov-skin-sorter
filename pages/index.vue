@@ -66,6 +66,16 @@
               <b-icon icon="arrow-clockwise" class="mr-1" />
               เริ่มต้นใหม่
             </b-button>
+
+            <b-button
+              class="compact-toggle-item ml-2"
+              :variant="form.isEnableItem ? 'success' : 'outline-secondary'"
+              size="sm"
+              @click="form.isEnableItem = !form.isEnableItem"
+            >
+              <b-icon :icon="form.isEnableItem ? 'eye' : 'eye-slash'" class="mr-1" />
+              {{ form.isEnableItem ? 'ซ่อนตำแหน่ง' : 'แสดงตำแหน่ง' }}
+            </b-button>
           </div>
 
           <!-- Collapsible Header Container -->
@@ -264,12 +274,12 @@
             </b-col>
             <b-col cols="3" class="d-flex align-items-center">
               <b-button
-                class="w-100 mt-4 modern-btn modern-btn-warning"
+                class="w-100 mt-4 text-nowrap modern-btn modern-btn-warning"
                 variant="warning"
                 @click="sortDataFollowPosition"
               >
                 <b-icon icon="sort-numeric-down" class="mr-2" />
-                เรียง Skin ตาม Class
+                Auto Sort Skin
               </b-button>
             </b-col>
             <b-col cols="3" class="d-flex align-items-center">
@@ -372,7 +382,7 @@ export default Vue.extend({
       form: {
         column: 15,
         row: 5,
-        width: 75, // Percentage of the container width
+        width: 100, // Percentage of the container width
         isEnableItem: false
       } as {
         column: number;
@@ -1355,7 +1365,8 @@ export default Vue.extend({
 }
 
 .compact-toggle-btn,
-.compact-reset-btn {
+.compact-reset-btn,
+.compact-toggle-item {
   border-radius: 20px;
   font-weight: 500;
   font-size: 13px;
@@ -1398,6 +1409,31 @@ export default Vue.extend({
   opacity: 0.7;
   cursor: not-allowed;
   transform: none;
+}
+
+.compact-toggle-item {
+  border-color: rgba(108, 117, 125, 0.4);
+  background: rgba(108, 117, 125, 0.12);
+  color: #fff;
+}
+
+.compact-toggle-item:hover {
+  border-color: rgba(108, 117, 125, 0.6);
+  background: rgba(108, 117, 125, 0.2);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.compact-toggle-item.btn-success {
+  border-color: #6f42c1;
+  background: linear-gradient(45deg, #6f42c1, #8e44ad);
+}
+
+.compact-toggle-item.btn-success:hover {
+  border-color: #5a2d91;
+  background: linear-gradient(45deg, #5a2d91, #7d3c98);
+  box-shadow: 0 4px 12px rgba(111, 66, 193, 0.4);
 }
 
 /* Fit Column Image */
