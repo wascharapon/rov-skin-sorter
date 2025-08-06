@@ -4,7 +4,7 @@
 *.gif
 *.svg
 # *.webp
-static/
+# static/
 *.json.gz
 routes.json
 *.DB_Store
