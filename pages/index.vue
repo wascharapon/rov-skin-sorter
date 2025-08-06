@@ -623,6 +623,22 @@ export default Vue.extend({
         if (element) {
           this.isSaving = true
 
+          // Transform image URLs to local require format for html2canvas
+          const originalData = [...this.data]
+          this.data = this.data.map(item => {
+            if (item.image && item.image.includes('?raw=true')) {
+              const imagePath = item.image.replace(this.repoGitHubAssetsImagesSkin, '').replace('?raw=true', '')
+              return {
+                ...item,
+                image: require(`~/assets/images/skin/${imagePath}`)
+              }
+            }
+            return item
+          })
+
+          // Wait for DOM update
+          await this.$nextTick()
+
           const canvas = await html2canvas(element, {
             backgroundColor: null,
             scale: 2
@@ -633,6 +649,9 @@ export default Vue.extend({
           link.href = image
           link.download = filename
           link.click()
+
+          // Restore original data
+          this.data = originalData
 
           setTimeout(() => {
             this.exportDataToFile()
