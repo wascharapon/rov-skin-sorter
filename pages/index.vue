@@ -84,7 +84,11 @@
               class="compact-facebook-btn ml-2"
               size="sm"
               :disabled="isSaving"
-              @click="goToBlankPage('https://www.facebook.com/share/18DD4E54Jg/?mibextid=wwXIfr')"
+              @click="
+                goToBlankPage(
+                  'https://www.facebook.com/share/18DD4E54Jg/?mibextid=wwXIfr'
+                )
+              "
             >
               <b-icon icon="facebook" class="mr-1" />
               ร้าน Moji G Moji รับทำปกไอดี Rov สนใจคลิก !!!!
@@ -191,7 +195,7 @@
                     @click="exportDataToFile"
                   >
                     <b-icon icon="file-earmark-arrow-down" class="mr-2" />
-                    ส่งออก JSON
+                    ส่งออกข้อมูลเป็น JSON
                   </b-button>
                   <b-button
                     class="modern-btn modern-btn-success ipad-file-btn"
@@ -302,7 +306,7 @@
                 :disabled="isSaving"
                 @click="saveTableAsImage"
               >
-                <b-icon icon="camera" class="mr-2" />
+                <b-icon icon="image" class="mr-2" />
                 {{ isSaving ? "save..." : "save" }}
               </b-button>
             </b-col>
@@ -680,11 +684,7 @@ export default Vue.extend({
 
           // Restore original data
           this.data = originalData
-
-          setTimeout(() => {
-            this.exportDataToFile()
-            this.isSaving = false
-          }, 5000)
+          this.isSaving = false
         }
       }
     },
