@@ -279,18 +279,18 @@
                 @click="sortDataFollowPosition"
               >
                 <b-icon icon="sort-numeric-down" class="mr-2" />
-                Auto Sort Skin
+                Sort
               </b-button>
             </b-col>
             <b-col cols="3" class="d-flex align-items-center">
               <b-button
-                class="w-100 mt-4 modern-btn modern-btn-success"
+                class="w-100 mt-4 text-nowrap modern-btn modern-btn-success"
                 variant="success"
                 :disabled="isSaving"
                 @click="saveTableAsImage"
               >
                 <b-icon icon="camera" class="mr-2" />
-                {{ isSaving ? "กำลังบันทึก..." : "บันทึกรูปภาพ" }}
+                {{ isSaving ? "save..." : "save" }}
               </b-button>
             </b-col>
           </b-row>
