@@ -79,6 +79,16 @@
               />
               {{ form.isEnableItem ? "ซ่อนตำแหน่ง" : "แสดงตำแหน่ง" }}
             </b-button>
+
+            <b-button
+              class="compact-facebook-btn ml-2"
+              size="sm"
+              :disabled="isSaving"
+              @click="goToBlankPage('https://www.facebook.com/share/18DD4E54Jg/?mibextid=wwXIfr')"
+            >
+              <b-icon icon="facebook" class="mr-1" />
+              ร้าน Moji G Moji รับทำปกไอดี Rov สนใจคลิก !!!!
+            </b-button>
           </div>
 
           <!-- Collapsible Header Container -->
@@ -164,7 +174,7 @@
                     class="modern-file-input ipad-file-input"
                     accept=".json"
                     browse-text="เลือกไฟล์"
-                    placeholder="เลือกไฟล์ JSON"
+                    placeholder="เลือกไฟล์ข้อมูล JSON"
                     @change="importDataFromFile"
                   >
                     <template #file-name>
@@ -570,6 +580,9 @@ export default Vue.extend({
     window.removeEventListener('keydown', this.handleKeyDown)
   },
   methods: {
+    goToBlankPage(url: string) {
+      window.open(url, '_blank')
+    },
     handleKeyDown(event: KeyboardEvent) {
       if (event.key.toLowerCase() === 'e' && event.metaKey) {
         event.preventDefault()
@@ -1421,6 +1434,7 @@ export default Vue.extend({
 
 .compact-toggle-btn,
 .compact-reset-btn,
+.compact-facebook-btn,
 .compact-toggle-item {
   border-radius: 20px;
   font-weight: 500;
@@ -1489,6 +1503,18 @@ export default Vue.extend({
   border-color: #5a2d91;
   background: linear-gradient(45deg, #5a2d91, #7d3c98);
   box-shadow: 0 4px 12px rgba(111, 66, 193, 0.4);
+}
+
+.compact-facebook-btn {
+  background: linear-gradient(45deg, #3b5998, #8b9dc3);
+  border-color: #3b5998;
+  color: #fff;
+}
+
+.compact-facebook-btn:hover {
+  background: linear-gradient(45deg, #8b9dc3, #3b5998);
+  border-color: #3b5998;
+  box-shadow: 0 4px 12px rgba(59, 89, 152, 0.4);
 }
 
 /* Fit Column Image */
