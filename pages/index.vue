@@ -829,12 +829,19 @@ export default Vue.extend({
         const storedData = localStorage.getItem(this.keyLocalStorage)
         if (storedData) {
           const parsedData = JSON.parse(storedData)
-          this.data = parsedData.data
-          this.form = parsedData.form
+          parsedData.data.forEach((item: IRovSkinOnTable) => {
+            this.data[item.key - 1] = {
+              ...item,
+              image: item.image || this.defaultSkinImage
+            } as IRovSkinOnTable
+          })
           this.formData = {
-            column: this.form.column,
-            row: this.form.row,
-            width: this.form.width
+            ...this.formData,
+            ...parsedData.form
+          }
+          this.form = {
+            ...this.form,
+            isEnableItem: parsedData.form.isEnableItem
           }
           this.setDataForTable()
           this.selectSkinRovOnTable = this.data[0]
