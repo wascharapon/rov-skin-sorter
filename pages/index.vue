@@ -569,7 +569,7 @@ export default Vue.extend({
   created() {
     this.loadDataFromLocalStorage()
     this.setDataForTable()
-    if (process.client) {
+    if (process.client && typeof window !== 'undefined') {
       const stored = localStorage.getItem('rov-header-visible')
       if (stored !== null) {
         this.isHeaderVisible = stored === 'true'
@@ -801,7 +801,7 @@ export default Vue.extend({
     },
     toggleHeaderVisibility() {
       this.isHeaderVisible = !this.isHeaderVisible
-      if (process.client) {
+      if (process.client && typeof window !== 'undefined') {
         localStorage.setItem(
           'rov-header-visible',
           this.isHeaderVisible.toString()
@@ -813,7 +813,7 @@ export default Vue.extend({
       this.setDataForTable()
     },
     saveDataToLocalStorage() {
-      if (process.client) {
+      if (process.client && typeof window !== 'undefined') {
         localStorage.setItem(
           this.keyLocalStorage,
           JSON.stringify({
@@ -825,11 +825,11 @@ export default Vue.extend({
       }
     },
     loadDataFromLocalStorage() {
-      if (process.client) {
+      if (process.client && typeof window !== 'undefined') {
         const storedData = localStorage.getItem(this.keyLocalStorage)
         if (storedData) {
           const parsedData = JSON.parse(storedData)
-          this.data = parsedData.data || []
+          this.data = parsedData.data
           this.form = parsedData.form
           this.formData = {
             column: this.form.column,
