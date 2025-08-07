@@ -512,7 +512,7 @@ export default Vue.extend({
         availableWidth = containerWidth - paddingLeft - paddingRight
       }
       // Calculate maximum width per skin item
-      const maxWidthPerItem = Math.floor(availableWidth / this.form.column) - 0 // 0px margin
+      const maxWidthPerItem = Math.floor(availableWidth / this.form.column) - 10 // 0px margin
       // Calculate desired width based on form percentage
       const desiredWidth =
         (this.form.width * availableWidth) / 100 / this.form.column
@@ -564,6 +564,8 @@ export default Vue.extend({
         this.data.forEach((item, index) => {
           item.key = index + 1
         })
+        // บันทึกข้อมูลลง localStorage
+        this.saveDataToLocalStorage()
       },
       deep: true
     }
@@ -575,6 +577,8 @@ export default Vue.extend({
       if (stored !== null) {
         this.isHeaderVisible = stored === 'true'
       }
+      // โหลดข้อมูลจาก localStorage
+      this.loadDataFromLocalStorage()
     }
   },
   mounted() {
@@ -816,6 +820,56 @@ export default Vue.extend({
     onRemoveSkinRov(item: IRovSkinOnTable) {
       this.data = this.data.filter(i => i.key !== item.key)
       this.setDataForTable()
+    },
+    saveDataToLocalStorage() {
+      if (typeof window !== 'undefined') {
+        const dataToSave = {
+          data: this.data,
+          form: this.form,
+          timestamp: new Date().toISOString()
+        }
+        localStorage.setItem('rov-skin-data', JSON.stringify(dataToSave))
+      }
+    },
+    loadDataFromLocalStorage() {
+      if (typeof window !== 'undefined') {
+        const stored = localStorage.getItem('rov-skin-data')
+        if (stored) {
+          try {
+            const parsedData = JSON.parse(stored)
+            if (parsedData.data && Array.isArray(parsedData.data)) {
+              this.data = parsedData.data
+              // อัพเดต position สำหรับข้อมูลที่โหลดมา
+              this.data.forEach((item) => {
+                rov.find((skin) => {
+                  if (
+                    skin.id === item.id ||
+                    skin.name === item.name ||
+                    skin.image === item.image
+                  ) {
+                    item.position = skin.position
+                    return true
+                  }
+                  return false
+                })
+              })
+              if (parsedData.form) {
+                this.form = { ...this.form, ...parsedData.form }
+                this.formData.column = this.form.column
+                this.formData.row = this.form.row
+              }
+              this.selectSkinRovOnTable = this.data[0] || {} as IRovSkinOnTable
+            }
+          } catch (error) {
+            console.error('เกิดข้อผิดพลาดในการโหลดข้อมูลจาก localStorage:', error)
+          }
+        }
+      }
+    },
+    clearLocalStorageData() {
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('rov-skin-data')
+      }
     }
   }
 })
