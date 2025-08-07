@@ -831,10 +831,14 @@ export default Vue.extend({
         const storedData = localStorage.getItem(this.keyLocalStorage)
         if (storedData) {
           const parsedData = JSON.parse(storedData)
-          this.data = [...[], ...parsedData.data]
+          this.data = [[], ...parsedData.data] as IRovSkinOnTable[]
           this.formData = {
             ...this.formData,
             ...parsedData.form
+          } as {
+            column: number;
+            row: number;
+            width: number;
           }
           this.form = {
             ...this.form,
@@ -842,6 +846,11 @@ export default Vue.extend({
             row: parsedData.form.row,
             width: parsedData.form.width,
             isEnableItem: parsedData.form.isEnableItem
+          } as {
+            column: number;
+            row: number;
+            width: number;
+            isEnableItem: boolean;
           }
           this.setDataForTable()
           this.selectSkinRovOnTable = this.data[0]
