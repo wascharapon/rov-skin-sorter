@@ -567,7 +567,6 @@ export default Vue.extend({
     }
   },
   created() {
-    this.loadDataFromLocalStorage()
     this.setDataForTable()
     if (process.client && typeof window !== 'undefined') {
       const stored = localStorage.getItem('rov-header-visible')
@@ -575,6 +574,9 @@ export default Vue.extend({
         this.isHeaderVisible = stored === 'true'
       }
     }
+    setTimeout(() => {
+      this.loadDataFromLocalStorage()
+    }, 1000)
   },
   mounted() {
     window.addEventListener('keydown', this.handleKeyDown)
