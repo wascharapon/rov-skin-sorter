@@ -831,12 +831,7 @@ export default Vue.extend({
         const storedData = localStorage.getItem(this.keyLocalStorage)
         if (storedData) {
           const parsedData = JSON.parse(storedData)
-          parsedData.data.forEach((item: IRovSkinOnTable) => {
-            this.data[item.key - 1] = {
-              ...item,
-              image: item.image || this.defaultSkinImage
-            } as IRovSkinOnTable
-          })
+          this.data = [...[], ...parsedData.data]
           this.formData = {
             ...this.formData,
             ...parsedData.form
