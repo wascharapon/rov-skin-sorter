@@ -843,6 +843,9 @@ export default Vue.extend({
           }
           this.form = {
             ...this.form,
+            column: parsedData.form.column,
+            row: parsedData.form.row,
+            width: parsedData.form.width,
             isEnableItem: parsedData.form.isEnableItem
           }
           this.setDataForTable()
