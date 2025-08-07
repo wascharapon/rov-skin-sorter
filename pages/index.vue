@@ -139,11 +139,11 @@
                 <div class="grid-input-group">
                   <b-form-group
                     label-align="center"
-                    :label="`ความกว้าง (${form.width}%)`"
+                    :label="`ความกว้าง (${formData.width}%)`"
                     class="modern-form-group ipad-form-group"
                   >
                     <b-form-input
-                      v-model="form.width"
+                      v-model="formData.width"
                       type="range"
                       min="30"
                       max="100"
@@ -398,12 +398,15 @@ export default Vue.extend({
       selectSkinForSwap: {} as IRovSkinOnTable,
       isDragging: false,
       isSaving: false,
+      keyLocalStorage: 'rov-skin-sorter',
       formData: {
         column: 15,
-        row: 5
+        row: 5,
+        width: 100
       } as {
         column: number;
         row: number;
+        width: number;
       },
       form: {
         column: 15,
@@ -498,7 +501,7 @@ export default Vue.extend({
       return 'rov-skin-table-draggable'
     },
     widthTableSkinRov() {
-      if (typeof window === 'undefined') {
+      if (!process.client || typeof window === 'undefined') {
         return this.form.width * 1.5
       }
       // Get container width (accounting for padding and margins)
@@ -512,7 +515,8 @@ export default Vue.extend({
         availableWidth = containerWidth - paddingLeft - paddingRight
       }
       // Calculate maximum width per skin item
-      const maxWidthPerItem = Math.floor(availableWidth / this.form.column) - 10 // 0px margin
+      const maxWidthPerItem =
+        Math.floor(availableWidth / this.form.column) - 3.33 // 5px margin
       // Calculate desired width based on form percentage
       const desiredWidth =
         (this.form.width * availableWidth) / 100 / this.form.column
@@ -521,11 +525,12 @@ export default Vue.extend({
     }
   },
   watch: {
-    'form.column'() {
-      this.setDataForTable()
-    },
-    'form.row'() {
-      this.setDataForTable()
+    form: {
+      handler() {
+        this.setDataForTable()
+        this.saveDataToLocalStorage()
+      },
+      deep: true
     },
     selectSkinRov(val: IRovSkin) {
       if (val) {
@@ -546,39 +551,29 @@ export default Vue.extend({
         if (this.selectSkinRovOnTable.key < this.form.row * this.form.column) {
           this.selectSkinRovOnTable = {
             ...this.selectSkinRovOnTable,
-            ...{
-              key: this.selectSkinRovOnTable.key + 1,
-              id: undefined,
-              name: undefined,
-              base: undefined,
-              image: this.defaultSkinImage,
-              position: undefined
-            }
+            ...this.data[this.selectSkinRovOnTable.key]
           } as IRovSkinOnTable
         }
+        this.saveDataToLocalStorage()
       }
     },
     data: {
       handler() {
-        // อัพเดท key ให้ตรงกับ index ใหม่หลังจากการลาก
         this.data.forEach((item, index) => {
           item.key = index + 1
         })
-        // บันทึกข้อมูลลง localStorage
-        this.saveDataToLocalStorage()
       },
       deep: true
     }
   },
   created() {
+    this.loadDataFromLocalStorage()
     this.setDataForTable()
-    if (typeof window !== 'undefined') {
+    if (process.client) {
       const stored = localStorage.getItem('rov-header-visible')
       if (stored !== null) {
         this.isHeaderVisible = stored === 'true'
       }
-      // โหลดข้อมูลจาก localStorage
-      this.loadDataFromLocalStorage()
     }
   },
   mounted() {
@@ -609,7 +604,6 @@ export default Vue.extend({
     },
     onDragEnd() {
       this.isDragging = false
-      // อัพเดท key หลังจากการลากเสร็จ
       this.data.forEach((item, index) => {
         item.key = index + 1
       })
@@ -656,8 +650,6 @@ export default Vue.extend({
         const element = document.getElementById('table-skin')
         if (element) {
           this.isSaving = true
-
-          // Transform image URLs to local require format for html2canvas
           const originalData = [...this.data]
           this.data = this.data.map((item): void => {
             if (item.image && item.image.includes('?raw=true')) {
@@ -672,7 +664,6 @@ export default Vue.extend({
             return item
           })
 
-          // Wait for DOM update
           await this.$nextTick()
 
           const canvas = await html2canvas(element, {
@@ -686,7 +677,6 @@ export default Vue.extend({
           link.download = filename
           link.click()
 
-          // Restore original data
           this.data = originalData
           this.isSaving = false
         }
@@ -806,11 +796,12 @@ export default Vue.extend({
     applyGridDimensions() {
       this.form.column = this.formData.column
       this.form.row = this.formData.row
+      this.form.width = this.formData.width
       this.setDataForTable()
     },
     toggleHeaderVisibility() {
       this.isHeaderVisible = !this.isHeaderVisible
-      if (typeof window !== 'undefined') {
+      if (process.client) {
         localStorage.setItem(
           'rov-header-visible',
           this.isHeaderVisible.toString()
@@ -822,53 +813,32 @@ export default Vue.extend({
       this.setDataForTable()
     },
     saveDataToLocalStorage() {
-      if (typeof window !== 'undefined') {
-        const dataToSave = {
-          data: this.data,
-          form: this.form,
-          timestamp: new Date().toISOString()
-        }
-        localStorage.setItem('rov-skin-data', JSON.stringify(dataToSave))
+      if (process.client) {
+        localStorage.setItem(
+          this.keyLocalStorage,
+          JSON.stringify({
+            data: this.data,
+            form: this.form,
+            timestamp: new Date().toISOString()
+          })
+        )
       }
     },
     loadDataFromLocalStorage() {
-      if (typeof window !== 'undefined') {
-        const stored = localStorage.getItem('rov-skin-data')
-        if (stored) {
-          try {
-            const parsedData = JSON.parse(stored)
-            if (parsedData.data && Array.isArray(parsedData.data)) {
-              this.data = parsedData.data
-              // อัพเดต position สำหรับข้อมูลที่โหลดมา
-              this.data.forEach((item) => {
-                rov.find((skin) => {
-                  if (
-                    skin.id === item.id ||
-                    skin.name === item.name ||
-                    skin.image === item.image
-                  ) {
-                    item.position = skin.position
-                    return true
-                  }
-                  return false
-                })
-              })
-              if (parsedData.form) {
-                this.form = { ...this.form, ...parsedData.form }
-                this.formData.column = this.form.column
-                this.formData.row = this.form.row
-              }
-              this.selectSkinRovOnTable = this.data[0] || {} as IRovSkinOnTable
-            }
-          } catch (error) {
-            console.error('เกิดข้อผิดพลาดในการโหลดข้อมูลจาก localStorage:', error)
+      if (process.client) {
+        const storedData = localStorage.getItem(this.keyLocalStorage)
+        if (storedData) {
+          const parsedData = JSON.parse(storedData)
+          this.data = parsedData.data || []
+          this.form = parsedData.form
+          this.formData = {
+            column: this.form.column,
+            row: this.form.row,
+            width: this.form.width
           }
+          this.setDataForTable()
+          this.selectSkinRovOnTable = this.data[0]
         }
-      }
-    },
-    clearLocalStorageData() {
-      if (typeof window !== 'undefined') {
-        localStorage.removeItem('rov-skin-data')
       }
     }
   }
