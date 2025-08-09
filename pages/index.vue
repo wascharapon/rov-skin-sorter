@@ -38,7 +38,6 @@
     <div class="modern-bg py-2" style="min-height: 100vh">
       <div class="container-fluid py-3 text-white modern-container">
         <div id="table-skin-header">
-          <!-- Compact Toggle Section -->
           <div
             class="compact-header-section"
             :class="{ 'mb-3': isHeaderVisible }"
@@ -53,7 +52,7 @@
                 :icon="isHeaderVisible ? 'chevron-up' : 'chevron-down'"
                 class="mr-1"
               />
-              {{ isHeaderVisible ? "ซ่อนแผง" : "แสดงแผง" }}
+              {{ isHeaderVisible ? "แผงควบคุม" : "แสดงแผงควบคุม" }}
             </b-button>
 
             <b-button
@@ -353,10 +352,7 @@
                   class="img-fluid"
                   :style="{ height: `${widthTableSkinRov * 1.5 - 17}px` }"
                 >
-                <div
-                  v-if="item.base && !isSaving"
-                  class="skin-future-remove text-white"
-                >
+                <div class="skin-future-remove text-white">
                   <b-icon
                     :style="{ width: '20px', height: '20px' }"
                     icon="x"
@@ -366,10 +362,17 @@
                 </div>
                 <div v-if="item.base && form.isEnableItem" class="skin-future">
                   <div class="d-flex justify-content-center align-items-center">
-                    <span class="text-white">
-                      <!-- {{ item.base }}
-                      <br> -->
-                      {{ item.position }}
+                    <span class="text-white" style="font-size: 20px;">
+                      <b-badge variant="primary">
+                        {{ item.base }}
+                      </b-badge>
+                      <br>
+                      <b-badge
+                        :variant="item.position ? 'warning' : 'danger'"
+                        class="ml-1"
+                      >
+                        {{ item.position? item.position : 'ไม่ระบุ' }}
+                      </b-badge>
                     </span>
                   </div>
                 </div>
@@ -482,7 +485,7 @@ export default Vue.extend({
       return data as IRovSkin[]
     },
     defaultSkinImage() {
-      return require('~/assets/images/skin/default.jpeg')
+      return 'https://github.com/wascharapon/rov-skin-sorter/blob/main/assets/images/skin/default.jpeg?raw=true'
     },
     defaultSkinItemImage() {
       return require('~/assets/images/item/default.png')
@@ -560,7 +563,7 @@ export default Vue.extend({
     data: {
       handler() {
         this.data.forEach((item, index) => {
-          item.key = index + 1
+          item.key = index
         })
       },
       deep: true
@@ -763,6 +766,7 @@ export default Vue.extend({
         }
       }
       reader.readAsText(file)
+      this.saveDataToLocalStorage()
     },
     onSelectSkinRovOnTable(item: IRovSkinOnTable) {
       if (!this.isDragging) {
@@ -787,7 +791,11 @@ export default Vue.extend({
       this.selectSkinForSwap = {} as IRovSkinOnTable
     },
     sortDataFollowPosition() {
-      this.data.sort((a, b) => (a.position ?? 99) - (b.position ?? 99))
+      this.data.sort(
+        (a, b) =>
+          (a.position ? a.position : a.name ? 98 : 99) -
+          (b.position ? b.position : b.name ? 98 : 99)
+      )
     },
     resetDataSkinTable() {
       this.data = []
@@ -831,9 +839,18 @@ export default Vue.extend({
         const storedData = localStorage.getItem(this.keyLocalStorage)
         if (storedData) {
           const parsedData = JSON.parse(storedData)
-          this.data = [[], ...parsedData.data] as IRovSkinOnTable[]
+          // this.data = [[], ...parsedData.data] as IRovSkinOnTable[]
+          const tempData = [] as IRovSkinOnTable[]
+          parsedData.data.forEach((item: IRovSkinOnTable, index: number) => {
+            if (item.name && item.image) {
+              tempData.push({
+                ...item,
+                key: index // Ensure keys are sequential starting from 0
+              })
+            }
+          })
+          this.data = [...tempData] as IRovSkinOnTable[]
           this.formData = {
-            ...this.formData,
             ...parsedData.form
           } as {
             column: number;
@@ -852,10 +869,9 @@ export default Vue.extend({
             width: number;
             isEnableItem: boolean;
           }
-          this.setDataForTable()
-          this.selectSkinRovOnTable = this.data[0]
         }
       }
+      this.saveDataToLocalStorage()
     }
   }
 })
