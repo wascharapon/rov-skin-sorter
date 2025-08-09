@@ -43,7 +43,7 @@
             :class="{ 'mb-3': isHeaderVisible }"
           >
             <b-button
-              class="compact-toggle-btn mb-2 mr-2"
+              class="compact-toggle-btn modern-compact-btn mb-2 mr-2"
               variant="outline-light"
               size="sm"
               @click="toggleHeaderVisibility"
@@ -56,7 +56,7 @@
             </b-button>
 
             <b-button
-              class="compact-reset-btn mb-2 mr-2"
+              class="compact-reset-btn modern-compact-btn modern-btn-warning mb-2 mr-2"
               variant="warning"
               size="sm"
               :disabled="isSaving"
@@ -67,7 +67,8 @@
             </b-button>
 
             <b-button
-              class="compact-toggle-item mb-2 mr-2"
+              class="compact-toggle-item modern-compact-btn mb-2 mr-2"
+              :class="form.isEnableItem ? 'modern-btn-success' : 'modern-btn-secondary'"
               :variant="form.isEnableItem ? 'success' : 'outline-secondary'"
               size="sm"
               @click="form.isEnableItem = !form.isEnableItem"
@@ -80,7 +81,7 @@
             </b-button>
 
             <b-button
-              class="compact-facebook-btn mb-2"
+              class="compact-facebook-btn modern-compact-btn modern-btn-facebook mb-2"
               size="sm"
               :disabled="isSaving"
               @click="
@@ -1344,6 +1345,101 @@ export default Vue.extend({
   font-size: 15px;
   border-radius: 12px;
   padding: 12px 16px;
+}
+
+/* Enhanced Modern Compact Button Styles */
+.modern-compact-btn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px !important;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(8px);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.modern-compact-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.6s;
+  z-index: 1;
+}
+
+.modern-compact-btn:hover::before {
+  left: 100%;
+}
+
+.modern-compact-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.modern-compact-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modern-btn-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #ff8c00 100%) !important;
+  color: #fff !important;
+}
+
+.modern-btn-warning:hover {
+  background: linear-gradient(135deg, #ffb300 0%, #ff7300 100%) !important;
+}
+
+.modern-btn-success {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+  color: #fff !important;
+}
+
+.modern-btn-success:hover {
+  background: linear-gradient(135deg, #218838 0%, #1a9c7d 100%) !important;
+}
+
+.modern-btn-secondary {
+  background: linear-gradient(135deg, #6c757d 0%, #545b62 100%) !important;
+  color: #fff !important;
+}
+
+.modern-btn-secondary:hover {
+  background: linear-gradient(135deg, #5a6268 0%, #4e555b 100%) !important;
+}
+
+.modern-btn-facebook {
+  background: linear-gradient(135deg, #4267B2 0%, #3b5998 100%) !important;
+  color: #fff !important;
+}
+
+.modern-btn-facebook:hover {
+  background: linear-gradient(135deg, #365899 0%, #2d4373 100%) !important;
+}
+
+.modern-compact-btn .b-icon {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* Compact Header Section Enhancement */
+.compact-header-section {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Responsive Design for iPad */
