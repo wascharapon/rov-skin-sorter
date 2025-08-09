@@ -39,11 +39,11 @@
       <div class="container-fluid py-3 text-white modern-container">
         <div id="table-skin-header">
           <div
-            class="compact-header-section"
+            class="compact-header-section d-flex flex-wrap"
             :class="{ 'mb-3': isHeaderVisible }"
           >
             <b-button
-              class="compact-toggle-btn"
+              class="compact-toggle-btn mb-2 mr-2"
               variant="outline-light"
               size="sm"
               @click="toggleHeaderVisibility"
@@ -56,7 +56,7 @@
             </b-button>
 
             <b-button
-              class="compact-reset-btn ml-2"
+              class="compact-reset-btn mb-2 mr-2"
               variant="warning"
               size="sm"
               :disabled="isSaving"
@@ -67,7 +67,7 @@
             </b-button>
 
             <b-button
-              class="compact-toggle-item ml-2"
+              class="compact-toggle-item mb-2 mr-2"
               :variant="form.isEnableItem ? 'success' : 'outline-secondary'"
               size="sm"
               @click="form.isEnableItem = !form.isEnableItem"
@@ -80,7 +80,7 @@
             </b-button>
 
             <b-button
-              class="compact-facebook-btn ml-2"
+              class="compact-facebook-btn mb-2"
               size="sm"
               :disabled="isSaving"
               @click="
@@ -352,17 +352,20 @@
                   class="img-fluid"
                   :style="{ height: `${widthTableSkinRov * 1.5 - 17}px` }"
                 >
-                <div class="skin-future-remove text-white">
+                <div v-if="!isSaving" class="skin-future-remove text-white">
                   <b-icon
-                    :style="{ width: '20px', height: '20px' }"
+                    :style="{ width: '150%', height: '150%' }"
                     icon="x"
                     class="btn-close"
                     @click.stop="onRemoveSkinRov(item)"
                   />
                 </div>
-                <div v-if="item.base && form.isEnableItem" class="skin-future">
+                <div
+                  v-if="item.base && form.isEnableItem && !isSaving"
+                  class="skin-future"
+                >
                   <div class="d-flex justify-content-center align-items-center">
-                    <span class="text-white" style="font-size: 20px;">
+                    <span class="text-white" style="font-size: 150%">
                       <b-badge variant="primary">
                         {{ item.base }}
                       </b-badge>
@@ -371,7 +374,7 @@
                         :variant="item.position ? 'warning' : 'danger'"
                         class="ml-1"
                       >
-                        {{ item.position? item.position : 'ไม่ระบุ' }}
+                        {{ item.position ? item.position : "ไม่ระบุ" }}
                       </b-badge>
                     </span>
                   </div>
@@ -651,7 +654,6 @@ export default Vue.extend({
     },
     async saveTableAsImage() {
       if (!this.isSaving) {
-        this.isEnableItem = false
         const element = document.getElementById('table-skin')
         if (element) {
           this.isSaving = true
@@ -952,7 +954,7 @@ export default Vue.extend({
 
 .skin-future-remove {
   position: absolute;
-  top: -7px;
+  top: -2px;
   left: -2px;
 }
 
