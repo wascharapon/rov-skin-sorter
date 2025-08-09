@@ -567,7 +567,7 @@ export default Vue.extend({
     data: {
       handler() {
         this.data.forEach((item, index) => {
-          item.key = index
+          item.key = index + 1
         })
       },
       deep: true
