@@ -228,7 +228,7 @@
                         ? 'ว่าง'
                         : selectSkinRovOnTable?.name
                     }`"
-                    class="modern-form-group"
+                    class="modern-form-group text-nowrap"
                   >
                     <Multiselect
                       ref="selectSkinRov"
