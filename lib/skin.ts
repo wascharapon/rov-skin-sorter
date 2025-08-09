@@ -6474,5 +6474,18 @@ export const rov: IRovSkin[] = [
     base: 'Mganga',
     image: 'mganga-redblaze-vassal.png',
     position: 8
+  },
+  {
+    id: 991,
+    name: 'Hayate Kind the Phantom Thief',
+    base: 'Hayate',
+    image: 'hayate-kind-the-phantom-thief.png',
+    position: 2
+  },
+  {
+    id: 992,
+    name: 'Amily High School Detective',
+    base: 'Amily',
+    image: 'amily-high-school-detective.png'
   }
 ]
