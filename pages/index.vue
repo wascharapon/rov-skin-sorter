@@ -68,7 +68,11 @@
 
             <b-button
               class="compact-toggle-item modern-compact-btn mb-2 mr-2"
-              :class="form.isEnableItem ? 'modern-btn-success' : 'modern-btn-secondary'"
+              :class="
+                form.isEnableItem
+                  ? 'modern-btn-success'
+                  : 'modern-btn-secondary'
+              "
               :variant="form.isEnableItem ? 'success' : 'outline-secondary'"
               size="sm"
               @click="form.isEnableItem = !form.isEnableItem"
@@ -687,6 +691,10 @@ export default Vue.extend({
 
           this.data = originalData
           this.isSaving = false
+          this.saveDataToLocalStorage()
+          setTimeout(() => {
+            window.location.reload() // Reload to reset the state
+          }, 1000)
         }
       }
     },
