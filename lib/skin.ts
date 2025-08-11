@@ -6487,5 +6487,19 @@ export const rov: IRovSkin[] = [
     name: 'Amily High School Detective',
     base: 'Amily',
     image: 'amily-high-school-detective.png'
+  },
+  {
+    id: 993,
+    name: 'Valhein Kagutsuchi Evo 3',
+    base: 'Valhein',
+    image: 'valhein-kagutsuchi-evo-3.png',
+    position: 1
+  },
+  {
+    id: 994,
+    name: 'Valhein Kagutsuchi Evo 2',
+    base: 'Valhein',
+    image: 'valhein-kagutsuchi-evo-2.png',
+    position: 1
   }
 ]
