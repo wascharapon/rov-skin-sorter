@@ -13,7 +13,31 @@ export default {
         content: 'ROV, Arena of Valor, Skin Sorter, สกิน, จัดเรียง, เกมส์, ตัวละคร, กริด, Thai Gaming'
       },
       { name: 'author', content: 'ROV Skin Sorter Team' },
-      { name: 'theme-color', content: '#343a40' }
+      { name: 'theme-color', content: '#343a40' },
+      { property: 'og:title', content: 'ROV Skin Sorter - เครื่องมือจัดเรียงสกินเกมส์ RoV' },
+      {
+        property: 'og:description',
+        content: 'เครื่องมือจัดเรียงและจัดระเบียบสกินตัวละครในเกม Arena of Valor (RoV) สร้างกริดที่ปรับแต่งได้ ลากวางสลับตำแหน่ง นำเข้าส่งออก JSON และสร้างภาพ PNG'
+      },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://rov-skin-sorter.netlify.app' },
+      { property: 'og:image', content: '/og-image.png' },
+      { property: 'og:image:alt', content: 'ROV Skin Sorter - Grid organizer for Arena of Valor character skins' },
+      { property: 'og:image:type', content: 'image/png' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:site_name', content: 'ROV Skin Sorter' },
+      { property: 'og:locale', content: 'th_TH' },
+      { property: 'og:locale:alternate', content: 'en_US' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:site', content: '@rovskinsorter' },
+      { name: 'twitter:title', content: 'ROV Skin Sorter - เครื่องมือจัดเรียงสกินเกมส์ RoV' },
+      {
+        name: 'twitter:description',
+        content: 'เครื่องมือจัดเรียงและจัดระเบียบสกินตัวละครในเกม Arena of Valor (RoV) สร้างกริดที่ปรับแต่งได้ ลากวางสลับตำแหน่ง นำเข้าส่งออก JSON และสร้างภาพ PNG'
+      },
+      { name: 'twitter:image', content: '/og-image.png' },
+      { name: 'twitter:image:alt', content: 'ROV Skin Sorter - Grid organizer for Arena of Valor character skins' }
     ],
     link: [
       {
