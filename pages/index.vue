@@ -807,9 +807,10 @@ export default Vue.extend({
     },
     resetDataSkinTable() {
       this.data = []
-      this.setDataForTable()
-      this.selectSkinRovOnTable = this.data[0]
-      this.selectSkinForSwap = {} as IRovSkinOnTable
+      this.saveDataToLocalStorage()
+      setTimeout(() => {
+        window.location.reload()
+      }, 100)
     },
     applyGridDimensions() {
       this.form.column = this.formData.column
