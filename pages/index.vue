@@ -300,7 +300,7 @@
                 @click="sortDataFollowPosition"
               >
                 <b-icon icon="sort-numeric-down" class="mr-2" />
-                Sort
+                เรียง
               </b-button>
             </b-col>
             <b-col cols="3" class="d-flex align-items-center">
@@ -311,7 +311,7 @@
                 @click="saveTableAsImage"
               >
                 <b-icon icon="image" class="mr-2" />
-                {{ isSaving ? "save..." : "save" }}
+                {{ isSaving ? "บันทึก..." : "บันทึก" }}
               </b-button>
             </b-col>
           </b-row>
