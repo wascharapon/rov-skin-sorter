@@ -654,33 +654,33 @@ export const rov: IRovSkin[] = [
     id: 100,
     name: 'azzenka christmas',
     base: 'Azzenka',
-    image: 'azzen\'ka-christmas.png',
+    image: 'azzen’ka-christmas.png',
     position: 8
   },
   {
     id: 101,
     name: 'azzenka djinn',
     base: 'Azzenka',
-    image: 'azzen\'ka-djinn.png'
+    image: 'azzen’ka-djinn.png'
   },
   {
     id: 102,
     name: 'azzenka sand burial',
     base: 'Azzenka',
-    image: 'azzen\'ka-sand-burial.png'
+    image: 'azzen’ka-sand-burial.png'
   },
   {
     id: 103,
     name: 'azzenka sweet spirit',
     base: 'Azzenka',
-    image: 'azzen\'ka-sweet-spirit.png',
+    image: 'azzen’ka-sweet-spirit.png',
     position: 10
   },
   {
     id: 104,
     name: 'azzenka traveling bard',
     base: 'Azzenka',
-    image: 'azzen\'ka-traveling-bard.png',
+    image: 'azzen’ka-traveling-bard.png',
     position: 8
   },
   {
@@ -2295,20 +2295,20 @@ export const rov: IRovSkin[] = [
     id: 349,
     name: 'kilgroth carapace',
     base: 'Kil’Groth',
-    image: 'kilgroth-carapace.png'
+    image: 'kil’groth-carapace.png'
   },
   {
     id: 350,
     name: 'kilgroth christmas express',
     base: 'Kil’Groth',
-    image: 'kilgroth-christmas-express.png',
+    image: 'kil’groth-christmas-express.png',
     position: 8
   },
   {
     id: 351,
     name: 'kilgroth oathkeeper',
     base: 'Kil’Groth',
-    image: 'kilgroth-oathkeeper.png'
+    image: 'kil’groth-oathkeeper.png'
   }, {
     id: 352,
     name: 'kriknak ddos',
@@ -4369,119 +4369,119 @@ export const rov: IRovSkin[] = [
     id: 667,
     name: 'telannas cupids messenger',
     base: 'telannas',
-    image: 'tel\'annas-cupid\'s-messenger.png',
+    image: 'tel’annascupid\'s-messenger.png',
     position: 9.1
   },
   {
     id: 668,
     name: 'telannas dimension breaker',
     base: 'telannas',
-    image: 'tel\'annas-dimension-breaker.png',
+    image: 'tel’annasdimension-breaker.png',
     position: 1
   },
   {
     id: 669,
     name: 'telannas f.e.e.x1 silverwing',
     base: 'telannas',
-    image: 'tel\'annas-f-e-e-x1-silverwing.png',
+    image: 'tel’annasf-e-e-x1-silverwing.png',
     position: 1.1
   },
   {
     id: 670,
     name: 'telannas flora golden cassia',
     base: 'telannas',
-    image: 'tel\'annas-flora-golden-cassia.png',
+    image: 'tel’annasflora-golden-cassia.png',
     position: 13.3
   },
   {
     id: 671,
     name: 'telannas forest tale',
     base: 'telannas',
-    image: 'tel\'annas-forest-tale.png'
+    image: 'tel’annasforest-tale.png'
   },
   {
     id: 672,
     name: 'telannas fox shrine maiden',
     base: 'telannas',
-    image: 'tel\'annas-fox-shrine-maiden.png',
+    image: 'tel’annasfox-shrine-maiden.png',
     position: 5
   },
   {
     id: 673,
     name: 'telannas herald of light',
     base: 'telannas',
-    image: 'tel\'annas-herald-of-light.png',
+    image: 'tel’annasherald-of-light.png',
     position: 5
   },
   {
     id: 674,
     name: 'telannas inceptive chords',
     base: 'telannas',
-    image: 'tel\'annas-inceptive-chords.png',
+    image: 'tel’annasinceptive-chords.png',
     position: 2
   },
   {
     id: 675,
     name: 'telannas jujutsu sorcerer',
     base: 'telannas',
-    image: 'tel\'annas-jujutsu-sorcerer.png',
+    image: 'tel’annasjujutsu-sorcerer.png',
     position: 16.1
   },
   {
     id: 676,
     name: 'telannas kingdom guardian swallow',
     base: 'telannas',
-    image: 'tel\'annas-kingdom-guardian-swallow.png',
+    image: 'tel’annaskingdom-guardian-swallow.png',
     position: 8
   },
   {
     id: 677,
     name: 'telannas love sworn',
     base: 'telannas',
-    image: 'tel\'annas-love-sworn.png'
+    image: 'tel’annaslove-sworn.png'
   },
   {
     id: 678,
     name: 'telannas mystic outrider',
     base: 'telannas',
-    image: 'tel\'annas-mystic-outrider.png',
+    image: 'tel’annasmystic-outrider.png',
     position: 9.1
   },
   {
     id: 679,
     name: 'telannas navy cadet',
     base: 'telannas',
-    image: 'tel\'annas-navy-cadet.png'
+    image: 'tel’annasnavy-cadet.png'
   },
   {
     id: 680,
     name: 'telannas rose party',
     base: 'telannas',
-    image: 'tel\'annas-rose-party.png'
+    image: 'tel’annasrose-party.png'
   },
   {
     id: 681,
     name: 'telannas true spirit',
     base: 'telannas',
-    image: 'tel\'annas-true-spirit.png'
+    image: 'tel’annastrue-spirit.png'
   },
   {
     id: 682,
     name: 'telannas twilight sentry',
     base: 'telannas',
-    image: 'tel\'annas-twilight-sentry.png'
+    image: 'tel’annastwilight-sentry.png'
   },
   {
     id: 683,
     name: 'telannas woodland',
     base: 'telannas',
-    image: 'tel\'annas-woodland.png'
+    image: 'tel’annaswoodland.png'
   },
   {
     id: 684,
     name: 'telannas wreathing mist',
     base: 'telannas',
-    image: 'tel\'annas-wreathing-mist.png',
+    image: 'tel’annaswreathing-mist.png',
     position: 1
   },
   {
@@ -6089,7 +6089,7 @@ export const rov: IRovSkin[] = [
     id: 930,
     name: "Kil'groth Auto Archon Kil'groth",
     base: "Kil'groth",
-    image: 'kilgroth-auto-archon-kil\'groth.png',
+    image: 'kil’groth-auto-archon-kil\'groth.png',
     position: 17.21
   },
   {
