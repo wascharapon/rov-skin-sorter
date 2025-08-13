@@ -654,33 +654,33 @@ export const rov: IRovSkin[] = [
     id: 100,
     name: 'azzenka christmas',
     base: 'Azzenka',
-    image: 'azzenka-christmas.png',
+    image: 'azzen\'ka-christmas.png',
     position: 8
   },
   {
     id: 101,
     name: 'azzenka djinn',
     base: 'Azzenka',
-    image: 'azzenka-djinn.png'
+    image: 'azzen\'ka-djinn.png'
   },
   {
     id: 102,
     name: 'azzenka sand burial',
     base: 'Azzenka',
-    image: 'azzenka-sand-burial.png'
+    image: 'azzen\'ka-sand-burial.png'
   },
   {
     id: 103,
     name: 'azzenka sweet spirit',
     base: 'Azzenka',
-    image: 'azzenka-sweet-spirit.png',
+    image: 'azzen\'ka-sweet-spirit.png',
     position: 10
   },
   {
     id: 104,
     name: 'azzenka traveling bard',
     base: 'Azzenka',
-    image: 'azzenka-traveling-bard.png',
+    image: 'azzen\'ka-traveling-bard.png',
     position: 8
   },
   {
