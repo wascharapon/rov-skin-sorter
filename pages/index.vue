@@ -198,7 +198,7 @@
                     :disabled="isSaving"
                     @click="exportDataToFile"
                   >
-                    <b-icon icon="file-earmark-arrow-down" class="mr-2 d-none d-sm-block" />
+                    <b-icon icon="file-earmark-arrow-down" class="mr-2" />
                     ส่งออกเป็น JSON
                   </b-button>
                   <b-button
@@ -207,7 +207,7 @@
                     :disabled="isSaving"
                     @click="saveTableAsImage"
                   >
-                    <b-icon icon="image" class="mr-2 d-none d-sm-block" />
+                    <b-icon icon="image" class="mr-2" />
                     บันทึกรูปภาพ
                   </b-button>
                 </div>
@@ -295,22 +295,22 @@
             </b-col>
             <b-col cols="3" class="d-flex align-items-center">
               <b-button
-                class="w-100 mt-4 text-nowrap modern-btn modern-btn-warning"
+                class="w-100 mt-4 modern-btn modern-btn-warning"
                 variant="warning"
                 @click="sortDataFollowPosition"
               >
-                <b-icon icon="sort-numeric-down" class="mr-2 d-none d-sm-block" />
+                <b-icon icon="sort-numeric-down" class="mr-2" />
                 เรียง
               </b-button>
             </b-col>
             <b-col cols="3" class="d-flex align-items-center">
               <b-button
-                class="w-100 mt-4 text-nowrap modern-btn modern-btn-success"
+                class="w-100 mt-4 modern-btn modern-btn-success"
                 variant="success"
                 :disabled="isSaving"
                 @click="saveTableAsImage"
               >
-                <b-icon icon="image" class="mr-2 d-none d-sm-block" />
+                <b-icon icon="image" class="mr-2" />
                 {{ isSaving ? "บันทึก..." : "บันทึก" }}
               </b-button>
             </b-col>
