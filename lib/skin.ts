@@ -3250,7 +3250,8 @@ export const rov: IRovSkin[] = [
     id: 495,
     name: 'nakroth stellar troupe',
     base: 'Nakroth',
-    image: 'nakroth-stellar-troupe.png'
+    image: 'nakroth-stellar-troupe.png',
+    position: 1.2
   },
   {
     id: 496,
