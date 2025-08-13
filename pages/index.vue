@@ -544,7 +544,9 @@ export default Vue.extend({
           ...val
         }
         // Optimize array update by finding index once instead of forEach
-        const index = this.data.findIndex(item => item.key === this.selectSkinRovOnTable.key)
+        const index = this.data.findIndex(
+          item => item.key === this.selectSkinRovOnTable.key
+        )
         if (index !== -1) {
           this.data[index].id = this.selectSkinRovOnTable.id
           this.data[index].name = this.selectSkinRovOnTable.name
@@ -596,14 +598,16 @@ export default Vue.extend({
   methods: {
     getCachedRovData() {
       if (!this.$cachedRov) {
-        this.$cachedRov = Object.freeze(rov.map((item) => {
-          return {
-            ...item,
-            image:
-              `${this.repoGitHubAssetsImagesSkin}${item.image}?raw=true` ||
-              this.defaultSkinItemImage
-          } as IRovSkin
-        }))
+        this.$cachedRov = Object.freeze(
+          rov.map((item) => {
+            return {
+              ...item,
+              image:
+                `${this.repoGitHubAssetsImagesSkin}${item.image}?raw=true` ||
+                this.defaultSkinItemImage
+            } as IRovSkin
+          })
+        )
       }
       return this.$cachedRov as IRovSkin[]
     },
@@ -744,8 +748,12 @@ export default Vue.extend({
       ) {
         const temp = { ...this.selectSkinRovOnTable }
         // Optimize swapping by finding indices once instead of forEach twice
-        const selectedIndex = this.data.findIndex(item => item.key === this.selectSkinRovOnTable.key)
-        const swapIndex = this.data.findIndex(item => item.key === this.selectSkinForSwap.key)
+        const selectedIndex = this.data.findIndex(
+          item => item.key === this.selectSkinRovOnTable.key
+        )
+        const swapIndex = this.data.findIndex(
+          item => item.key === this.selectSkinForSwap.key
+        )
 
         if (selectedIndex !== -1) {
           this.data[selectedIndex].id = this.selectSkinForSwap.id
@@ -797,7 +805,10 @@ export default Vue.extend({
             })
 
             this.data.forEach((item) => {
-              const skin = skinMap.get(item.id) || skinMap.get(item.name) || skinMap.get(item.image)
+              const skin =
+                skinMap.get(item.id) ||
+                skinMap.get(item.name) ||
+                skinMap.get(item.image)
               if (skin) {
                 item.position = skin.position
               }
@@ -1619,7 +1630,6 @@ export default Vue.extend({
   box-shadow: 0 4px 12px rgba(59, 89, 152, 0.4);
 }
 
-/* Fit Column Image */
 .fit-col-image {
   width: 100%;
   max-height: 8.5vh;
@@ -1627,5 +1637,11 @@ export default Vue.extend({
   border: 2px solid rgba(255, 255, 255, 0.2);
   object-fit: cover;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+</style>
+
+<style>
+legend.bv-no-focus-ring.col-form-label {
+  white-space: nowrap !important;
 }
 </style>
