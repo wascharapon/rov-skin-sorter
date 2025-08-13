@@ -4369,119 +4369,119 @@ export const rov: IRovSkin[] = [
     id: 667,
     name: 'telannas cupids messenger',
     base: 'telannas',
-    image: 'tel’annascupid\'s-messenger.png',
+    image: 'tel’annas-cupid\'s-messenger.png',
     position: 9.1
   },
   {
     id: 668,
     name: 'telannas dimension breaker',
     base: 'telannas',
-    image: 'tel’annasdimension-breaker.png',
+    image: 'tel’annas-dimension-breaker.png',
     position: 1
   },
   {
     id: 669,
     name: 'telannas f.e.e.x1 silverwing',
     base: 'telannas',
-    image: 'tel’annasf-e-e-x1-silverwing.png',
+    image: 'tel’annas-f-e-e-x1-silverwing.png',
     position: 1.1
   },
   {
     id: 670,
     name: 'telannas flora golden cassia',
     base: 'telannas',
-    image: 'tel’annasflora-golden-cassia.png',
+    image: 'tel’annas-flora-golden-cassia.png',
     position: 13.3
   },
   {
     id: 671,
     name: 'telannas forest tale',
     base: 'telannas',
-    image: 'tel’annasforest-tale.png'
+    image: 'tel’annas-forest-tale.png'
   },
   {
     id: 672,
     name: 'telannas fox shrine maiden',
     base: 'telannas',
-    image: 'tel’annasfox-shrine-maiden.png',
+    image: 'tel’annas-fox-shrine-maiden.png',
     position: 5
   },
   {
     id: 673,
     name: 'telannas herald of light',
     base: 'telannas',
-    image: 'tel’annasherald-of-light.png',
+    image: 'tel’annas-herald-of-light.png',
     position: 5
   },
   {
     id: 674,
     name: 'telannas inceptive chords',
     base: 'telannas',
-    image: 'tel’annasinceptive-chords.png',
+    image: 'tel’annas-inceptive-chords.png',
     position: 2
   },
   {
     id: 675,
     name: 'telannas jujutsu sorcerer',
     base: 'telannas',
-    image: 'tel’annasjujutsu-sorcerer.png',
+    image: 'tel’annas-jujutsu-sorcerer.png',
     position: 16.1
   },
   {
     id: 676,
     name: 'telannas kingdom guardian swallow',
     base: 'telannas',
-    image: 'tel’annaskingdom-guardian-swallow.png',
+    image: 'tel’annas-kingdom-guardian-swallow.png',
     position: 8
   },
   {
     id: 677,
     name: 'telannas love sworn',
     base: 'telannas',
-    image: 'tel’annaslove-sworn.png'
+    image: 'tel’annas-love-sworn.png'
   },
   {
     id: 678,
     name: 'telannas mystic outrider',
     base: 'telannas',
-    image: 'tel’annasmystic-outrider.png',
+    image: 'tel’annas-mystic-outrider.png',
     position: 9.1
   },
   {
     id: 679,
     name: 'telannas navy cadet',
     base: 'telannas',
-    image: 'tel’annasnavy-cadet.png'
+    image: 'tel’annas-navy-cadet.png'
   },
   {
     id: 680,
     name: 'telannas rose party',
     base: 'telannas',
-    image: 'tel’annasrose-party.png'
+    image: 'tel’annas-rose-party.png'
   },
   {
     id: 681,
     name: 'telannas true spirit',
     base: 'telannas',
-    image: 'tel’annastrue-spirit.png'
+    image: 'tel’annas-true-spirit.png'
   },
   {
     id: 682,
     name: 'telannas twilight sentry',
     base: 'telannas',
-    image: 'tel’annastwilight-sentry.png'
+    image: 'tel’annas-twilight-sentry.png'
   },
   {
     id: 683,
     name: 'telannas woodland',
     base: 'telannas',
-    image: 'tel’annaswoodland.png'
+    image: 'tel’annas-woodland.png'
   },
   {
     id: 684,
     name: 'telannas wreathing mist',
     base: 'telannas',
-    image: 'tel’annaswreathing-mist.png',
+    image: 'tel’annas-wreathing-mist.png',
     position: 1
   },
   {
