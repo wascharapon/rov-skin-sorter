@@ -409,7 +409,7 @@ export const rov: IRovSkin[] = [
     name: 'annette magic school aero',
     base: 'Annette',
     image: 'annette-magic-school-aero.png',
-    position: 17.92
+    position: 7.5
   },
   {
     id: 63,
@@ -3647,7 +3647,7 @@ export const rov: IRovSkin[] = [
     name: 'quillen technogrinder',
     base: 'Quillen',
     image: 'quillen-technogrinder.png',
-    position: 9
+    position: 9.9
   },
   {
     id: 556,
@@ -4615,7 +4615,7 @@ export const rov: IRovSkin[] = [
     name: 'tulen magic school electro',
     base: 'Tulen',
     image: 'tulen-magic-school-electro.png',
-    position: 17.92
+    position: 7.5
   },
   {
     id: 705,
@@ -4916,7 +4916,7 @@ export const rov: IRovSkin[] = [
     name: 'violet dark legion',
     base: 'Violet',
     image: 'violet-dark-legion.png',
-    position: 10
+    position: 8
   },
   {
     id: 751,
@@ -5514,7 +5514,8 @@ export const rov: IRovSkin[] = [
     id: 841,
     name: 'zanis gentleman',
     base: 'Zanis',
-    image: 'zanis-gentleman.png'
+    image: 'zanis-gentleman.png',
+    position: 8
   },
   {
     id: 842,
