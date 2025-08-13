@@ -692,9 +692,6 @@ export default Vue.extend({
           this.data = originalData
           this.isSaving = false
           this.saveDataToLocalStorage()
-          setTimeout(() => {
-            window.location.reload() // Reload to reset the state
-          }, 1000)
         }
       }
     },
