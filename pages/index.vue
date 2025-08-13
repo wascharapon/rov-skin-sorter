@@ -198,8 +198,8 @@
                     :disabled="isSaving"
                     @click="exportDataToFile"
                   >
-                    <b-icon icon="file-earmark-arrow-down" class="mr-2" />
-                    ส่งออกข้อมูลเป็น JSON
+                    <b-icon icon="file-earmark-arrow-down" class="mr-2 d-none d-sm-block" />
+                    ส่งออกเป็น JSON
                   </b-button>
                   <b-button
                     class="modern-btn modern-btn-success ipad-file-btn"
@@ -207,7 +207,7 @@
                     :disabled="isSaving"
                     @click="saveTableAsImage"
                   >
-                    <b-icon icon="image" class="mr-2" />
+                    <b-icon icon="image" class="mr-2 d-none d-sm-block" />
                     บันทึกรูปภาพ
                   </b-button>
                 </div>
@@ -218,14 +218,14 @@
           <b-row id="select-skin-row" class="mt-3">
             <b-col cols="6">
               <b-row>
-                <b-col id="display-select-skin-rov" cols="2">
+                <b-col id="display-select-skin-rov" lg="2" md="4" cols="12">
                   <b-img
                     :src="selectSkinRovOnTable.image || defaultSkinImage"
                     alt="Selected Skin Image"
-                    class="img-fluid fit-col-image"
+                    class="img-fluid fit-col-image mt-2"
                   />
                 </b-col>
-                <b-col id="select-skin-rov">
+                <b-col id="select-skin-rov" lg="10" md="8" cols="12">
                   <b-form-group
                     :label="`กำลังเลือก : ${selectSkinRovOnTable.key || 0} -  ${
                       !selectSkinRovOnTable?.name
@@ -299,7 +299,7 @@
                 variant="warning"
                 @click="sortDataFollowPosition"
               >
-                <b-icon icon="sort-numeric-down" class="mr-2" />
+                <b-icon icon="sort-numeric-down" class="mr-2 d-none d-sm-block" />
                 เรียง
               </b-button>
             </b-col>
@@ -310,7 +310,7 @@
                 :disabled="isSaving"
                 @click="saveTableAsImage"
               >
-                <b-icon icon="image" class="mr-2" />
+                <b-icon icon="image" class="mr-2 d-none d-sm-block" />
                 {{ isSaving ? "บันทึก..." : "บันทึก" }}
               </b-button>
             </b-col>
@@ -1622,7 +1622,7 @@ export default Vue.extend({
 /* Fit Column Image */
 .fit-col-image {
   width: 100%;
-  max-height: 80px;
+  max-height: 8.5vh;
   border-radius: 8px;
   border: 2px solid rgba(255, 255, 255, 0.2);
   object-fit: cover;
