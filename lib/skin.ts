@@ -2767,36 +2767,36 @@ export const rov: IRovSkin[] = [
   {
     id: 421,
     name: 'marja dangerous affair',
-    base: 'Maja',
-    image: 'marja-dangerous-affair.png',
+    base: 'Marja',
+    image: 'maja-dangerous-affair.png',
     position: 8
   },
   {
     id: 422,
     name: 'marja divine fire',
-    base: 'Maja',
-    image: 'marja-divine-fire.png',
+    base: 'Marja',
+    image: 'maja-divine-fire.png',
     position: 8
   },
   {
     id: 423,
     name: 'marja krasue',
-    base: 'Maja',
-    image: 'marja-krasue.png',
+    base: 'Marja',
+    image: 'maja-krasue.png',
     position: 13.4
   },
   {
     id: 424,
     name: 'marja shadowgraph',
-    base: 'Maja',
-    image: 'marja-shadowgraph.png',
+    base: 'Marja',
+    image: 'maja-shadowgraph.png',
     position: 7.5
   },
   {
     id: 425,
     name: 'marja spirit serpent',
-    base: 'Maja',
-    image: 'marja-spirit-serpent.png'
+    base: 'Marja',
+    image: 'maja-spirit-serpent.png'
   },
   {
     id: 426,
