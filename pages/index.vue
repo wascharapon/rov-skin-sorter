@@ -343,7 +343,7 @@
             @end="onDragEnd"
           >
             <div
-              v-for="item in data.slice(0, form.row * form.column)"
+              v-for="item in visibleData"
               :key="`skin-${item.key}`"
               class="skin-item cursor-pointer"
               :style="`width: ${widthTableSkinRov}px;`"
@@ -404,6 +404,10 @@ import { IRovSkin, IRovSkinOnTable } from '~/model/rov'
 export default Vue.extend({
   data() {
     return {
+      $cachedRov: null as IRovSkin[] | null,
+      $cachedWidthCalc: 0,
+      $lastFormState: '',
+      $saveDebounceTimer: null as any,
       selectSkinRov: [] as IRovSkin[],
       selectSkinRovOnTable: {} as IRovSkinOnTable,
       selectSkinForSwap: {} as IRovSkinOnTable,
@@ -482,15 +486,12 @@ export default Vue.extend({
       return 'https://github.com/wascharapon/rov-skin-sorter/blob/main/assets/images/skin/'
     },
     rov() {
-      const data = rov.map((item) => {
-        return {
-          ...item,
-          image:
-            `${this.repoGitHubAssetsImagesSkin}${item.image}?raw=true` ||
-            this.defaultSkinItemImage
-        } as IRovSkin
-      })
-      return data as IRovSkin[]
+      // Use getter method to handle caching without side effects
+      return this.getCachedRovData()
+    },
+    visibleData() {
+      // Pre-compute visible data to avoid slice operation in template
+      return this.data.slice(0, this.form.row * this.form.column)
     },
     defaultSkinImage() {
       return 'https://github.com/wascharapon/rov-skin-sorter/blob/main/assets/images/skin/default.jpeg?raw=true'
@@ -515,31 +516,24 @@ export default Vue.extend({
       if (!process.client || typeof window === 'undefined') {
         return this.form.width * 1.5
       }
-      // Get container width (accounting for padding and margins)
-      const containerElement = document.querySelector('.modern-container')
-      let availableWidth = window.innerWidth * 0.9 // Fallback
-      if (containerElement) {
-        const containerStyle = window.getComputedStyle(containerElement)
-        const containerWidth = containerElement.clientWidth
-        const paddingLeft = parseFloat(containerStyle.paddingLeft) || 0
-        const paddingRight = parseFloat(containerStyle.paddingRight) || 0
-        availableWidth = containerWidth - paddingLeft - paddingRight
-      }
-      // Calculate maximum width per skin item
-      const maxWidthPerItem =
-        Math.floor(availableWidth / this.form.column) - 3.33 // 5px margin
-      // Calculate desired width based on form percentage
-      const desiredWidth =
-        (this.form.width * availableWidth) / 100 / this.form.column
-      // Return the smaller value to ensure it fits
-      return Math.min(maxWidthPerItem, desiredWidth)
+      // Use getter method to handle caching without side effects
+      return this.getCachedWidth()
     }
   },
   watch: {
     form: {
       handler() {
+        // Clear width calculation cache when form changes
+        this.$cachedWidthCalc = 0
+        this.$lastFormState = ''
         this.setDataForTable()
-        this.saveDataToLocalStorage()
+        // Debounce localStorage saves to reduce frequent writes
+        if (this.$saveDebounceTimer) {
+          clearTimeout(this.$saveDebounceTimer)
+        }
+        this.$saveDebounceTimer = setTimeout(() => {
+          this.saveDataToLocalStorage()
+        }, 300)
       },
       deep: true
     },
@@ -549,15 +543,15 @@ export default Vue.extend({
           ...this.selectSkinRovOnTable,
           ...val
         }
-        this.data.forEach((item) => {
-          if (item.key === this.selectSkinRovOnTable.key) {
-            item.id = this.selectSkinRovOnTable.id
-            item.name = this.selectSkinRovOnTable.name
-            item.image = this.selectSkinRovOnTable.image
-            item.base = this.selectSkinRovOnTable.base
-            item.position = this.selectSkinRovOnTable.position
-          }
-        })
+        // Optimize array update by finding index once instead of forEach
+        const index = this.data.findIndex(item => item.key === this.selectSkinRovOnTable.key)
+        if (index !== -1) {
+          this.data[index].id = this.selectSkinRovOnTable.id
+          this.data[index].name = this.selectSkinRovOnTable.name
+          this.data[index].image = this.selectSkinRovOnTable.image
+          this.data[index].base = this.selectSkinRovOnTable.base
+          this.data[index].position = this.selectSkinRovOnTable.position
+        }
         this.selectSkinRov = undefined
         if (this.selectSkinRovOnTable.key < this.form.row * this.form.column) {
           this.selectSkinRovOnTable = {
@@ -594,8 +588,49 @@ export default Vue.extend({
   },
   beforeDestroy() {
     window.removeEventListener('keydown', this.handleKeyDown)
+    // Clean up timers
+    if (this.$saveDebounceTimer) {
+      clearTimeout(this.$saveDebounceTimer)
+    }
   },
   methods: {
+    getCachedRovData() {
+      if (!this.$cachedRov) {
+        this.$cachedRov = Object.freeze(rov.map((item) => {
+          return {
+            ...item,
+            image:
+              `${this.repoGitHubAssetsImagesSkin}${item.image}?raw=true` ||
+              this.defaultSkinItemImage
+          } as IRovSkin
+        }))
+      }
+      return this.$cachedRov as IRovSkin[]
+    },
+    getCachedWidth() {
+      const currentFormState = `${this.form.column}-${this.form.width}`
+      if (!this.$cachedWidthCalc || this.$lastFormState !== currentFormState) {
+        const containerElement = document.querySelector('.modern-container')
+        let availableWidth = window.innerWidth * 0.9 // Fallback
+        if (containerElement) {
+          const containerStyle = window.getComputedStyle(containerElement)
+          const containerWidth = containerElement.clientWidth
+          const paddingLeft = parseFloat(containerStyle.paddingLeft) || 0
+          const paddingRight = parseFloat(containerStyle.paddingRight) || 0
+          availableWidth = containerWidth - paddingLeft - paddingRight
+        }
+        // Calculate maximum width per skin item
+        const maxWidthPerItem =
+          Math.floor(availableWidth / this.form.column) - 3.33 // 5px margin
+        // Calculate desired width based on form percentage
+        const desiredWidth =
+          (this.form.width * availableWidth) / 100 / this.form.column
+        // Cache the result
+        this.$cachedWidthCalc = Math.min(maxWidthPerItem, desiredWidth)
+        this.$lastFormState = currentFormState
+      }
+      return this.$cachedWidthCalc
+    },
     goToBlankPage(url: string) {
       window.open(url, '_blank')
     },
@@ -708,24 +743,25 @@ export default Vue.extend({
         this.selectSkinForSwap.key !== this.selectSkinRovOnTable.key
       ) {
         const temp = { ...this.selectSkinRovOnTable }
-        this.data.forEach((item) => {
-          if (item.key === this.selectSkinRovOnTable.key) {
-            item.id = this.selectSkinForSwap.id
-            item.name = this.selectSkinForSwap.name
-            item.image = this.selectSkinForSwap.image
-            item.base = this.selectSkinForSwap.base
-            item.position = this.selectSkinForSwap.position
-          }
-        })
-        this.data.forEach((item) => {
-          if (item.key === this.selectSkinForSwap.key) {
-            item.id = temp.id
-            item.name = temp.name
-            item.image = temp.image
-            item.base = temp.base
-            item.position = temp.position
-          }
-        })
+        // Optimize swapping by finding indices once instead of forEach twice
+        const selectedIndex = this.data.findIndex(item => item.key === this.selectSkinRovOnTable.key)
+        const swapIndex = this.data.findIndex(item => item.key === this.selectSkinForSwap.key)
+
+        if (selectedIndex !== -1) {
+          this.data[selectedIndex].id = this.selectSkinForSwap.id
+          this.data[selectedIndex].name = this.selectSkinForSwap.name
+          this.data[selectedIndex].image = this.selectSkinForSwap.image
+          this.data[selectedIndex].base = this.selectSkinForSwap.base
+          this.data[selectedIndex].position = this.selectSkinForSwap.position
+        }
+
+        if (swapIndex !== -1) {
+          this.data[swapIndex].id = temp.id
+          this.data[swapIndex].name = temp.name
+          this.data[swapIndex].image = temp.image
+          this.data[swapIndex].base = temp.base
+          this.data[swapIndex].position = temp.position
+        }
         this.selectSkinForSwap = {} as IRovSkinOnTable
         this.selectSkinRovOnTable = {} as IRovSkinOnTable
       }
@@ -752,18 +788,19 @@ export default Vue.extend({
           if (Array.isArray(json)) {
             this.form.row = Math.ceil(json.length / this.form.column)
             this.data = json
+            // Optimize position lookup with Map for better performance
+            const skinMap = new Map()
+            rov.forEach((skin) => {
+              skinMap.set(skin.id, skin)
+              skinMap.set(skin.name, skin)
+              skinMap.set(skin.image, skin)
+            })
+
             this.data.forEach((item) => {
-              rov.find((skin) => {
-                if (
-                  skin.id === item.id ||
-                  skin.name === item.name ||
-                  skin.image === item.image
-                ) {
-                  item.position = skin.position
-                  return true
-                }
-                return false
-              })
+              const skin = skinMap.get(item.id) || skinMap.get(item.name) || skinMap.get(item.image)
+              if (skin) {
+                item.position = skin.position
+              }
             })
             this.selectSkinRovOnTable = this.data[0]
           } else {
