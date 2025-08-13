@@ -20,8 +20,8 @@ export default {
         content: 'เครื่องมือจัดเรียงและจัดระเบียบสกินตัวละครในเกม Arena of Valor (RoV) สร้างกริดที่ปรับแต่งได้ ลากวางสลับตำแหน่ง นำเข้าส่งออก JSON และสร้างภาพ PNG'
       },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://rov-skin-sorter.netlify.app' },
-      { property: 'og:image', content: '/og-image.png' },
+      { property: 'og:url', content: 'https://rov-skin-sorter.vercel.app' },
+      { property: 'og:image', content: '/favicon.ico' },
       { property: 'og:image:alt', content: 'ROV Skin Sorter - Grid organizer for Arena of Valor character skins' },
       { property: 'og:image:type', content: 'image/png' },
       { property: 'og:image:width', content: '1200' },
@@ -53,7 +53,6 @@ export default {
     '@fortawesome/fontawesome-free/css/all.min.css'
   ],
   build: {
-    // สำหรับกรณีที่ใช้ Bootstrap 4 ต้องแน่ใจว่า popper.js รองรับ
     transpile: []
   },
   plugins: ['~/plugins/vue-multiselect.ts', '~/plugins/bootstrap-vue-icon.ts', '~/plugins/vuedraggable.ts'],
