@@ -21,7 +21,7 @@ export default {
       },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://rov-skin-sorter.vercel.app' },
-      { property: 'og:image', content: '/favicon.ico' },
+      { property: 'og:image', content: 'https://rov-skin-sorter.vercel.app/favicon.ico' },
       { property: 'og:image:alt', content: 'ROV Skin Sorter - Grid organizer for Arena of Valor character skins' },
       { property: 'og:image:type', content: 'image/png' },
       { property: 'og:image:width', content: '1200' },
