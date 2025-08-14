@@ -1517,7 +1517,8 @@ export const rov: IRovSkin[] = [
     id: 232,
     name: 'enzo kurapika',
     base: 'Enzo',
-    image: 'enzo-kurapika.png'
+    image: 'enzo-kurapika.png',
+    position: 2
   },
   {
     id: 233,
