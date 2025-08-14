@@ -262,7 +262,7 @@ export const rov: IRovSkin[] = [
     name: 'alice the butterfly mansion girl',
     base: 'Alice',
     image: 'alice-the-butterfly-mansion-girl.png',
-    position: 16.2
+    position: 16
   },
   {
     id: 41,
