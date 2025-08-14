@@ -542,17 +542,18 @@ export default Vue.extend({
         this.selectSkinRovOnTable = {
           ...this.selectSkinRovOnTable,
           ...val
-        }
-        // Optimize array update by finding index once instead of forEach
+        } as IRovSkinOnTable
         const index = this.data.findIndex(
           item => item.key === this.selectSkinRovOnTable.key
         )
         if (index !== -1) {
-          this.data[index].id = this.selectSkinRovOnTable.id
-          this.data[index].name = this.selectSkinRovOnTable.name
-          this.data[index].image = this.selectSkinRovOnTable.image
-          this.data[index].base = this.selectSkinRovOnTable.base
-          this.data[index].position = this.selectSkinRovOnTable.position
+          this.data = {
+            id: this.selectSkinRovOnTable.id,
+            name: this.selectSkinRovOnTable.name,
+            image: this.selectSkinRovOnTable.image,
+            base: this.selectSkinRovOnTable.base,
+            position: this.selectSkinRovOnTable.position
+          }
         }
         this.selectSkinRov = undefined
         if (this.selectSkinRovOnTable.key < this.form.row * this.form.column) {
