@@ -867,7 +867,8 @@ export const rov: IRovSkin[] = [
     id: 133,
     name: 'butterfly dangerous affair',
     base: 'Butterfly',
-    image: 'butterfly-dangerous-affair.png'
+    image: 'butterfly-dangerous-affair.png',
+    position: 8
   },
   {
     id: 134,
@@ -6316,9 +6317,9 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 964,
-    name: 'tulen hospital resident',
-    base: 'Tulen',
-    image: 'tulen-hospital-resident.png',
+    name: 'Murad hospital resident',
+    base: 'Murad',
+    image: 'murad-hospital-resident.png',
     position: 8
   },
   {
