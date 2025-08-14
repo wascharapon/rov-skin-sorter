@@ -755,8 +755,8 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 116,
-    name: 'billon auto archon',
-    base: 'Billon',
+    name: 'billow auto archon',
+    base: 'Billow',
     image: 'billow-auto-archon-billow.png',
     position: 3
   },
@@ -3141,7 +3141,7 @@ export const rov: IRovSkin[] = [
     name: 'murad reedblaze vassal',
     base: 'Murad',
     image: 'murad-reedblaze-vassal.png',
-    position: 8
+    position: 9.1
   },
   {
     id: 480,

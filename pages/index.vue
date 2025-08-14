@@ -296,7 +296,6 @@
               <b-button
                 class="w-100 mt-4 modern-btn modern-btn-warning"
                 variant="warning"
-                :disabled="!isCanSave"
                 @click="sortDataFollowPosition"
               >
                 <b-icon icon="sort-numeric-down" class="mr-2" />
