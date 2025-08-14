@@ -204,7 +204,7 @@
                   <b-button
                     class="modern-btn modern-btn-success ipad-file-btn"
                     variant="success"
-                    :disabled="isSaving || isCanSave"
+                    :disabled="isSaving || !isCanSave"
                     @click="saveTableAsImage"
                   >
                     <b-icon icon="image" class="mr-2" />
@@ -296,7 +296,7 @@
               <b-button
                 class="w-100 mt-4 modern-btn modern-btn-warning"
                 variant="warning"
-                :disabled="isCanSave"
+                :disabled="!isCanSave"
                 @click="sortDataFollowPosition"
               >
                 <b-icon icon="sort-numeric-down" class="mr-2" />
@@ -307,7 +307,7 @@
               <b-button
                 class="w-100 mt-4 modern-btn modern-btn-success"
                 variant="success"
-                :disabled="isSaving || isCanSave"
+                :disabled="isSaving || !isCanSave"
                 @click="saveTableAsImage"
               >
                 <b-icon icon="image" class="mr-2" />
@@ -522,7 +522,7 @@ export default Vue.extend({
     isCanSave() {
       const dataLength = this.data.length
       return (
-        dataLength === this.form.row * this.form.column &&
+        (dataLength === this.form.row * this.form.column) &&
         this.data[0].id &&
         this.data[0].image &&
         this.data[dataLength - 1].id &&
