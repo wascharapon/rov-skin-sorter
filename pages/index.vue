@@ -204,7 +204,7 @@
                   <b-button
                     class="modern-btn modern-btn-success ipad-file-btn"
                     variant="success"
-                    :disabled="isSaving"
+                    :disabled="isSaving || isCanSave"
                     @click="saveTableAsImage"
                   >
                     <b-icon icon="image" class="mr-2" />
@@ -214,7 +214,6 @@
               </div>
             </div>
           </b-collapse>
-
           <b-row id="select-skin-row" class="mt-3">
             <b-col cols="6">
               <b-row>
@@ -297,6 +296,7 @@
               <b-button
                 class="w-100 mt-4 modern-btn modern-btn-warning"
                 variant="warning"
+                :disabled="isCanSave"
                 @click="sortDataFollowPosition"
               >
                 <b-icon icon="sort-numeric-down" class="mr-2" />
@@ -307,7 +307,7 @@
               <b-button
                 class="w-100 mt-4 modern-btn modern-btn-success"
                 variant="success"
-                :disabled="isSaving"
+                :disabled="isSaving || isCanSave"
                 @click="saveTableAsImage"
               >
                 <b-icon icon="image" class="mr-2" />
@@ -518,6 +518,16 @@ export default Vue.extend({
       }
       // Use getter method to handle caching without side effects
       return this.getCachedWidth()
+    },
+    isCanSave() {
+      const dataLength = this.data.length
+      return (
+        dataLength === this.form.row * this.form.column &&
+        this.data[0].id &&
+        this.data[0].image &&
+        this.data[dataLength - 1].id &&
+        this.data[dataLength - 1].image
+      )
     }
   },
   watch: {
@@ -547,13 +557,11 @@ export default Vue.extend({
           item => item.key === this.selectSkinRovOnTable.key
         )
         if (index !== -1) {
-          this.data = {
-            id: this.selectSkinRovOnTable.id,
-            name: this.selectSkinRovOnTable.name,
-            image: this.selectSkinRovOnTable.image,
-            base: this.selectSkinRovOnTable.base,
-            position: this.selectSkinRovOnTable.position
-          }
+          this.data[index].id = this.selectSkinRovOnTable.id
+          this.data[index].name = val.name
+          this.data[index].image = val.image
+          this.data[index].base = val.base
+          this.data[index].position = val.position
         }
         this.selectSkinRov = undefined
         if (this.selectSkinRovOnTable.key < this.form.row * this.form.column) {
