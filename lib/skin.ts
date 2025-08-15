@@ -6520,5 +6520,12 @@ export const rov: IRovSkin[] = [
     base: 'Valhein',
     image: 'valhein-kagutsuchi-evo-2.png',
     position: 1
+  },
+  {
+    id: 995,
+    name: 'yorn conan edogawa',
+    base: 'Yorn',
+    image: 'yorn-conan-edogawa.png',
+    position: 1
   }
 ]
