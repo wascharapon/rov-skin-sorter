@@ -3059,7 +3059,8 @@ export const rov: IRovSkin[] = [
     id: 466,
     name: 'murad byakuya kuchiki',
     base: 'Murad',
-    image: 'murad-byakuya-kuchiki.png'
+    image: 'murad-byakuya-kuchiki.png',
+    position: 1
   },
   {
     id: 467,
