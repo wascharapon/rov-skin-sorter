@@ -5883,7 +5883,7 @@ export const rov: IRovSkin[] = [
     id: 897,
     name: 'krixi springtime breeze',
     base: 'Krixi',
-    image: 'krixi-springtime-breeze.png'
+    image: 'krixi-springtime-breeze-1.png'
   },
   {
     id: 898,
