@@ -6542,5 +6542,12 @@ export const rov: IRovSkin[] = [
     base: 'Veres',
     image: 'veres-mesmerizing-show.png',
     position: 8
+  },
+  {
+    id: 998,
+    name: 'ilumia divine decree',
+    base: 'Ilumia',
+    image: 'ilumia-divine-decree.png',
+    position: 1.1
   }
 ]
