@@ -6528,5 +6528,12 @@ export const rov: IRovSkin[] = [
     base: 'Yorn',
     image: 'yorn-conan-edogawa.png',
     position: 1
+  },
+  {
+    id: 996,
+    name: 'sinestrea demonic armor',
+    base: 'Sinestrea',
+    image: 'sinestrea-demonic-armor.png',
+    position: 1
   }
 ]
