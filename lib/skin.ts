@@ -6535,5 +6535,12 @@ export const rov: IRovSkin[] = [
     base: 'Sinestrea',
     image: 'sinestrea-demonic-armor.png',
     position: 8
+  },
+  {
+    id: 997,
+    name: 'veres mesmerizing show',
+    base: 'Veres',
+    image: 'veres-mesmerizing-show.png',
+    position: 8
   }
 ]
