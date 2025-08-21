@@ -6534,6 +6534,6 @@ export const rov: IRovSkin[] = [
     name: 'sinestrea demonic armor',
     base: 'Sinestrea',
     image: 'sinestrea-demonic-armor.png',
-    position: 1
+    position: 8
   }
 ]
