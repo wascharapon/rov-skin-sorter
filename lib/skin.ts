@@ -2826,7 +2826,7 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 430,
-    name: 'maloch evil ghogun',
+    name: 'maloch evil shogun',
     base: 'Maloch',
     image: 'maloch-evil-ghogun.png',
     position: 9.1
@@ -6092,7 +6092,7 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 930,
-    name: "Kil'groth Auto Archon Kil'groth",
+    name: "Kilgroth Auto Archon Kil'groth",
     base: "Kil'groth",
     image: 'kil’groth-auto-archon-kil\'groth.png',
     position: 17.21
