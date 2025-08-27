@@ -710,11 +710,10 @@ export default Vue.extend({
         if (element) {
           this.isSaving = true
           const originalData = [...this.data]
-          this.data = this.data.map((item): void => {
+          this.data = this.data.map((item): IRovSkinOnTable => {
             if (item.image && item.image.includes('?raw=true')) {
               const imagePath = item.image
-                .replace(this.repoGitHubAssetsImagesSkin, '')
-                .replace('?raw=true', '')
+                .replace(`${this.repoGitHubAssetsImagesSkin}/`, '')
               return {
                 ...item,
                 image: require(`~/assets/images/skin/${imagePath}`)
