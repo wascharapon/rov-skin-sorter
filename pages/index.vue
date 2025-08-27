@@ -482,7 +482,7 @@ export default Vue.extend({
   },
   computed: {
     repoGitHubAssetsImagesSkin() {
-      return 'https://github.com/wascharapon/rov-skin-sorter/blob/main/assets/images/skin/'
+      return 'https://raw.githubusercontent.com/wascharapon/rov-skin-sorter/refs/heads/main/assets/images/skin'
     },
     rov() {
       // Use getter method to handle caching without side effects
@@ -493,7 +493,7 @@ export default Vue.extend({
       return this.data.slice(0, this.form.row * this.form.column)
     },
     defaultSkinImage() {
-      return 'https://github.com/wascharapon/rov-skin-sorter/blob/main/assets/images/skin/default.jpeg?raw=true'
+      return `${this.repoGitHubAssetsImagesSkin}/default.jpeg`
     },
     defaultSkinItemImage() {
       return require('~/assets/images/item/default.png')
@@ -611,7 +611,7 @@ export default Vue.extend({
             return {
               ...item,
               image:
-                `${this.repoGitHubAssetsImagesSkin}${item.image}?raw=true` ||
+                `${this.repoGitHubAssetsImagesSkin}/${item.image}` ||
                 this.defaultSkinItemImage
             } as IRovSkin
           })
