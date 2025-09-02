@@ -3279,83 +3279,83 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 499,
-    name: 'nataya apocalypse',
-    base: 'Nataya',
+    name: 'natalya apocalypse',
+    base: 'Natalya',
     image: 'nataya-apocalypse.png',
     position: 9.1
   },
   {
     id: 500,
-    name: 'nataya azure',
-    base: 'Nataya',
+    name: 'natalya azure',
+    base: 'Natalya',
     image: 'nataya-azure.png'
   },
   {
     id: 501,
-    name: 'nataya burning embers',
-    base: 'Nataya',
+    name: 'natalya burning embers',
+    base: 'Natalya',
     image: 'nataya-burning-embers.png',
     position: 4
   },
   {
     id: 502,
-    name: 'nataya christmas lady',
-    base: 'Nataya',
+    name: 'natalya christmas lady',
+    base: 'Natalya',
     image: 'nataya-christmas-lady.png',
     position: 7.5
   },
   {
     id: 503,
-    name: 'nataya feretto mistress',
-    base: 'Nataya',
+    name: 'natalya feretto mistress',
+    base: 'Natalya',
     image: 'nataya-feretto-mistress.png',
     position: 8
   },
   {
     id: 504,
-    name: 'nataya leo',
-    base: 'Nataya',
+    name: 'natalya leo',
+    base: 'Natalya',
     image: 'nataya-leo.png'
   },
   {
     id: 505,
-    name: 'nataya lotus disco',
-    base: 'Nataya',
+    name: 'natalya lotus disco',
+    base: 'Natalya',
     image: 'nataya-lotus-disco.png',
     position: 8
   },
   {
     id: 506,
-    name: 'nataya mesmerizing',
-    base: 'Nataya',
+    name: 'natalya mesmerizing',
+    base: 'Natalya',
     image: 'nataya-mesmerizing.png',
     position: 8
   },
   {
     id: 507,
-    name: 'nataya mirage',
-    base: 'Nataya',
+    name: 'natalya mirage',
+    base: 'Natalya',
     image: 'nataya-mirage.png',
     position: 3
   },
   {
     id: 508,
-    name: 'nataya project ice',
-    base: 'Nataya',
+    name: 'natalya project ice',
+    base: 'Natalya',
     image: 'nataya-project-ice.png',
     position: 8
   },
   {
     id: 509,
-    name: 'nataya shangrila tycoon',
-    base: 'Nataya',
+    name: 'natalya shangrila tycoon',
+    base: 'Natalya',
     image: 'nataya-shangrila-tycoon.png',
     position: 7
   },
   {
     id: 510,
-    name: 'nataya shutterbug',
-    base: 'Nataya',
+    name: 'natalya shutterbug',
+    base: 'Natalya',
     image: 'nataya-shutterbug.png'
   },
   {
