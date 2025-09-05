@@ -3046,7 +3046,8 @@ export const rov: IRovSkin[] = [
     id: 464,
     name: 'murad ace striker',
     base: 'Murad',
-    image: 'murad-ace-striker.png'
+    image: 'murad-ace-striker.png',
+    position: 1.1
   },
   {
     id: 465,
