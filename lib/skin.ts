@@ -6577,5 +6577,12 @@ export const rov: IRovSkin[] = [
     base: 'Capheny',
     image: 'capheny-bugcat-assemble.png',
     position: 7
+  },
+  {
+    id: 1003,
+    name: 'ishar capoo boom',
+    base: 'Ishar',
+    image: 'ishar-capoo-boom.png',
+    position: 18
   }
 ]
