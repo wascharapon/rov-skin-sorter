@@ -6567,6 +6567,14 @@ export const rov: IRovSkin[] = [
     id: 1001,
     name: 'toro firebreather',
     base: 'Toro',
-    image: 'toro-firebreather.png'
+    image: 'toro-firebreather.png',
+    position: 8
+  },
+  {
+    id: 1002,
+    name: 'capheny bugcat assemble',
+    base: 'Capheny',
+    image: 'capheny-bugcat-assemble.png',
+    position: 7
   }
 ]
