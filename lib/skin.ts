@@ -3726,7 +3726,8 @@ export const rov: IRovSkin[] = [
     id: 566,
     name: 'raz super striker',
     base: 'Raz',
-    image: 'raz-super-striker.png'
+    image: 'raz-super-striker.png',
+    position: 1.1
   },
   {
     id: 567,
@@ -5282,7 +5283,8 @@ export const rov: IRovSkin[] = [
     id: 805,
     name: 'yan tanjiro kamado',
     base: 'Yan',
-    image: 'yan-tanjiro-kamado.png'
+    image: 'yan-tanjiro-kamado.png',
+    position: 1.1
   },
   {
     id: 806,
