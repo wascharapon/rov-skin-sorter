@@ -6605,5 +6605,12 @@ export const rov: IRovSkin[] = [
     base: 'Allian',
     image: 'allian-royal-guard-tiger.png',
     position: 8
+  },
+  {
+    id: 1007,
+    name: 'mina royal guard hawk',
+    base: 'Mina',
+    image: 'mina-royal-guard-hawk.png',
+    position: 8
   }
 ]
