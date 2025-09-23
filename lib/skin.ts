@@ -6597,6 +6597,13 @@ export const rov: IRovSkin[] = [
     name: 'elsu true hertz',
     base: 'Elsu',
     image: 'elsu-true-hertz.png',
-    position: 17.21
+    position: 8
+  },
+  {
+    id: 1006,
+    name: 'allian royal guard tiger',
+    base: 'Allian',
+    image: 'allian-royal-guard-tiger.png',
+    position: 8
   }
 ]
