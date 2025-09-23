@@ -1246,7 +1246,7 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 191,
-    name: 'diao chan a.i. maid',
+    name: 'diao chan ai maid',
     base: 'Diao Chan',
     image: 'diao-chan-ai-maid.png',
     position: 8
@@ -6591,5 +6591,12 @@ export const rov: IRovSkin[] = [
     base: 'Valhein',
     image: 'valhein-kagutsuchi-evo-5.png',
     position: 1
+  },
+  {
+    id: 1005,
+    name: 'elsu true hertz',
+    base: 'Elsu',
+    image: 'elsu-true-hertz.png',
+    position: 17.21
   }
 ]
