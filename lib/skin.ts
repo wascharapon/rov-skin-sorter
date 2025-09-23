@@ -6498,9 +6498,9 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 991,
-    name: 'hayate kind the phantom thief',
+    name: 'hayate kid the phantom thief',
     base: 'Hayate',
-    image: 'hayate-kind-the-phantom-thief.png',
+    image: 'hayate-kid-the-phantom-thief.png',
     position: 2
   },
   {
