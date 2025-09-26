@@ -1200,8 +1200,8 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 184,
-    name: 'daring astronaut',
-    base: 'Daring Astronaut',
+    name: 'fennik daring astronaut',
+    base: 'Fennik',
     image: 'daring-astronaut.png',
     position: 9.1
   },
@@ -1568,15 +1568,6 @@ export const rov: IRovSkin[] = [
     base: 'Erin',
     image: 'erin-valkyrie.png'
   },
-  // fennik-dark-tale.jpeg
-  // fennik-forest-squad-raccoon.png
-  // fennik-little-adventurer.png
-  // fennik-propeller.png
-  // fennik-quantum-zen.png
-  // fennik-reindeer.png
-  // fennik-s-dreamer.png
-  // fennik-swallow-kite.png
-  // fennik-wild-speed-flying-fox.png
   {
     id: 240,
     name: 'fennik dark tale',
@@ -6614,5 +6605,12 @@ export const rov: IRovSkin[] = [
     base: 'Mina',
     image: 'mina-royal-guard-hawk.png',
     position: 8
+  },
+  {
+    id: 1008,
+    name: 'keera tigress',
+    base: 'Keera',
+    image: 'keera-tigress.png',
+    position: 7.2
   }
 ]
