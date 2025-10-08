@@ -521,7 +521,7 @@ export default Vue.extend({
     isCanSave() {
       const dataLength = this.data.length
       return (
-        (dataLength === this.form.row * this.form.column) &&
+        dataLength === this.form.row * this.form.column &&
         this.data[0].id &&
         this.data[0].image &&
         this.data[dataLength - 1].id &&
@@ -711,9 +711,14 @@ export default Vue.extend({
           this.isSaving = true
           const originalData = [...this.data]
           this.data = this.data.map((item): IRovSkinOnTable => {
-            if (item.image && item.image.includes(this.repoGitHubAssetsImagesSkin)) {
-              const imagePath = item.image
-                .replace(`${this.repoGitHubAssetsImagesSkin}/`, '')
+            if (
+              item.image &&
+              item.image.includes(this.repoGitHubAssetsImagesSkin)
+            ) {
+              const imagePath = item.image.replace(
+                `${this.repoGitHubAssetsImagesSkin}/`,
+                ''
+              )
               return {
                 ...item,
                 image: require(`~/assets/images/skin/${imagePath}`)
@@ -863,9 +868,25 @@ export default Vue.extend({
     resetDataSkinTable() {
       this.data = []
       this.saveDataToLocalStorage()
-      setTimeout(() => {
+      setTimeout(async() => {
+        // ล้าง Cache Storage
+        if ('caches' in window) {
+          const cacheNames = await caches.keys()
+          for (const name of cacheNames) {
+            await caches.delete(name)
+          }
+        }
+        // ล้าง Service Worker (ถ้ามี)
+        if ('serviceWorker' in navigator) {
+          const registrations =
+            await navigator.serviceWorker.getRegistrations()
+          for (const registration of registrations) {
+            await registration.unregister()
+          }
+        }
+        // รีโหลดหน้าใหม่
         window.location.reload()
-      }, 100)
+      }, 200) // รอ 200ms ก่อนรีเฟรช
     },
     applyGridDimensions() {
       this.form.column = this.formData.column
