@@ -6612,5 +6612,12 @@ export const rov: IRovSkin[] = [
     base: 'Keera',
     image: 'keera-tigress.png',
     position: 7.2
+  },
+  {
+    id: 1009,
+    name: 'aleister the sand mirage',
+    base: 'Aleister',
+    image: 'aleister-the-sand-mirage.png',
+    position: 8
   }
 ]
