@@ -6618,5 +6618,103 @@ export const rov: IRovSkin[] = [
     name: 'aleister the sand mirage',
     base: 'Aleister',
     image: 'aleister-the-sand-mirage.png'
+  },
+  //   alice-dreamliner.png           krixi-majo-hime-new.png
+  // aya-wether-plushie-new.png     murad-moon-crusher-new.png
+  // dolia-enchanted-chapter.png    nakroth-stellar-troupe-new.png
+  // eland-orr-dreamliner.png       skud-yena-ghost-pirate.png
+  // elsu-dreamliner.png            slimz-dreamliner.png
+  // heino-eternal-chapter.png      yena-ghost-pirate.png
+  // ilumia-divine-decree-new.png
+  {
+    id: 1010,
+    name: 'alice dreamliner',
+    base: 'Alice',
+    image: 'alice-dreamliner.png',
+    position: 6
+  },
+  {
+    id: 1011,
+    name: 'aya wether plushie',
+    base: 'Aya',
+    image: 'aya-wether-plushie-new.png',
+    position: 1.2
+  },
+  {
+    id: 1012,
+    name: 'dolia enchanted chapter',
+    base: 'Dolia',
+    image: 'dolia-enchanted-chapter.png',
+    position: 6
+  },
+  {
+    id: 1013,
+    name: 'eland orr dreamliner',
+    base: 'Elandor',
+    image: 'eland-orr-dreamliner.png',
+    position: 6
+  },
+  {
+    id: 1014,
+    name: 'elsu dreamliner',
+    base: 'Elsu',
+    image: 'elsu-dreamliner.png',
+    position: 6
+  },
+  {
+    id: 1015,
+    name: 'heino eternal chapter',
+    base: 'Heino',
+    image: 'heino-eternal-chapter.png',
+    position: 6
+  },
+  {
+    id: 1016,
+    name: 'ilumia divine decree new',
+    base: 'Ilumia',
+    image: 'ilumia-divine-decree-new.png',
+    position: 1.1
+  },
+  {
+    id: 1017,
+    name: 'murad moon crusher new',
+    base: 'Murad',
+    image: 'murad-moon-crusher-new.png',
+    position: 1.1
+  },
+  {
+    id: 1018,
+    name: 'nakroth stellar troupe new',
+    base: 'Nakroth',
+    image: 'nakroth-stellar-troupe-new.png',
+    position: 1.1
+  },
+  {
+    id: 1019,
+    name: 'skud yena ghost pirate',
+    base: 'Skud',
+    image: 'skud-yena-ghost-pirate.png',
+    position: 8
+  },
+  {
+    id: 1020,
+    name: 'yena ghost pirate',
+    base: 'Yena',
+    image: 'yena-ghost-pirate.png',
+    position: 8
+  },
+  {
+    id: 1021,
+    name: 'krixi majo hime new',
+    base: 'Krixi',
+    image: 'krixi-majo-hime-new.png',
+    position: 1.1
+  },
+  {
+    id: 1022,
+    name: 'slimz dreamliner',
+    base: 'Slimz',
+    image: 'slimz-dreamliner.png',
+    position: 6
   }
 ]
