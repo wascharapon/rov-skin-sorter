@@ -3122,7 +3122,7 @@ export const rov: IRovSkin[] = [
     id: 477,
     name: 'murad moon crusher',
     base: 'Murad',
-    image: 'murad-moon-crusher.png',
+    image: 'murad-moon-crusher-new.png',
     position: 2
   },
   {
@@ -3245,7 +3245,7 @@ export const rov: IRovSkin[] = [
     id: 495,
     name: 'nakroth stellar troupe',
     base: 'Nakroth',
-    image: 'nakroth-stellar-troupe.png',
+    image: 'nakroth-stellar-troupe-new.png',
     position: 1.2
   },
   {
@@ -5822,9 +5822,9 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 889,
-    name: 'aya weather plushie',
+    name: 'aya wether plushie',
     base: 'Aya',
-    image: 'aya-weather-plushie.png'
+    image: 'aya-wether-plushie-new.png'
   },
   {
     id: 890,
@@ -5934,7 +5934,7 @@ export const rov: IRovSkin[] = [
     id: 906,
     name: 'krixi majo hime',
     base: 'Krixi',
-    image: 'krixi-majo-hime.png'
+    image: 'krixi-majo-hime-new.png'
   },
   {
     id: 907,
@@ -6541,7 +6541,7 @@ export const rov: IRovSkin[] = [
     id: 998,
     name: 'ilumia divine decree',
     base: 'Ilumia',
-    image: 'ilumia-divine-decree.png',
+    image: 'ilumia-divine-decree-new.png',
     position: 1.1
   },
   {
@@ -6619,13 +6619,6 @@ export const rov: IRovSkin[] = [
     base: 'Aleister',
     image: 'aleister-the-sand-mirage.png'
   },
-  //   alice-dreamliner.png           krixi-majo-hime-new.png
-  // aya-wether-plushie-new.png     murad-moon-crusher-new.png
-  // dolia-enchanted-chapter.png    nakroth-stellar-troupe-new.png
-  // eland-orr-dreamliner.png       skud-yena-ghost-pirate.png
-  // elsu-dreamliner.png            slimz-dreamliner.png
-  // heino-eternal-chapter.png      yena-ghost-pirate.png
-  // ilumia-divine-decree-new.png
   {
     id: 1010,
     name: 'alice dreamliner',
@@ -6635,83 +6628,48 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 1011,
-    name: 'aya wether plushie',
-    base: 'Aya',
-    image: 'aya-wether-plushie-new.png',
-    position: 1.2
-  },
-  {
-    id: 1012,
     name: 'dolia enchanted chapter',
     base: 'Dolia',
     image: 'dolia-enchanted-chapter.png',
     position: 6
   },
   {
-    id: 1013,
+    id: 1012,
     name: 'eland orr dreamliner',
     base: 'Elandor',
     image: 'eland-orr-dreamliner.png',
     position: 6
   },
   {
-    id: 1014,
+    id: 1013,
     name: 'elsu dreamliner',
     base: 'Elsu',
     image: 'elsu-dreamliner.png',
     position: 6
   },
   {
-    id: 1015,
+    id: 1014,
     name: 'heino eternal chapter',
     base: 'Heino',
     image: 'heino-eternal-chapter.png',
     position: 6
   },
   {
-    id: 1016,
-    name: 'ilumia divine decree new',
-    base: 'Ilumia',
-    image: 'ilumia-divine-decree-new.png',
-    position: 1.1
-  },
-  {
-    id: 1017,
-    name: 'murad moon crusher new',
-    base: 'Murad',
-    image: 'murad-moon-crusher-new.png',
-    position: 1.1
-  },
-  {
-    id: 1018,
-    name: 'nakroth stellar troupe new',
-    base: 'Nakroth',
-    image: 'nakroth-stellar-troupe-new.png',
-    position: 1.1
-  },
-  {
-    id: 1019,
+    id: 1015,
     name: 'skud yena ghost pirate',
     base: 'Skud',
     image: 'skud-yena-ghost-pirate.png',
     position: 8
   },
   {
-    id: 1020,
+    id: 1016,
     name: 'yena ghost pirate',
     base: 'Yena',
     image: 'yena-ghost-pirate.png',
     position: 8
   },
   {
-    id: 1021,
-    name: 'krixi majo hime new',
-    base: 'Krixi',
-    image: 'krixi-majo-hime-new.png',
-    position: 1.1
-  },
-  {
-    id: 1022,
+    id: 1017,
     name: 'slimz dreamliner',
     base: 'Slimz',
     image: 'slimz-dreamliner.png',
