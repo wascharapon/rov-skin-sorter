@@ -6674,5 +6674,12 @@ export const rov: IRovSkin[] = [
     base: 'Slimz',
     image: 'slimz-dreamliner.png',
     position: 6
+  },
+  {
+    id: 1018,
+    name: 'yena dreamliner',
+    base: 'Yena',
+    image: 'yena-dreamliner.png',
+    position: 13.5
   }
 ]
