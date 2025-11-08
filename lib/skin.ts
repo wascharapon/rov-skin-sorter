@@ -6681,5 +6681,47 @@ export const rov: IRovSkin[] = [
     base: 'Yena',
     image: 'yena-dreamliner.png',
     position: 13.5
+  },
+  {
+    id: 1019,
+    name: 'taara shion',
+    base: 'Taara',
+    image: 'taara-shion.png',
+    position: 5.9
+  },
+  {
+    id: 1020,
+    name: 'enzp cyborg samurai',
+    base: 'Enzp',
+    image: 'enzp-cyborg-samurai.png',
+    position: 7.4
+  },
+  {
+    id: 1021,
+    name: 'iggy rimuru tempest',
+    base: 'Iggy',
+    image: 'iggy-rimuru-tempest.png',
+    position: 1.1
+  },
+  {
+    id: 1022,
+    name: 'ilumia ghost pirate',
+    base: 'Ilumia',
+    image: 'ilumia-ghost-pirate.png',
+    position: 8
+  },
+  {
+    id: 1023,
+    name: 'qi milim nava',
+    base: 'Qi',
+    image: 'qi-milim-nava.png',
+    position: 1.1
+  },
+  {
+    id: 1024,
+    name: 'skud ghost pirate',
+    base: 'Skud',
+    image: 'skud-ghost-pirate.png',
+    position: 8
   }
 ]
