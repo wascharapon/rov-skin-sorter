@@ -6430,9 +6430,9 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 981,
-    name: 'kaine mvp enigma',
+    name: 'kaine mvp sigma',
     base: 'Kaine',
-    image: 'kaine-mvp-enigma.jpeg',
+    image: 'kaine-mvp-sigma.jpeg',
     position: 17.9
   },
   {
@@ -6705,23 +6705,9 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 1022,
-    name: 'ilumia ghost pirate',
-    base: 'Ilumia',
-    image: 'ilumia-ghost-pirate.png',
-    position: 8
-  },
-  {
-    id: 1023,
     name: 'qi milim nava',
     base: 'Qi',
     image: 'qi-milim-nava.png',
     position: 1.1
-  },
-  {
-    id: 1024,
-    name: 'skud ghost pirate',
-    base: 'Skud',
-    image: 'skud-ghost-pirate.png',
-    position: 8
   }
 ]
