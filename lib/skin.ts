@@ -6709,5 +6709,19 @@ export const rov: IRovSkin[] = [
     base: 'Qi',
     image: 'qi-milim-nava.png',
     position: 1.1
+  },
+  {
+    id: 1023,
+    name: 'omega cyborg samurai',
+    base: 'Omega',
+    image: 'omega-cyborg-samurai.png',
+    position: 7.4
+  },
+  {
+    id: 1024,
+    name: 'enzo cyborg samurai',
+    base: 'Enzo',
+    image: 'enzo-cyborg-samurai.png',
+    position: 7.4
   }
 ]
