@@ -6086,8 +6086,8 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 930,
-    name: "Kilgroth Auto Archon Kil'groth",
-    base: "Kil'groth",
+    name: "kil'groth auto archon kil'groth",
+    base: "Kil'Groth",
     image: 'kil’groth-auto-archon-kil\'groth.png',
     position: 17.21
   },
@@ -6723,5 +6723,12 @@ export const rov: IRovSkin[] = [
     base: 'Enzo',
     image: 'enzo-cyborg-samurai.png',
     position: 7.4
+  },
+  {
+    id: 1025,
+    name: 'butterfly dragoness evo suit new evo 5',
+    base: 'Butterfly',
+    image: 'butterfly-dragoness-evosuit-new-evo-5.jpg',
+    position: 1
   }
 ]
