@@ -6730,5 +6730,11 @@ export const rov: IRovSkin[] = [
     base: 'Butterfly',
     image: 'butterfly-dragoness-evosuit-new-evo-5.jpg',
     position: 1
+  },
+  {
+    id: 1026,
+    name: 'azzenka tarot weaver',
+    base: 'Azzen\'Ka',
+    image: 'azzen’ka-tarot-weaver.png'
   }
 ]
