@@ -266,57 +266,57 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 41,
-    name: 'allian auto archon allain',
-    base: 'Allian',
+    name: 'allain auto archon allain',
+    base: 'allain',
     image: 'allian-auto-archon-allain.png',
     position: 17.2
   },
   {
     id: 42,
-    name: 'allian beast gang samoyed',
-    base: 'Allian',
+    name: 'allain beast gang samoyed',
+    base: 'allain',
     image: 'allian-beast-gang-samoyed.png',
     position: 7
   },
   {
     id: 43,
-    name: 'allian black swordsman kirito',
-    base: 'Allian',
+    name: 'allain black swordsman kirito',
+    base: 'allain',
     image: 'allian-black-swordsmaan-kirito.png',
     position: 1
   },
   {
     id: 44,
-    name: 'allian dangerous affair',
-    base: 'Allian',
+    name: 'allain dangerous affair',
+    base: 'allain',
     image: 'allian-dangerous-affair.png',
     position: 8
   },
   {
     id: 45,
-    name: 'allian kirito',
-    base: 'Allian',
+    name: 'allain kirito',
+    base: 'allain',
     image: 'allian-kirito.png',
     position: 1
   },
   {
     id: 46,
-    name: 'allian space scout',
-    base: 'Allian',
+    name: 'allain space scout',
+    base: 'allain',
     image: 'allian-space-scout.png',
     position: 9.1
   },
   {
     id: 47,
-    name: 'allian sunlight',
-    base: 'Allian',
+    name: 'allain sunlight',
+    base: 'allain',
     image: 'allian-sunlight.png',
     position: 8
   },
   {
     id: 48,
-    name: 'allian wolfling volant',
-    base: 'Allian',
+    name: 'allain wolfling volant',
+    base: 'allain',
     image: 'allian-wolfling-volant.png'
   },
   {
@@ -6594,8 +6594,8 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 1006,
-    name: 'allian royal guard tiger',
-    base: 'Allian',
+    name: 'allain royal guard tiger',
+    base: 'Allain',
     image: 'allian-royal-guard-tiger.png',
     position: 8
   },
