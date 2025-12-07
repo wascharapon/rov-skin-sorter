@@ -4703,7 +4703,7 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 718,
-    name: 'valhein kagutsuchi',
+    name: 'valhein kagutsuchi evo 1',
     base: 'Valhein',
     image: 'valhein-kagutsuchi.png',
     position: 12
