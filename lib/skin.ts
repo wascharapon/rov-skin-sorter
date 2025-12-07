@@ -6764,5 +6764,26 @@ export const rov: IRovSkin[] = [
     base: 'Zephys',
     image: 'zephys-ifrit-descend.png',
     position: 7.4
+  },
+  {
+    id: 1030,
+    name: 'maloch tossakan',
+    base: 'Maloch',
+    image: 'maloch-tossakan.png',
+    position: 7.4
+  },
+  {
+    id: 1031,
+    name: 'veres xmas idol vocal',
+    base: 'Veres',
+    image: 'veres-xmas-idol-vocal.png',
+    position: 7.4
+  },
+  {
+    id: 1032,
+    name: 'zata xmas idol rapper',
+    base: 'Zata',
+    image: 'zata-xmas-idol-rapper.png',
+    position: 7.4
   }
 ]
