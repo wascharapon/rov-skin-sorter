@@ -4662,7 +4662,8 @@ export const rov: IRovSkin[] = [
     id: 712,
     name: 'valhein cerulean lord',
     base: 'Valhein',
-    image: 'valhein-cerulean-lord.png'
+    image: 'valhein-cerulean-lord.png',
+    position: 8
   },
   {
     id: 713,
@@ -5026,7 +5027,8 @@ export const rov: IRovSkin[] = [
     id: 767,
     name: 'volkath bloodthirsty fangs',
     base: 'Volkath',
-    image: 'volkath-bloodthirsty-fangs.png'
+    image: 'volkath-bloodthirsty-fangs.png',
+    position: 10
   },
   {
     id: 768,
@@ -6735,6 +6737,28 @@ export const rov: IRovSkin[] = [
     id: 1026,
     name: 'azzenka tarot weaver',
     base: 'Azzen\'Ka',
-    image: 'azzen’ka-tarot-weaver.png'
+    image: 'azzen’ka-tarot-weaver.png',
+    position: 7.4
+  },
+  {
+    id: 1027,
+    name: 'zephys grand army',
+    base: 'Zephys',
+    image: 'zephys-grand-army.png',
+    position: 7.4
+  },
+  {
+    id: 1028,
+    name: 'zephys halloween scream',
+    base: 'Zephys',
+    image: 'zephys-halloween-scream.png',
+    position: 7.4
+  },
+  {
+    id: 1029,
+    name: 'zephys ifrit descend',
+    base: 'Zephys',
+    image: 'zephys-ifrit-descend.png',
+    position: 7.4
   }
 ]
