@@ -4381,7 +4381,7 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 669,
-    name: 'telannas-feex1-silverwing',
+    name: 'telannas feex1 silverwing',
     base: 'telannas',
     image: 'tel’annas-f-e-e-x1-silverwing.png',
     position: 1.1
@@ -5417,7 +5417,7 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 826,
-    name: 'yorn-swat',
+    name: 'yorn swat',
     base: 'Yorn',
     image: 'yorn-s-w-a-t.png'
   },
