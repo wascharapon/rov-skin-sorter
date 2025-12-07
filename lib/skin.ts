@@ -5493,7 +5493,8 @@ export const rov: IRovSkin[] = [
     id: 837,
     name: 'zanis blood knight',
     base: 'Zanis',
-    image: 'zanis-blood-knight.png'
+    image: 'zanis-blood-knight.png',
+    position: 17.95
   },
   {
     id: 838,
