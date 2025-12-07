@@ -243,7 +243,8 @@ export const rov: IRovSkin[] = [
     id: 37,
     name: 'alice mellow star',
     base: 'Alice',
-    image: 'alice-mellow-star.png'
+    image: 'alice-mellow-star.png',
+    position: 7
   },
   {
     id: 38,
@@ -569,7 +570,8 @@ export const rov: IRovSkin[] = [
     id: 86,
     name: 'astrid home runner',
     base: 'Astrid',
-    image: 'astrid-home-runner.png'
+    image: 'astrid-home-runner.png',
+    position: 8
   },
   {
     id: 87,
@@ -1919,7 +1921,8 @@ export const rov: IRovSkin[] = [
     id: 292,
     name: 'helena mellow star',
     base: 'Helena',
-    image: 'helen-mellow-star.png'
+    image: 'helen-mellow-star.png',
+    position: 8
   },
   {
     id: 293,
@@ -6088,8 +6091,8 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 930,
-    name: "kil'groth auto archon kil'groth",
-    base: "Kil'Groth",
+    name: "kilgroth auto archon kil'groth",
+    base: 'Kilgroth',
     image: 'kil’groth-auto-archon-kil\'groth.png',
     position: 17.21
   },
