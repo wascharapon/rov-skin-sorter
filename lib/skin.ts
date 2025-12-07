@@ -4381,7 +4381,7 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 669,
-    name: 'telannas f.e.e.x1 silverwing',
+    name: 'telannas-feex1-silverwing',
     base: 'telannas',
     image: 'tel’annas-f-e-e-x1-silverwing.png',
     position: 1.1
@@ -5231,34 +5231,34 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 798,
-    name: "Y'bneth Ancient Watcher",
-    base: "Y'bneth",
+    name: 'ybneth Ancient Watcher',
+    base: 'ybneth',
     image: 'y\'bneth-ancient-watcher.png'
   },
   {
     id: 799,
-    name: "Y'bneth Class B Hero",
-    base: "Y'bneth",
+    name: 'ybneth Class B Hero',
+    base: 'ybneth',
     image: 'y\'bneth-class-b-hero.png'
   },
   {
     id: 800,
-    name: "Y'bneth Frosty",
-    base: "Y'bneth",
+    name: 'ybneth Frosty',
+    base: 'ybneth',
     image: 'y\'bneth-frosty.png',
     position: 8
   },
   {
     id: 801,
-    name: "Y'bneth Preta",
-    base: "Y'bneth",
+    name: 'ybneth Preta',
+    base: 'ybneth',
     image: 'y\'bneth-preta.png',
     position: 13.4
   },
   {
     id: 802,
-    name: "Y'bneth Shrine Cyborg",
-    base: "Y'bneth",
+    name: 'ybneth Shrine Cyborg',
+    base: 'ybneth',
     image: 'y\'bneth-shrine-cyborg.png'
   },
   {
@@ -5417,7 +5417,7 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 826,
-    name: 'yorn s.w.a.t.',
+    name: 'yorn-swat',
     base: 'Yorn',
     image: 'yorn-s-w-a-t.png'
   },
