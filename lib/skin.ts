@@ -6799,5 +6799,11 @@ export const rov: IRovSkin[] = [
     base: 'Bijan',
     image: 'bijan-xmas-idol-leader.png',
     position: 8
+  },
+  {
+    id: 1035,
+    name: 'jiina bloody gangster',
+    base: 'Jiina',
+    image: 'jiina-bloody-gangster.png'
   }
 ]
