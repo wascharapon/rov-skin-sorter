@@ -3152,7 +3152,8 @@ export const rov: IRovSkin[] = [
     id: 481,
     name: 'murad zenitsu agatsuma',
     base: 'Murad',
-    image: 'murad-zenitsu-agatsuma.png'
+    image: 'murad-zenitsu-agatsuma.png',
+    position: 1.2
   },
   {
     id: 482,
@@ -6811,5 +6812,33 @@ export const rov: IRovSkin[] = [
     name: 'helen xmas idol visual',
     base: 'Helen',
     image: 'helen-xmas-idol-visual.png'
+  },
+  {
+    id: 1037,
+    name: 'chaugnar pixel storm',
+    base: 'Chaugnar',
+    image: 'chaugnar-pixel-storm.png',
+    position: 9.1
+  },
+  {
+    id: 1038,
+    name: 'natalya kuromis heart',
+    base: 'Natalya',
+    image: 'natalya-kuromis-heart.png',
+    position: 1.2
+  },
+  {
+    id: 1039,
+    name: 'veera my melodys love',
+    base: 'Veera',
+    image: 'veera-my-melodys-love.png',
+    position: 7.1
+  },
+  {
+    id: 1040,
+    name: 'aya cinnamorolls drem',
+    base: 'Aya',
+    image: 'aya-cinnamorolls-drem.png',
+    position: 1.2
   }
 ]
