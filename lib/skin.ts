@@ -6840,5 +6840,11 @@ export const rov: IRovSkin[] = [
     base: 'Aya',
     image: 'aya-cinnamorolls-drem.png',
     position: 1.2
+  },
+  {
+    id: 1041,
+    name: 'fennik fox charm',
+    base: 'Fennik',
+    image: 'fennik-fox-charm.png'
   }
 ]
