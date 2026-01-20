@@ -739,7 +739,8 @@ export const rov: IRovSkin[] = [
     id: 113,
     name: 'bijan dragon millenninum burning sky',
     base: 'Bijan',
-    image: 'bijan-dragon-millenninum-burning-sky.png'
+    image: 'bijan-dragon-millenninum-burning-sky.png',
+    position: 4
   },
   {
     id: 114,
@@ -6433,7 +6434,8 @@ export const rov: IRovSkin[] = [
     id: 980,
     name: 'stuart mvp sigma',
     base: 'Stuart',
-    image: 'stuart-mvp-sigma.jpeg'
+    image: 'stuart-mvp-sigma.jpeg',
+    position: 4
   },
   {
     id: 981,
