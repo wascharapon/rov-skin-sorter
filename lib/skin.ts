@@ -5832,7 +5832,8 @@ export const rov: IRovSkin[] = [
     id: 889,
     name: 'aya wether plushie',
     base: 'Aya',
-    image: 'aya-wether-plushie-new.png'
+    image: 'aya-wether-plushie-new.png',
+    position: 2
   },
   {
     id: 890,
