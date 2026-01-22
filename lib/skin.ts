@@ -6856,5 +6856,12 @@ export const rov: IRovSkin[] = [
     base: 'Laville',
     image: 'laville-iridescent.png',
     position: 9.1
+  },
+  {
+    id: 1043,
+    name: 'errol pixel storm',
+    base: 'Errol',
+    image: 'errol-pixel-storm.png',
+    position: 9.1
   }
 ]
