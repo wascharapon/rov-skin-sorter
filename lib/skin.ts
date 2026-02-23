@@ -6940,5 +6940,19 @@ export const rov: IRovSkin[] = [
     base: 'Valhein',
     image: 'valhein-elemental-sentinels-dunor.jpg',
     position: 7
+  },
+  {
+    id: 1055,
+    name: 'zuka mechanized zuka',
+    base: 'Zuka',
+    image: 'zuka-mechanized-zuka.jpg',
+    position: 7.4
+  },
+  {
+    id: 1056,
+    name: 'yorn craftsman delight',
+    base: 'Yorn',
+    image: 'yorn-craftsman-delight.jpg',
+    position: 7.4
   }
 ]
