@@ -6869,5 +6869,76 @@ export const rov: IRovSkin[] = [
     name: 'aleister prelude to the plot',
     base: 'Aleister',
     image: 'aleister-prelud-to-the-plot.png'
+  },
+  {
+    id: 1045,
+    name: 'butterfly elemental sentinels fei',
+    base: 'Butterfly',
+    image: 'butterfly-fei.jpg',
+    position: 7.4
+  },
+  {
+    id: 1046,
+    name: 'diao chan elemental sentinels divinity',
+    base: 'Diao Chan',
+    image: 'diao-chan-elemental-sentinels-divinity.png',
+    position: 1
+  },
+  {
+    id: 1047,
+    name: 'dolia elemental sentinels echoa',
+    base: 'Dolia',
+    image: 'dolia-elemental-sentinels-echoa.jpg',
+    position: 7
+  },
+  {
+    id: 1048,
+    name: 'grakk elemental sentinels demetor',
+    base: 'Grakk',
+    image: 'grakk-elemental-sentinels-demetor.png',
+    position: 7.4
+  },
+  {
+    id: 1049,
+    name: 'lauriel elemental sentinels chora',
+    base: 'Lauriel',
+    image: 'lauriel-elemental-sentinels-chora.jpg',
+    position: 7
+  },
+  {
+    id: 1050,
+    name: 'marja xi fei',
+    base: 'Marja',
+    image: 'marja-xi-fei.jpg',
+    position: 7.4
+  },
+  {
+    id: 1051,
+    name: 'murad fortune bringer blessed',
+    base: 'Murad',
+    image: 'murad-fortune-bringer-blessed.jpg',
+    position: 7.4
+  },
+  {
+    id: 1052,
+    name: 'omen elemetal sentinels firelord',
+    base: 'Omen',
+    image: 'omen-elemetal-sentinels-firelord.jpg',
+    position: 7
+  },
+  {
+    id: 1053,
+    name: 'teeri elemental sentinels ventus',
+    base: 'Teeri',
+    image: 'teeri-elemental-sentinels-ventus.png',
+    position: 7.2
+
+  },
+  {
+    id: 1054,
+    name: 'valhein elemental sentinels dunor',
+    base: 'Valhein',
+    image: 'valhein-elemental-sentinels-dunor.jpg',
+    position: 7
   }
 ]
