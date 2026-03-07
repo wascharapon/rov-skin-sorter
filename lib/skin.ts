@@ -6872,7 +6872,7 @@ export const rov: IRovSkin[] = [
   },
   {
     id: 1045,
-    name: 'butterfly elemental sentinels fei',
+    name: 'butterfly fei',
     base: 'Butterfly',
     image: 'butterfly-fei.jpg',
     position: 7.4
