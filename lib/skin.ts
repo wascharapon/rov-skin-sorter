@@ -1165,41 +1165,41 @@ export const rov: IRovSkin[] = [
     id: 178,
     name: 'd arcy hummingbird squad  magnetic',
     base: 'D-Arcy',
-    image: 'd\'arcy-hummingbird-squad-magnetic.png',
+    image: "d'arcy-hummingbird-squad-magnetic.png",
     position: 8
   },
   {
     id: 179,
     name: 'd arcy interstellar council',
     base: 'D-Arcy',
-    image: 'd\'arcy-interstellar-council.png',
+    image: "d'arcy-interstellar-council.png",
     position: 8
   },
   {
     id: 180,
     name: 'd arcy lava spawn',
     base: 'D-Arcy',
-    image: 'd\'arcy-lava-spawn.png',
+    image: "d'arcy-lava-spawn.png",
     position: 8
   },
   {
     id: 181,
     name: 'd arcy quantum zen',
     base: 'D-Arcy',
-    image: 'd\'arcy-quantum-zen.png'
+    image: "d'arcy-quantum-zen.png"
   },
   {
     id: 182,
     name: 'd arcy tarot weaver',
     base: 'D-Arcy',
-    image: 'd\'arcy-tarot-weaver.png',
+    image: "d'arcy-tarot-weaver.png",
     position: 8
   },
   {
     id: 183,
     name: 'd arcy the count',
     base: 'D-Arcy',
-    image: 'd\'arcy-the-count.png'
+    image: "d'arcy-the-count.png"
   },
   {
     id: 184,
@@ -1337,7 +1337,7 @@ export const rov: IRovSkin[] = [
     id: 204,
     name: 'diao chan witchs creed',
     base: 'Diao Chan',
-    image: 'diao-chan-witch\'s-creed.png',
+    image: "diao-chan-witch's-creed.png",
     position: 7.8
   },
   {
@@ -1388,40 +1388,40 @@ export const rov: IRovSkin[] = [
   {
     id: 212,
     name: 'elandorr bee brigade',
-    base: 'Elandor\'r',
+    base: "Elandor'r",
     image: 'elandor’r-bee-brigade.png',
     position: 8
   },
   {
     id: 213,
     name: 'elandorr carano scholar',
-    base: 'Elandor\'r',
+    base: "Elandor'r",
     image: 'elandor’r-carano-scholar.png'
   },
   {
     id: 214,
     name: 'elandorr darwin secret',
-    base: 'Elandor\'r',
+    base: "Elandor'r",
     image: 'elandor’r-darwin-secret.png',
     position: 9.1
   },
   {
     id: 215,
     name: 'elandorr the corsaire',
-    base: 'Elandor\'r',
+    base: "Elandor'r",
     image: 'elandor’r-the-corsaire.png'
   },
   {
     id: 216,
     name: 'elandorr time stealer',
-    base: 'Elandor\'r',
+    base: "Elandor'r",
     image: 'elandor’r-timestealer.png',
     position: 10
   },
   {
     id: 217,
     name: 'elandorr tuxedo mask',
-    base: 'Elandor\'r',
+    base: "Elandor'r",
     image: 'elandor’r-tuxedo-mask.png',
     position: 2
   },
@@ -1449,7 +1449,7 @@ export const rov: IRovSkin[] = [
     id: 221,
     name: 'elsu hopes bane',
     base: 'Elsu',
-    image: 'elsu-hope\'s-bane.png',
+    image: "elsu-hope's-bane.png",
     position: 10
   },
   {
@@ -1737,7 +1737,7 @@ export const rov: IRovSkin[] = [
     id: 265,
     name: 'gildur surfin gramp',
     base: 'Gildur',
-    image: 'gildur-surfin\'gramp.png',
+    image: "gildur-surfin'gramp.png",
     position: 11
   },
   {
@@ -1765,7 +1765,7 @@ export const rov: IRovSkin[] = [
     id: 269,
     name: 'grakk capn',
     base: 'Grakk',
-    image: 'grakk-cap\'n.png',
+    image: "grakk-cap'n.png",
     position: 9.1
   },
   {
@@ -1868,7 +1868,7 @@ export const rov: IRovSkin[] = [
     id: 284,
     name: 'hayate redrum galaxys end',
     base: 'Hayate',
-    image: 'hayate-redrum-galaxy\'s-end.png',
+    image: "hayate-redrum-galaxy's-end.png",
     position: 3
   },
   {
@@ -2061,13 +2061,12 @@ export const rov: IRovSkin[] = [
     base: 'Ilumia',
     image: 'ilumia-nyxus.png',
     position: 4
-
   },
   {
     id: 314,
     name: 'ilumia oceans heart',
     base: 'Ilumia',
-    image: 'ilumia-ocean\'s-heart.png',
+    image: "ilumia-ocean's-heart.png",
     position: 13
   },
   {
@@ -2087,7 +2086,7 @@ export const rov: IRovSkin[] = [
     id: 317,
     name: 'ilumia soldiers fortune',
     base: 'Ilumia',
-    image: 'ilumia-soldier\'s-fortune.png'
+    image: "ilumia-soldier's-fortune.png"
   },
   {
     id: 318,
@@ -2306,7 +2305,8 @@ export const rov: IRovSkin[] = [
     name: 'kilgroth oathkeeper',
     base: 'Kil’Groth',
     image: 'kil’groth-oathkeeper.png'
-  }, {
+  },
+  {
     id: 352,
     name: 'kriknak ddos',
     base: 'Kriknak',
@@ -2516,7 +2516,7 @@ export const rov: IRovSkin[] = [
     id: 383,
     name: 'liliana kumihos legacy',
     base: 'Liliana',
-    image: 'liliana-kumiho\'s-legacy.png'
+    image: "liliana-kumiho's-legacy.png"
   },
   {
     id: 384,
@@ -2957,7 +2957,7 @@ export const rov: IRovSkin[] = [
     id: 451,
     name: 'mina atums remnant',
     base: 'Mina',
-    image: 'mina-atum\'s-remnant.png',
+    image: "mina-atum's-remnant.png",
     position: 8
   },
   {
@@ -3089,7 +3089,7 @@ export const rov: IRovSkin[] = [
     id: 471,
     name: 'murad deserters return',
     base: 'Murad',
-    image: 'murad-deserter\'s-return.png'
+    image: "murad-deserter's-return.png"
   },
   {
     id: 472,
@@ -3271,7 +3271,7 @@ export const rov: IRovSkin[] = [
     id: 498,
     name: 'nakroth vanquishers gift',
     base: 'Nakroth',
-    image: 'nakroth-vanquisher\'s-gift.png',
+    image: "nakroth-vanquisher's-gift.png",
     position: 7.5
   },
   {
@@ -3560,7 +3560,7 @@ export const rov: IRovSkin[] = [
     id: 542,
     name: 'qi dragons heir',
     base: 'Qi',
-    image: 'qi-dragon\'s-heir.png'
+    image: "qi-dragon's-heir.png"
   },
   {
     id: 543,
@@ -3830,7 +3830,7 @@ export const rov: IRovSkin[] = [
     id: 583,
     name: "Rourke Atanor's Guardian",
     base: 'Rourke',
-    image: 'rourke-atanor\'s-guardian.png',
+    image: "rourke-atanor's-guardian.png",
     position: 8
   },
   {
@@ -3979,7 +3979,7 @@ export const rov: IRovSkin[] = [
     id: 606,
     name: 'ryoma vanquishers gift',
     base: 'Ryoma',
-    image: 'ryoma-vanquisher\'s-gift.png'
+    image: "ryoma-vanquisher's-gift.png"
   },
   {
     id: 607,
@@ -4103,7 +4103,7 @@ export const rov: IRovSkin[] = [
     id: 625,
     name: "Skud Hellfire Demon's Arm",
     base: 'Skud',
-    image: 'skud-hellfire-demon\'s-arm.png',
+    image: "skud-hellfire-demon's-arm.png",
     position: 9.1
   },
   {
@@ -4237,7 +4237,7 @@ export const rov: IRovSkin[] = [
     id: 646,
     name: 'taara soldiers fortune',
     base: 'Taara',
-    image: 'taara-soldier\'s-fortune.png'
+    image: "taara-soldier's-fortune.png"
   },
   {
     id: 647,
@@ -4371,7 +4371,7 @@ export const rov: IRovSkin[] = [
     id: 667,
     name: 'telannas cupids messenger',
     base: 'telannas',
-    image: 'tel’annas-cupid\'s-messenger.png',
+    image: "tel’annas-cupid's-messenger.png",
     position: 9.1
   },
   {
@@ -4524,7 +4524,7 @@ export const rov: IRovSkin[] = [
     id: 690,
     name: 'thorne soldiers fortune',
     base: 'Thorne',
-    image: 'thorne-soldier\'s-fortune.png'
+    image: "thorne-soldier's-fortune.png"
   },
   {
     id: 691,
@@ -4739,7 +4739,7 @@ export const rov: IRovSkin[] = [
     id: 723,
     name: 'valhein vanquishers wrath',
     base: 'Valhein',
-    image: 'valhein-vanquisher\'s-wrath.png',
+    image: "valhein-vanquisher's-wrath.png",
     position: 7.4
   },
   {
@@ -5025,7 +5025,7 @@ export const rov: IRovSkin[] = [
     id: 766,
     name: 'volkath atums remnant',
     base: 'Volkath',
-    image: 'volkath-atum\'s-remnant.png',
+    image: "volkath-atum's-remnant.png",
     position: 8
   },
   {
@@ -5122,7 +5122,7 @@ export const rov: IRovSkin[] = [
     id: 781,
     name: "Wukong Atum's Remnant",
     base: 'Wukong',
-    image: 'wukong-atum\'s-remnant.png',
+    image: "wukong-atum's-remnant.png",
     position: 8
   },
   {
@@ -5163,7 +5163,7 @@ export const rov: IRovSkin[] = [
     id: 787,
     name: "Wukong Heaven's Equal",
     base: 'Wukong',
-    image: 'wukong-heaven\'s-equal.png',
+    image: "wukong-heaven's-equal.png",
     position: 4
   },
   {
@@ -5235,33 +5235,33 @@ export const rov: IRovSkin[] = [
     id: 798,
     name: 'ybneth Ancient Watcher',
     base: 'ybneth',
-    image: 'y\'bneth-ancient-watcher.png'
+    image: "y'bneth-ancient-watcher.png"
   },
   {
     id: 799,
     name: 'ybneth Class B Hero',
     base: 'ybneth',
-    image: 'y\'bneth-class-b-hero.png'
+    image: "y'bneth-class-b-hero.png"
   },
   {
     id: 800,
     name: 'ybneth Frosty',
     base: 'ybneth',
-    image: 'y\'bneth-frosty.png',
+    image: "y'bneth-frosty.png",
     position: 8
   },
   {
     id: 801,
     name: 'ybneth Preta',
     base: 'ybneth',
-    image: 'y\'bneth-preta.png',
+    image: "y'bneth-preta.png",
     position: 13.4
   },
   {
     id: 802,
     name: 'ybneth Shrine Cyborg',
     base: 'ybneth',
-    image: 'y\'bneth-shrine-cyborg.png'
+    image: "y'bneth-shrine-cyborg.png"
   },
   {
     id: 803,
@@ -5508,7 +5508,7 @@ export const rov: IRovSkin[] = [
     id: 839,
     name: 'zanis dooms bane',
     base: 'Zanis',
-    image: 'zanis-doom\'s-bane.png'
+    image: "zanis-doom's-bane.png"
   },
   {
     id: 840,
@@ -5582,7 +5582,7 @@ export const rov: IRovSkin[] = [
     id: 850,
     name: 'zata soldiers fortune',
     base: 'Zata',
-    image: 'zata-soldier\'s-fortune.png'
+    image: "zata-soldier's-fortune.png"
   },
   {
     id: 851,
@@ -5595,7 +5595,7 @@ export const rov: IRovSkin[] = [
     id: 852,
     name: 'zata vanquishers gift',
     base: 'Zata',
-    image: 'zata-vanquisher\'s-gift.png',
+    image: "zata-vanquisher's-gift.png",
     position: 7.51
   },
   {
@@ -5866,7 +5866,7 @@ export const rov: IRovSkin[] = [
     id: 894,
     name: 'butterflys dream',
     base: 'Butterfly',
-    image: 'butterfly\'s-dream.png'
+    image: "butterfly's-dream.png"
   },
   {
     id: 895,
@@ -5963,7 +5963,7 @@ export const rov: IRovSkin[] = [
     id: 909,
     name: 'arduin blizzards edge',
     base: 'Arduin',
-    image: 'arduin-blizzard\'s-edge.png',
+    image: "arduin-blizzard's-edge.png",
     position: 3
   },
   {
@@ -6097,7 +6097,7 @@ export const rov: IRovSkin[] = [
     id: 930,
     name: "kilgroth auto archon kil'groth",
     base: 'Kilgroth',
-    image: 'kil’groth-auto-archon-kil\'groth.png',
+    image: "kil’groth-auto-archon-kil'groth.png",
     position: 17.21
   },
   {
@@ -6371,8 +6371,8 @@ export const rov: IRovSkin[] = [
   {
     id: 971,
     name: 'telannas xenocore',
-    base: 'Tel\'Annas',
-    image: 'tel\'annas-xenocore.png',
+    base: "Tel'Annas",
+    image: "tel'annas-xenocore.png",
     position: 5
   },
   {
@@ -6483,7 +6483,7 @@ export const rov: IRovSkin[] = [
     id: 988,
     name: 'elandors butterfly dream',
     base: 'Elandor',
-    image: 'elandor\'r-butterfly-dream.png',
+    image: "elandor'r-butterfly-dream.png",
     position: 7.7
   },
   {
@@ -6744,7 +6744,7 @@ export const rov: IRovSkin[] = [
   {
     id: 1026,
     name: 'azzenka tarot weaver',
-    base: 'Azzen\'Ka',
+    base: "Azzen'Ka",
     image: 'azzen’ka-tarot-weaver.png',
     position: 7.4
   },
@@ -6932,7 +6932,6 @@ export const rov: IRovSkin[] = [
     base: 'Teeri',
     image: 'teeri-elemental-sentinels-ventus.png',
     position: 7.2
-
   },
   {
     id: 1054,
@@ -6954,5 +6953,12 @@ export const rov: IRovSkin[] = [
     base: 'Yorn',
     image: 'yorn-craftsman-delight.jpg',
     position: 7.4
+  },
+  {
+    id: 1057,
+    name: 'zanis all ablaze',
+    base: 'Zanis',
+    image: 'zanis-all-ablaze.png',
+    position: 5
   }
 ]
