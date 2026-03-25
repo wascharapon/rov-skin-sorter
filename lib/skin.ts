@@ -6966,7 +6966,7 @@ export const rov: IRovSkin[] = [
     name: 'krixi sakura dream',
     base: 'Krixi',
     image: 'krixi-sakura-dream.png',
-    position: 7.7
+    position: 4
   },
   {
     id: 1059,
