@@ -6974,5 +6974,12 @@ export const rov: IRovSkin[] = [
     base: 'Zip',
     image: 'zip-circus-troupe.png',
     position: 7.4
+  },
+  {
+    id: 1060,
+    name: 'ishar circus troupe',
+    base: 'Ishar',
+    image: 'ishar-circus-troupe.png',
+    position: 7.4
   }
 ]
