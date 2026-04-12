@@ -6981,5 +6981,19 @@ export const rov: IRovSkin[] = [
     base: 'Ishar',
     image: 'ishar-circus-troupe.png',
     position: 7.4
+  },
+  {
+    id: 1061,
+    name: 'gildur pasulol',
+    base: 'Gildur',
+    image: 'gildur-pasulol.png',
+    position: 7.2
+  },
+  {
+    id: 1062,
+    name: 'yue lord of abyss',
+    base: 'Yue',
+    image: 'yue-lord-of-abyss.png',
+    position: 4
   }
 ]
