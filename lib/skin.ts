@@ -6995,5 +6995,12 @@ export const rov: IRovSkin[] = [
     base: 'Yue',
     image: 'yue-lord-of-abyss.png',
     position: 4
+  },
+  {
+    id: 1063,
+    name: 'hayate taiyaki',
+    base: 'Hayate',
+    image: 'hayate-taiyaki.png',
+    position: 10.1
   }
 ]
