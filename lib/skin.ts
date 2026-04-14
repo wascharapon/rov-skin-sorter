@@ -7002,5 +7002,12 @@ export const rov: IRovSkin[] = [
     base: 'Hayate',
     image: 'hayate-taiyaki.png',
     position: 10.1
+  },
+  {
+    id: 1064,
+    name: 'mina ocean party',
+    base: 'Mina',
+    image: 'mina-ocean-party.png',
+    position: 7.4
   }
 ]
