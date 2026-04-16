@@ -7009,5 +7009,19 @@ export const rov: IRovSkin[] = [
     base: 'Mina',
     image: 'mina-ocean-party.png',
     position: 7.4
+  },
+  {
+    id: 1065,
+    name: 'billow t rex fire up',
+    base: 'Billow',
+    image: 'billow-t-rex-fire-up.png',
+    position: 5
+  },
+  {
+    id: 1066,
+    name: 'volkath preying umbra',
+    base: 'Volkath',
+    image: 'volkath-preying-umbra.png',
+    position: 5
   }
 ]
