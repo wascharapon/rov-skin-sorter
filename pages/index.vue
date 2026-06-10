@@ -209,7 +209,7 @@
             </div>
           </b-collapse>
           <b-row id="select-skin-row" class="mt-3">
-            <b-col cols="6">
+            <b-col cols="12" md="6">
               <b-row>
                 <b-col id="display-select-skin-rov" lg="2" md="4" cols="12">
                   <b-img
@@ -225,7 +225,7 @@
                         ? 'ว่าง'
                         : selectSkinRovOnTable?.name
                     }`"
-                    class="modern-form-group text-nowrap"
+                    class="modern-form-group select-label-truncate"
                   >
                     <Multiselect
                       ref="selectSkinRov"
@@ -280,7 +280,7 @@
                 </b-col>
               </b-row>
             </b-col>
-            <b-col cols="3" class="d-flex align-items-center">
+            <b-col cols="6" md="3" class="d-flex align-items-center">
               <b-button
                 class="w-100 mt-4 modern-btn modern-btn-warning"
                 variant="warning"
@@ -290,7 +290,7 @@
                 เรียง
               </b-button>
             </b-col>
-            <b-col cols="3" class="d-flex align-items-center">
+            <b-col cols="6" md="3" class="d-flex align-items-center">
               <b-button
                 class="w-100 mt-4 modern-btn modern-btn-success"
                 variant="success"
@@ -1412,12 +1412,12 @@ export default Vue.extend({
   }
 
   .ipad-grid-controls {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
   }
 
   .grid-apply-btn {
-    grid-column: span 2;
+    grid-column: span 1;
   }
 
   .ipad-settings-row {
@@ -1431,7 +1431,7 @@ export default Vue.extend({
   }
 
   .file-action-buttons {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
 }
@@ -1641,6 +1641,41 @@ export default Vue.extend({
   border: 2px solid rgba(255, 255, 255, 0.2);
   object-fit: cover;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.select-label-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .modern-container {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .compact-facebook-btn {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
+    height: auto;
+    min-height: 32px;
+    max-width: 200px;
+  }
+
+  .modern-btn {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .ipad-control-section {
+    padding: 14px;
+  }
+
+  .select-label-truncate {
+    white-space: normal;
+  }
 }
 </style>
 
