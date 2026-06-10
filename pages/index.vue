@@ -225,7 +225,7 @@
                         ? 'ว่าง'
                         : selectSkinRovOnTable?.name
                     }`"
-                    class="modern-form-group select-label-truncate"
+                    class="modern-form-group"
                   >
                     <Multiselect
                       ref="selectSkinRov"
@@ -1643,12 +1643,6 @@ export default Vue.extend({
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.select-label-truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 @media (max-width: 767px) {
   .modern-container {
     padding: 12px;
@@ -1673,9 +1667,6 @@ export default Vue.extend({
     padding: 14px;
   }
 
-  .select-label-truncate {
-    white-space: normal;
-  }
 }
 </style>
 
