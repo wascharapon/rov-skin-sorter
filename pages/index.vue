@@ -28,9 +28,7 @@
             class="badge text-white mr-2 mb-2 px-3"
             :style="{ backgroundColor: item.color }"
           >
-            <h5 class="mb-1">
-              {{ index + 1 }} - {{ item.name }}
-            </h5>
+            <h5 class="mb-1">{{ index + 1 }} - {{ item.name }}</h5>
           </div>
         </div>
       </b-modal>
@@ -90,7 +88,7 @@
               :disabled="isSaving"
               @click="
                 goToBlankPage(
-                  'https://www.facebook.com/share/18DD4E54Jg/?mibextid=wwXIfr'
+                  'https://www.facebook.com/share/18DD4E54Jg/?mibextid=wwXIfr',
                 )
               "
             >
@@ -109,9 +107,7 @@
             <div class="ipad-control-section mb-4">
               <div class="section-header">
                 <b-icon icon="grid-3x3-gap" class="section-icon" />
-                <h5 class="section-title">
-                  ตั้งค่าตาราง
-                </h5>
+                <h5 class="section-title">ตั้งค่าตาราง</h5>
               </div>
               <div class="ipad-grid-controls">
                 <div class="grid-input-group">
@@ -172,9 +168,7 @@
             <div class="ipad-control-section">
               <div class="section-header">
                 <b-icon icon="folder" class="section-icon" />
-                <h5 class="section-title">
-                  การจัดการไฟล์
-                </h5>
+                <h5 class="section-title">การจัดการไฟล์</h5>
               </div>
               <div class="ipad-file-controls">
                 <div class="file-input-wrapper">
@@ -256,13 +250,11 @@
                             :src="option.image"
                             alt="icon"
                             class="option-image"
-                          >
+                          />
                           <h1>
                             {{ option.name }}
                           </h1>
-                          <h4 class="mx-2">
-                            ({{ option.base }})
-                          </h4>
+                          <h4 class="mx-2">({{ option.base }})</h4>
                         </div>
                       </template>
 
@@ -272,19 +264,15 @@
                             :src="option.image"
                             alt="icon"
                             class="tag-image"
-                          >
+                          />
                           <span>{{ option.name }}</span>
-                          <button @click="remove(option)">
-                            x
-                          </button>
+                          <button @click="remove(option)">x</button>
                         </div>
                       </template>
 
                       <template #noResult>
                         <div class="text-center py-2">
-                          <p class="text-muted mb-0">
-                            ไม่พบสกินตามที่ค้นหา
-                          </p>
+                          <p class="text-muted mb-0">ไม่พบสกินตามที่ค้นหา</p>
                         </div>
                       </template>
                     </Multiselect>
@@ -355,7 +343,7 @@
                   alt="skin image"
                   class="img-fluid"
                   :style="{ height: `${widthTableSkinRov * 1.5 - 17}px` }"
-                >
+                />
                 <div v-if="!isSaving" class="skin-future-remove text-white">
                   <b-icon
                     :style="{ width: '150%', height: '150%' }"
@@ -373,7 +361,7 @@
                       <b-badge variant="primary">
                         {{ item.base }}
                       </b-badge>
-                      <br>
+                      <br />
                       <b-badge
                         :variant="item.position ? 'warning' : 'danger'"
                         class="ml-1"
@@ -396,27 +384,27 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import html2canvas from 'html2canvas'
-import { rov } from '~/lib/skin'
-import { IRovSkin, IRovSkinOnTable } from '~/model/rov'
+import Vue from "vue";
+import html2canvas from "html2canvas";
+import { rov } from "~/lib/skin";
+import { IRovSkin, IRovSkinOnTable } from "~/model/rov";
 export default Vue.extend({
   data() {
     return {
       $cachedRov: null as IRovSkin[] | null,
       $cachedWidthCalc: 0,
-      $lastFormState: '',
+      $lastFormState: "",
       $saveDebounceTimer: null as any,
       selectSkinRov: [] as IRovSkin[],
       selectSkinRovOnTable: {} as IRovSkinOnTable,
       selectSkinForSwap: {} as IRovSkinOnTable,
       isDragging: false,
       isSaving: false,
-      keyLocalStorage: 'rov-skin-sorter',
+      keyLocalStorage: "rov-skin-sorter",
       formData: {
         column: 15,
         row: 5,
-        width: 100
+        width: 100,
       } as {
         column: number;
         row: number;
@@ -426,7 +414,7 @@ export default Vue.extend({
         column: 15,
         row: 5,
         width: 100, // Percentage of the container width
-        isEnableItem: false
+        isEnableItem: false,
       } as {
         column: number;
         row: number;
@@ -436,171 +424,177 @@ export default Vue.extend({
       data: [] as IRovSkinOnTable[],
       isHeaderVisible: true,
       classSkinRov: [
-        { name: 'Collaboration Limited', color: '#a62828' },
-        { name: 'Bleach เทพมรณะ', color: '#1c1c1c' },
-        { name: 'DEMON SLAYER', color: '#e65100' },
-        { name: 'Jujutsu Kaisen', color: '#3e2723' },
-        { name: 'Sword art Online', color: '#1a237e' },
-        { name: 'Hunter X Hunter', color: '#2e7d32' },
-        { name: 'Harley Quinn', color: '#880e4f' },
-        { name: 'Witching Hour', color: '#4a148c' },
-        { name: 'Mythical', color: '#b71c1c' },
-        { name: 'Dimension Breaker', color: '#4527a0' },
-        { name: 'Dragon Legacy (Red)', color: '#263238' },
-        { name: 'RockStar.', color: '#1e88e5' },
-        { name: 'ANNIV.', color: '#6a1b9a' },
-        { name: 'SNK', color: '#01579b' },
-        { name: 'SailorMoon', color: '#c2185b' },
-        { name: 'Miracle', color: '#ef6c00' },
-        { name: 'WAVE', color: '#1565c0' },
-        { name: 'Dragon Legacy (yellow)', color: '#455a64' },
-        { name: 'Serpent Saga', color: '#bf360c' },
-        { name: 'EVO', color: '#00838f' },
-        { name: 'ESTEEM', color: '#4a148c' },
-        { name: 'Ultimate', color: '#263238' },
-        { name: 'Miss Rov', color: '#b0003a' },
-        { name: 'Magic School', color: '#311b92' },
-        { name: '5v5FEST', color: '#ef6c18' },
-        { name: 'Vip', color: '#5d4037' },
-        { name: 'RPL', color: '#b71c1c' },
-        { name: 'FMVP', color: '#4e342e' },
-        { name: 'ANNIV.(veeres,forentino)', color: '#7b1fa2' },
-        { name: 'Prestige', color: '#6d4c41' },
-        { name: 'AIC 2018', color: '#8d6e63' },
-        { name: 'สงกรานต์', color: '#00695c' },
-        { name: 'Christmas', color: '#ad1457' },
-        { name: 'New Year', color: '#1b5e20' },
-        { name: 'Halloween', color: '#ff6f00' },
-        { name: 'Snow Festival', color: '#006064' },
-        { name: 'Valentine', color: '#c2185b' },
-        { name: 'Legend', color: '#795548' },
-        { name: 'VaLor', color: '#424242' },
-        { name: 'SUPREME', color: '#9c27b0' },
-        { name: 'Limited', color: '#512da8' }
-      ]
-    }
+        { name: "Collaboration Limited", color: "#a62828" },
+        { name: "Bleach เทพมรณะ", color: "#1c1c1c" },
+        { name: "DEMON SLAYER", color: "#e65100" },
+        { name: "Jujutsu Kaisen", color: "#3e2723" },
+        { name: "Sword art Online", color: "#1a237e" },
+        { name: "Hunter X Hunter", color: "#2e7d32" },
+        { name: "Harley Quinn", color: "#880e4f" },
+        { name: "Witching Hour", color: "#4a148c" },
+        { name: "Mythical", color: "#b71c1c" },
+        { name: "Dimension Breaker", color: "#4527a0" },
+        { name: "Dragon Legacy (Red)", color: "#263238" },
+        { name: "RockStar.", color: "#1e88e5" },
+        { name: "ANNIV.", color: "#6a1b9a" },
+        { name: "SNK", color: "#01579b" },
+        { name: "SailorMoon", color: "#c2185b" },
+        { name: "Miracle", color: "#ef6c00" },
+        { name: "WAVE", color: "#1565c0" },
+        { name: "Dragon Legacy (yellow)", color: "#455a64" },
+        { name: "Serpent Saga", color: "#bf360c" },
+        { name: "EVO", color: "#00838f" },
+        { name: "ESTEEM", color: "#4a148c" },
+        { name: "Ultimate", color: "#263238" },
+        { name: "Miss Rov", color: "#b0003a" },
+        { name: "Magic School", color: "#311b92" },
+        { name: "5v5FEST", color: "#ef6c18" },
+        { name: "Vip", color: "#5d4037" },
+        { name: "RPL", color: "#b71c1c" },
+        { name: "FMVP", color: "#4e342e" },
+        { name: "ANNIV.(veeres,forentino)", color: "#7b1fa2" },
+        { name: "Prestige", color: "#6d4c41" },
+        { name: "AIC 2018", color: "#8d6e63" },
+        { name: "สงกรานต์", color: "#00695c" },
+        { name: "Christmas", color: "#ad1457" },
+        { name: "New Year", color: "#1b5e20" },
+        { name: "Halloween", color: "#ff6f00" },
+        { name: "Snow Festival", color: "#006064" },
+        { name: "Valentine", color: "#c2185b" },
+        { name: "Legend", color: "#795548" },
+        { name: "VaLor", color: "#424242" },
+        { name: "SUPREME", color: "#9c27b0" },
+        { name: "Limited", color: "#512da8" },
+      ],
+    };
   },
   computed: {
+    repoGitHubAssetsImages() {
+      return "https://raw.githubusercontent.com/wascharapon/rov-skin-sorter/refs/heads/main/assets/images";
+    },
     repoGitHubAssetsImagesSkin() {
-      return 'https://raw.githubusercontent.com/wascharapon/rov-skin-sorter/refs/heads/main/assets/images/skin'
+      return `${this.repoGitHubAssetsImages}/skin`;
+    },
+    repoGitHubAssetsImagesItem() {
+      return `${this.repoGitHubAssetsImages}/item`;
     },
     rov() {
       // Use getter method to handle caching without side effects
-      return this.getCachedRovData()
+      return this.getCachedRovData();
     },
     visibleData() {
       // Pre-compute visible data to avoid slice operation in template
-      return this.data.slice(0, this.form.row * this.form.column)
+      return this.data.slice(0, this.form.row * this.form.column);
     },
     defaultSkinImage() {
-      return `${this.repoGitHubAssetsImagesSkin}/default.jpeg`
+      return `${this.repoGitHubAssetsImagesSkin}/default.jpeg`;
     },
     defaultSkinItemImage() {
-      return require('~/assets/images/item/default.png')
+      return `${this.repoGitHubAssetsImagesItem}/default.png`;
     },
     timeStamp() {
-      const now = new Date()
-      const yyyy = now.getFullYear()
-      const mm = String(now.getMonth() + 1).padStart(2, '0')
-      const dd = String(now.getDate()).padStart(2, '0')
-      const hh = String(now.getHours()).padStart(2, '0')
-      const mi = String(now.getMinutes()).padStart(2, '0')
-      const ss = String(now.getSeconds()).padStart(2, '0')
-      return `${yyyy}-${mm}-${dd}_${hh}-${mi}-${ss}`
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, "0");
+      const dd = String(now.getDate()).padStart(2, "0");
+      const hh = String(now.getHours()).padStart(2, "0");
+      const mi = String(now.getMinutes()).padStart(2, "0");
+      const ss = String(now.getSeconds()).padStart(2, "0");
+      return `${yyyy}-${mm}-${dd}_${hh}-${mi}-${ss}`;
     },
     fileNameSystem() {
-      return 'rov-skin-table-draggable'
+      return "rov-skin-table-draggable";
     },
     widthTableSkinRov() {
-      if (!process.client || typeof window === 'undefined') {
-        return this.form.width * 1.5
+      if (!process.client || typeof window === "undefined") {
+        return this.form.width * 1.5;
       }
       // Use getter method to handle caching without side effects
-      return this.getCachedWidth()
+      return this.getCachedWidth();
     },
     isCanSave() {
-      const dataLength = this.data.length
+      const dataLength = this.data.length;
       return (
         dataLength === this.form.row * this.form.column &&
         this.data[0].id &&
         this.data[0].image &&
         this.data[dataLength - 1].id &&
         this.data[dataLength - 1].image
-      )
-    }
+      );
+    },
   },
   watch: {
     form: {
       handler() {
         // Clear width calculation cache when form changes
-        this.$cachedWidthCalc = 0
-        this.$lastFormState = ''
-        this.setDataForTable()
+        this.$cachedWidthCalc = 0;
+        this.$lastFormState = "";
+        this.setDataForTable();
         // Debounce localStorage saves to reduce frequent writes
         if (this.$saveDebounceTimer) {
-          clearTimeout(this.$saveDebounceTimer)
+          clearTimeout(this.$saveDebounceTimer);
         }
         this.$saveDebounceTimer = setTimeout(() => {
-          this.saveDataToLocalStorage()
-        }, 300)
+          this.saveDataToLocalStorage();
+        }, 300);
       },
-      deep: true
+      deep: true,
     },
     selectSkinRov(val: IRovSkin) {
       if (val) {
         this.selectSkinRovOnTable = {
           ...this.selectSkinRovOnTable,
-          ...val
-        } as IRovSkinOnTable
+          ...val,
+        } as IRovSkinOnTable;
         const index = this.data.findIndex(
-          item => item.key === this.selectSkinRovOnTable.key
-        )
+          (item) => item.key === this.selectSkinRovOnTable.key,
+        );
         if (index !== -1) {
-          this.data[index].id = this.selectSkinRovOnTable.id
-          this.data[index].name = val.name
-          this.data[index].image = val.image
-          this.data[index].base = val.base
-          this.data[index].position = val.position
+          this.data[index].id = this.selectSkinRovOnTable.id;
+          this.data[index].name = val.name;
+          this.data[index].image = val.image;
+          this.data[index].base = val.base;
+          this.data[index].position = val.position;
         }
-        this.selectSkinRov = undefined
+        this.selectSkinRov = undefined;
         if (this.selectSkinRovOnTable.key < this.form.row * this.form.column) {
           this.selectSkinRovOnTable = {
             ...this.selectSkinRovOnTable,
-            ...this.data[this.selectSkinRovOnTable.key]
-          } as IRovSkinOnTable
+            ...this.data[this.selectSkinRovOnTable.key],
+          } as IRovSkinOnTable;
         }
-        this.saveDataToLocalStorage()
+        this.saveDataToLocalStorage();
       }
     },
     data: {
       handler() {
         this.data.forEach((item, index) => {
-          item.key = index + 1
-        })
+          item.key = index + 1;
+        });
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   created() {
-    this.setDataForTable()
-    if (process.client && typeof window !== 'undefined') {
-      const stored = localStorage.getItem('rov-header-visible')
+    this.setDataForTable();
+    if (process.client && typeof window !== "undefined") {
+      const stored = localStorage.getItem("rov-header-visible");
       if (stored !== null) {
-        this.isHeaderVisible = stored === 'true'
+        this.isHeaderVisible = stored === "true";
       }
     }
     setTimeout(() => {
-      this.loadDataFromLocalStorage()
-    }, 1000)
+      this.loadDataFromLocalStorage();
+    }, 1000);
   },
   mounted() {
-    window.addEventListener('keydown', this.handleKeyDown)
+    window.addEventListener("keydown", this.handleKeyDown);
   },
   beforeDestroy() {
-    window.removeEventListener('keydown', this.handleKeyDown)
+    window.removeEventListener("keydown", this.handleKeyDown);
     // Clean up timers
     if (this.$saveDebounceTimer) {
-      clearTimeout(this.$saveDebounceTimer)
+      clearTimeout(this.$saveDebounceTimer);
     }
   },
   methods: {
@@ -612,85 +606,85 @@ export default Vue.extend({
               ...item,
               image:
                 `${this.repoGitHubAssetsImagesSkin}/${item.image}` ||
-                this.defaultSkinItemImage
-            } as IRovSkin
-          })
-        )
+                this.defaultSkinItemImage,
+            } as IRovSkin;
+          }),
+        );
       }
-      return this.$cachedRov as IRovSkin[]
+      return this.$cachedRov as IRovSkin[];
     },
     getCachedWidth() {
-      const currentFormState = `${this.form.column}-${this.form.width}`
+      const currentFormState = `${this.form.column}-${this.form.width}`;
       if (!this.$cachedWidthCalc || this.$lastFormState !== currentFormState) {
-        const containerElement = document.querySelector('.modern-container')
-        let availableWidth = window.innerWidth * 0.9 // Fallback
+        const containerElement = document.querySelector(".modern-container");
+        let availableWidth = window.innerWidth * 0.9; // Fallback
         if (containerElement) {
-          const containerStyle = window.getComputedStyle(containerElement)
-          const containerWidth = containerElement.clientWidth
-          const paddingLeft = parseFloat(containerStyle.paddingLeft) || 0
-          const paddingRight = parseFloat(containerStyle.paddingRight) || 0
-          availableWidth = containerWidth - paddingLeft - paddingRight
+          const containerStyle = window.getComputedStyle(containerElement);
+          const containerWidth = containerElement.clientWidth;
+          const paddingLeft = parseFloat(containerStyle.paddingLeft) || 0;
+          const paddingRight = parseFloat(containerStyle.paddingRight) || 0;
+          availableWidth = containerWidth - paddingLeft - paddingRight;
         }
         // Calculate maximum width per skin item
         const maxWidthPerItem =
-          Math.floor(availableWidth / this.form.column) - 3.33 // 5px margin
+          Math.floor(availableWidth / this.form.column) - 3.33; // 5px margin
         // Calculate desired width based on form percentage
         const desiredWidth =
-          (this.form.width * availableWidth) / 100 / this.form.column
+          (this.form.width * availableWidth) / 100 / this.form.column;
         // Cache the result
-        this.$cachedWidthCalc = Math.min(maxWidthPerItem, desiredWidth)
-        this.$lastFormState = currentFormState
+        this.$cachedWidthCalc = Math.min(maxWidthPerItem, desiredWidth);
+        this.$lastFormState = currentFormState;
       }
-      return this.$cachedWidthCalc
+      return this.$cachedWidthCalc;
     },
     goToBlankPage(url: string) {
-      window.open(url, '_blank')
+      window.open(url, "_blank");
     },
     handleKeyDown(event: KeyboardEvent) {
-      if (event.key.toLowerCase() === 'e' && event.metaKey) {
-        event.preventDefault()
-        const multiselect = this.$refs.selectSkinRov as any
+      if (event.key.toLowerCase() === "e" && event.metaKey) {
+        event.preventDefault();
+        const multiselect = this.$refs.selectSkinRov as any;
         if (multiselect) {
-          multiselect?.activate()
-          multiselect?.click()
+          multiselect?.activate();
+          multiselect?.click();
         }
       }
     },
     customLabelSkin(skin: any): string {
-      return String(skin.name)
+      return String(skin.name);
     },
     onDragStart() {
-      this.isDragging = true
+      this.isDragging = true;
     },
     onDragEnd() {
-      this.isDragging = false
+      this.isDragging = false;
       this.data.forEach((item, index) => {
-        item.key = index + 1
-      })
+        item.key = index + 1;
+      });
     },
     setDataForTable() {
-      const tempData = this.data
-      this.data = []
+      const tempData = this.data;
+      this.data = [];
       const limit = {
         min: 2,
-        max: 24
-      }
+        max: 24,
+      };
       this.form.column =
         this.form.column > limit.max
           ? limit.max
           : this.form.column < limit.min + 1
-            ? limit.min + 1
-            : this.form.column
+          ? limit.min + 1
+          : this.form.column;
       this.form.row =
         this.form.row > limit.max
           ? limit.max
           : this.form.row < limit.min
-            ? limit.min
-            : this.form.row
-      const totalCells = this.form.column * this.form.row
+          ? limit.min
+          : this.form.row;
+      const totalCells = this.form.column * this.form.row;
       for (let i = 0; i < totalCells; i++) {
         if (tempData[i]?.id) {
-          this.data.push(tempData[i])
+          this.data.push(tempData[i]);
         } else {
           this.data.push({
             key: i + 1,
@@ -698,59 +692,41 @@ export default Vue.extend({
             base: undefined,
             name: undefined,
             image: this.defaultSkinImage,
-            position: undefined
-          } as IRovSkinOnTable)
+            position: undefined,
+          } as IRovSkinOnTable);
         }
       }
-      this.selectSkinRovOnTable = this.data[0]
+      this.selectSkinRovOnTable = this.data[0];
     },
     async saveTableAsImage() {
       if (!this.isSaving) {
-        const element = document.getElementById('table-skin')
+        const element = document.getElementById("table-skin");
         if (element) {
-          this.isSaving = true
-          const originalData = [...this.data]
-          this.data = this.data.map((item): IRovSkinOnTable => {
-            if (
-              item.image &&
-              item.image.includes(this.repoGitHubAssetsImagesSkin)
-            ) {
-              const imagePath = item.image.replace(
-                `${this.repoGitHubAssetsImagesSkin}/`,
-                ''
-              )
-              return {
-                ...item,
-                image: require(`~/assets/images/skin/${imagePath}`)
-              }
-            }
-            return item
-          })
-
-          await this.$nextTick()
+          this.isSaving = true;
 
           const canvas = await html2canvas(element, {
             backgroundColor: null,
-            scale: 2
-          })
-          const image = canvas.toDataURL('image/png')
-          const filename = `${this.timeStamp}-${this.fileNameSystem}.png`
-          const link = document.createElement('a')
-          link.href = image
-          link.download = filename
-          link.click()
+            scale: 2,
+            useCORS: true,
+            allowTaint: false,
+          });
+          const image = canvas.toDataURL("image/png");
+          const filename = `${this.timeStamp}-${this.fileNameSystem}.png`;
+          const link = document.createElement("a");
+          link.href = image;
+          link.download = filename;
+          link.click();
 
-          this.data = originalData
-          this.isSaving = false
-          this.saveDataToLocalStorage()
+          this.isSaving = false;
+          this.saveDataToLocalStorage();
         }
       }
     },
     openClassSkinRovModal() {
-      this.$bvModal.show('class-skin-rov-table')
+      this.$bvModal.show("class-skin-rov-table");
     },
     onClickSelectSkinForSwap(item: IRovSkinOnTable) {
-      this.selectSkinForSwap = item
+      this.selectSkinForSwap = item;
     },
     onClickSwapSkinRov() {
       if (
@@ -758,208 +734,208 @@ export default Vue.extend({
         this.selectSkinRovOnTable.id &&
         this.selectSkinForSwap.key !== this.selectSkinRovOnTable.key
       ) {
-        const temp = { ...this.selectSkinRovOnTable }
+        const temp = { ...this.selectSkinRovOnTable };
         // Optimize swapping by finding indices once instead of forEach twice
         const selectedIndex = this.data.findIndex(
-          item => item.key === this.selectSkinRovOnTable.key
-        )
+          (item) => item.key === this.selectSkinRovOnTable.key,
+        );
         const swapIndex = this.data.findIndex(
-          item => item.key === this.selectSkinForSwap.key
-        )
+          (item) => item.key === this.selectSkinForSwap.key,
+        );
 
         if (selectedIndex !== -1) {
-          this.data[selectedIndex].id = this.selectSkinForSwap.id
-          this.data[selectedIndex].name = this.selectSkinForSwap.name
-          this.data[selectedIndex].image = this.selectSkinForSwap.image
-          this.data[selectedIndex].base = this.selectSkinForSwap.base
-          this.data[selectedIndex].position = this.selectSkinForSwap.position
+          this.data[selectedIndex].id = this.selectSkinForSwap.id;
+          this.data[selectedIndex].name = this.selectSkinForSwap.name;
+          this.data[selectedIndex].image = this.selectSkinForSwap.image;
+          this.data[selectedIndex].base = this.selectSkinForSwap.base;
+          this.data[selectedIndex].position = this.selectSkinForSwap.position;
         }
 
         if (swapIndex !== -1) {
-          this.data[swapIndex].id = temp.id
-          this.data[swapIndex].name = temp.name
-          this.data[swapIndex].image = temp.image
-          this.data[swapIndex].base = temp.base
-          this.data[swapIndex].position = temp.position
+          this.data[swapIndex].id = temp.id;
+          this.data[swapIndex].name = temp.name;
+          this.data[swapIndex].image = temp.image;
+          this.data[swapIndex].base = temp.base;
+          this.data[swapIndex].position = temp.position;
         }
-        this.selectSkinForSwap = {} as IRovSkinOnTable
-        this.selectSkinRovOnTable = {} as IRovSkinOnTable
+        this.selectSkinForSwap = {} as IRovSkinOnTable;
+        this.selectSkinRovOnTable = {} as IRovSkinOnTable;
       }
     },
     exportDataToFile() {
       const blob = new Blob([JSON.stringify(this.data, null, 2)], {
-        type: 'application/json'
-      })
-      const link = document.createElement('a')
-      link.href = URL.createObjectURL(blob)
-      link.download = `${this.timeStamp}-${this.fileNameSystem}.json`
-      link.click()
+        type: "application/json",
+      });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${this.timeStamp}-${this.fileNameSystem}.json`;
+      link.click();
     },
     importDataFromFile(event: Event) {
-      const target = event.target as HTMLInputElement
+      const target = event.target as HTMLInputElement;
       if (!target.files?.length) {
-        return
+        return;
       }
-      const file = target.files[0]
-      const reader = new FileReader()
+      const file = target.files[0];
+      const reader = new FileReader();
       reader.onload = (e) => {
         try {
-          const json = JSON.parse(e.target?.result as string)
+          const json = JSON.parse(e.target?.result as string);
           if (Array.isArray(json)) {
-            this.form.row = Math.ceil(json.length / this.form.column)
-            this.data = json
+            this.form.row = Math.ceil(json.length / this.form.column);
+            this.data = json;
             // Optimize position lookup with Map for better performance
-            const skinMap = new Map()
+            const skinMap = new Map();
             rov.forEach((skin) => {
-              skinMap.set(skin.id, skin)
-              skinMap.set(skin.name, skin)
-              skinMap.set(skin.image, skin)
-            })
+              skinMap.set(skin.id, skin);
+              skinMap.set(skin.name, skin);
+              skinMap.set(skin.image, skin);
+            });
 
             this.data.forEach((item) => {
               const skin =
                 skinMap.get(item.id) ||
                 skinMap.get(item.name) ||
-                skinMap.get(item.image)
+                skinMap.get(item.image);
               if (skin) {
-                item.position = skin.position
+                item.position = skin.position;
               }
-            })
-            this.selectSkinRovOnTable = this.data[0]
+            });
+            this.selectSkinRovOnTable = this.data[0];
           } else {
-            alert('ไฟล์ไม่ถูกต้อง')
+            alert("ไฟล์ไม่ถูกต้อง");
           }
         } catch {
-          alert('เกิดข้อผิดพลาดในการโหลดไฟล์')
+          alert("เกิดข้อผิดพลาดในการโหลดไฟล์");
         }
-      }
-      reader.readAsText(file)
-      this.saveDataToLocalStorage()
+      };
+      reader.readAsText(file);
+      this.saveDataToLocalStorage();
     },
     onSelectSkinRovOnTable(item: IRovSkinOnTable) {
       if (!this.isDragging) {
         if (this.selectSkinRovOnTable.key === item.key) {
-          this.selectSkinForSwap = item
+          this.selectSkinForSwap = item;
         } else {
-          this.selectSkinRovOnTable = item
+          this.selectSkinRovOnTable = item;
           if (this.selectSkinForSwap.id) {
-            this.onClickSwapSkinRov()
+            this.onClickSwapSkinRov();
           }
         }
       }
     },
     onClickCancelSelectSkinRovSwap() {
-      this.selectSkinForSwap = {} as IRovSkinOnTable
-      this.selectSkinRovOnTable = this.data[0]
+      this.selectSkinForSwap = {} as IRovSkinOnTable;
+      this.selectSkinRovOnTable = this.data[0];
     },
     onClickResetDataSkinTable() {
-      this.data = []
-      this.setDataForTable()
-      this.selectSkinRovOnTable = this.data[0]
-      this.selectSkinForSwap = {} as IRovSkinOnTable
+      this.data = [];
+      this.setDataForTable();
+      this.selectSkinRovOnTable = this.data[0];
+      this.selectSkinForSwap = {} as IRovSkinOnTable;
     },
     sortDataFollowPosition() {
       this.data.sort(
         (a, b) =>
           (a.position ? a.position : a.name ? 98 : 99) -
-          (b.position ? b.position : b.name ? 98 : 99)
-      )
+          (b.position ? b.position : b.name ? 98 : 99),
+      );
     },
     resetDataSkinTable() {
-      this.data = []
-      this.saveDataToLocalStorage()
-      setTimeout(async() => {
+      this.data = [];
+      this.saveDataToLocalStorage();
+      setTimeout(async () => {
         // ล้าง Cache Storage
-        if ('caches' in window) {
-          const cacheNames = await caches.keys()
+        if ("caches" in window) {
+          const cacheNames = await caches.keys();
           for (const name of cacheNames) {
-            await caches.delete(name)
+            await caches.delete(name);
           }
         }
         // ล้าง Service Worker (ถ้ามี)
-        if ('serviceWorker' in navigator) {
+        if ("serviceWorker" in navigator) {
           const registrations =
-            await navigator.serviceWorker.getRegistrations()
+            await navigator.serviceWorker.getRegistrations();
           for (const registration of registrations) {
-            await registration.unregister()
+            await registration.unregister();
           }
         }
         // รีโหลดหน้าใหม่
-        window.location.reload()
-      }, 200) // รอ 200ms ก่อนรีเฟรช
+        window.location.reload();
+      }, 200); // รอ 200ms ก่อนรีเฟรช
     },
     applyGridDimensions() {
-      this.form.column = this.formData.column
-      this.form.row = this.formData.row
-      this.form.width = this.formData.width
-      this.setDataForTable()
+      this.form.column = this.formData.column;
+      this.form.row = this.formData.row;
+      this.form.width = this.formData.width;
+      this.setDataForTable();
     },
     toggleHeaderVisibility() {
-      this.isHeaderVisible = !this.isHeaderVisible
-      if (process.client && typeof window !== 'undefined') {
+      this.isHeaderVisible = !this.isHeaderVisible;
+      if (process.client && typeof window !== "undefined") {
         localStorage.setItem(
-          'rov-header-visible',
-          this.isHeaderVisible.toString()
-        )
+          "rov-header-visible",
+          this.isHeaderVisible.toString(),
+        );
       }
     },
     onRemoveSkinRov(item: IRovSkinOnTable) {
-      this.data = this.data.filter(i => i.key !== item.key)
-      this.setDataForTable()
+      this.data = this.data.filter((i) => i.key !== item.key);
+      this.setDataForTable();
     },
     saveDataToLocalStorage() {
-      if (process.client && typeof window !== 'undefined') {
+      if (process.client && typeof window !== "undefined") {
         localStorage.setItem(
           this.keyLocalStorage,
           JSON.stringify({
             data: this.data,
             form: this.form,
-            timestamp: new Date().toISOString()
-          })
-        )
+            timestamp: new Date().toISOString(),
+          }),
+        );
       }
     },
     loadDataFromLocalStorage() {
-      if (process.client && typeof window !== 'undefined') {
-        const storedData = localStorage.getItem(this.keyLocalStorage)
+      if (process.client && typeof window !== "undefined") {
+        const storedData = localStorage.getItem(this.keyLocalStorage);
         if (storedData) {
-          const parsedData = JSON.parse(storedData)
+          const parsedData = JSON.parse(storedData);
           // this.data = [[], ...parsedData.data] as IRovSkinOnTable[]
-          const tempData = [] as IRovSkinOnTable[]
+          const tempData = [] as IRovSkinOnTable[];
           parsedData.data.forEach((item: IRovSkinOnTable, index: number) => {
             if (item.name && item.image) {
               tempData.push({
                 ...item,
-                key: index // Ensure keys are sequential starting from 0
-              })
+                key: index, // Ensure keys are sequential starting from 0
+              });
             }
-          })
-          this.data = [...tempData] as IRovSkinOnTable[]
+          });
+          this.data = [...tempData] as IRovSkinOnTable[];
           this.formData = {
-            ...parsedData.form
+            ...parsedData.form,
           } as {
             column: number;
             row: number;
             width: number;
-          }
+          };
           this.form = {
             ...this.form,
             column: parsedData.form.column,
             row: parsedData.form.row,
             width: parsedData.form.width,
-            isEnableItem: parsedData.form.isEnableItem
+            isEnableItem: parsedData.form.isEnableItem,
           } as {
             column: number;
             row: number;
             width: number;
             isEnableItem: boolean;
-          }
+          };
         }
       }
-      this.saveDataToLocalStorage()
-    }
-  }
-})
+      this.saveDataToLocalStorage();
+    },
+  },
+});
 </script>
 
 <style scoped>
